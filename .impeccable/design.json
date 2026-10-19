@@ -1,177 +1,179 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-10-20T12:00:00.000Z",
+  "generatedAt": "2026-10-20T18:00:00.000Z",
   "title": "Design System: replants",
   "extensions": {
     "colorMeta": {
-      "table": { "role": "primary", "displayName": "Cobalt Table", "canonical": "#2c5fd0", "tonalRamp": ["#0d1d3f","#17326d","#21479c","#2b5cca","#527dda","#81a0e4","#b3c6ef","#e6ecfa"] },
-      "table-deep": { "role": "primary", "displayName": "Cobalt Table Deep", "canonical": "#234fb3", "tonalRamp": ["#0d1c40","#16316f","#1f469e","#285acd","#507bdd","#7f9ee6","#b2c5f0","#e5ecfa"] },
-      "wattle": { "role": "primary", "displayName": "Wattle Yellow (ordering only)", "canonical": "#ffc928", "tonalRamp": ["#473606","#7b5e0a","#af860e","#e2ae12","#efc33e","#f4d371","#f8e5aa","#fdf6e3"] },
-      "wattle-deep": { "role": "primary", "displayName": "Wattle Deep", "canonical": "#d9a300", "tonalRamp": ["#473706","#7b5f0a","#af870e","#e2af12","#efc33e","#f4d371","#f8e5aa","#fdf6e3"] },
-      "sky": { "role": "secondary", "displayName": "Bush Sky", "canonical": "#9cccf5", "tonalRamp": ["#072945","#0c4778","#1164ab","#1682de","#419dec","#74b7f1","#acd4f7","#e3f1fc"] },
-      "earth": { "role": "secondary", "displayName": "Red Earth", "canonical": "#c4461f", "tonalRamp": ["#42180a","#722912","#a33a1a","#d34b21","#e26e4a","#ea957b","#f2c0b0","#fbeae5"] },
-      "earth-deep": { "role": "secondary", "displayName": "Red Earth Deep", "canonical": "#9e3516", "tonalRamp": ["#431709","#742710","#a63817","#d7481e","#e56b47","#ec9379","#f4beae","#fbe9e4"] },
-      "gum": { "role": "secondary", "displayName": "Gum Green", "canonical": "#3d7a55", "tonalRamp": ["#193324","#2c583e","#3f7e58","#52a372","#74b98f","#99ccad","#c2e0ce","#ebf5ef"] },
-      "gum-deep": { "role": "secondary", "displayName": "Gum Deep", "canonical": "#2b5a3e", "tonalRamp": ["#193424","#2b5a3e","#3d8058","#4fa672","#72bb8f","#97cead","#c1e1ce","#eaf5ef"] },
-      "crown": { "role": "tertiary", "displayName": "Grass Crown", "canonical": "#8fbf3a", "tonalRamp": ["#2c3b12","#4c661f","#6c912c","#8dbc39","#a6ce5f","#bedb8a","#d8eab9","#f2f8e8"] },
-      "crown-deep": { "role": "tertiary", "displayName": "Crown Deep", "canonical": "#5f8f22", "tonalRamp": ["#293e0f","#476b19","#659824","#83c62f","#9ed756","#b8e283","#d4edb5","#f1f9e6"] },
-      "ochre": { "role": "tertiary", "displayName": "Ochre", "canonical": "#e8892b", "tonalRamp": ["#452607","#78420d","#aa5e12","#dd7a18","#eb9642","#f0b275","#f6d1ac","#fcf0e3"] },
-      "sand": { "role": "tertiary", "displayName": "Coast Sand", "canonical": "#efcf98", "tonalRamp": ["#422e0a","#734f12","#a37119","#d49221","#e3ab4a","#eac17b","#f3dab0","#fbf3e5"] },
-      "ink": { "role": "neutral", "displayName": "Char Ink", "canonical": "#1d1a16", "tonalRamp": ["#2c2721","#4b4439","#6b6051","#8b7d6a","#a59988","#bdb4a8","#d7d2cb","#f2f0ee"] },
-      "ink-2": { "role": "neutral", "displayName": "Pencil", "canonical": "#4a453d", "tonalRamp": ["#2a2723","#49443c","#676055","#867d6f","#a1998c","#bab4ab","#d6d2cd","#f1f0ee"] },
-      "paper": { "role": "neutral", "displayName": "Page White", "canonical": "#fdfcf9", "tonalRamp": ["#393013","#635321","#8e762f","#b8993d","#cbb162","#d9c68c","#e8ddba","#f7f4e8"] },
-      "paper-2": { "role": "neutral", "displayName": "Paper Shade", "canonical": "#f2eee5", "tonalRamp": ["#332b1a","#584b2c","#7e6a3f","#a38a52","#b9a474","#ccbc99","#e0d7c2","#f5f2eb"] },
-      "core": { "role": "neutral", "displayName": "Card Core", "canonical": "#f4efe4", "tonalRamp": ["#362c16","#5e4d26","#866d37","#ae8e47","#c2a76a","#d3bf92","#e4d8be","#f6f2e9"] },
-      "error": { "role": "neutral", "displayName": "Field Error", "canonical": "#a3200f", "tonalRamp": ["#460e06","#79180b","#ad2210","#e02c15","#ed5340","#f28273","#f7b4ab","#fce6e3"] }
+      "forest": { "role": "primary", "displayName": "Rescue Forest", "canonical": "#0f2b1d", "tonalRamp": ["#102d1f","#1d5338","#2c7d54","#3baa73","#5cc691","#8ad6b0","#b7e6cf","#e5f6ed"] },
+      "forest-2": { "role": "primary", "displayName": "Forest Lift", "canonical": "#183d2a", "tonalRamp": ["#112c1e","#205137","#307953","#41a571","#62c190","#8ed2af","#b9e4ce","#e5f5ed"] },
+      "lime": { "role": "secondary", "displayName": "Spring Lime (highlight only)", "canonical": "#cdeb73", "tonalRamp": ["#28310c","#495a16","#6d8722","#95b82e","#b2d350","#c8df81","#ddecb1","#f3f8e2"] },
+      "lime-2": { "role": "secondary", "displayName": "Lime Wash", "canonical": "#e6f5b8", "tonalRamp": ["#28310c","#495a16","#6e8722","#96b82e","#b3d350","#c8df81","#ddecb1","#f3f8e2"] },
+      "leaf": { "role": "tertiary", "displayName": "Leaf", "canonical": "#3b8a4c", "tonalRamp": ["#122b18","#224f2b","#327641","#45a159","#65bd78","#90d09e","#bbe2c3","#e6f4e9"] },
+      "bone": { "role": "neutral", "displayName": "Bone", "canonical": "#f4f5ef", "tonalRamp": ["#232618","#41452b","#616841","#848d58","#a2ab78","#bcc29e","#d6dac3","#f0f1e9"] },
+      "bone-2": { "role": "neutral", "displayName": "Bone Table", "canonical": "#eceee5", "tonalRamp": ["#222518","#3f442c","#5e6643","#808b5b","#9ea87a","#b9c09f","#d4d9c4","#eff1e9"] },
+      "paper": { "role": "neutral", "displayName": "Paper", "canonical": "#ffffff", "tonalRamp": ["#1f1f1f","#383838","#545454","#737373","#919191","#b0b0b0","#cfcfcf","#ededed"] },
+      "sand": { "role": "neutral", "displayName": "Chart Sand", "canonical": "#e8e3d4", "tonalRamp": ["#282315","#494127","#6e613b","#968450","#b3a270","#c8bc98","#ddd6c0","#f3f0e8"] },
+      "ink": { "role": "neutral", "displayName": "Ink", "canonical": "#131a15", "tonalRamp": ["#1a231d","#2f4134","#47614f","#61856b","#80a28a","#a4bcab","#c7d6cb","#eaf0ec"] },
+      "ink-2": { "role": "neutral", "displayName": "Ink Soft", "canonical": "#4e564f", "tonalRamp": ["#1d201d","#353b36","#505851","#6d786f","#8c978d","#acb4ad","#ccd1cd","#eceeec"] },
+      "rule": { "role": "neutral", "displayName": "Rule", "canonical": "#dfe2d8", "tonalRamp": ["#20231a","#3b4030","#596148","#7a8462","#98a181","#b5bca4","#d1d6c7","#eef0eb"] },
+      "on-forest": { "role": "neutral", "displayName": "On Forest", "canonical": "#eef3ea", "tonalRamp": ["#1e2716","#364729","#526b3d","#6f9253","#8eaf73","#aec69a","#cddcc1","#edf2e8"] },
+      "on-forest-2": { "role": "neutral", "displayName": "On Forest Soft", "canonical": "#b9c9bc", "tonalRamp": ["#1b231c","#313f34","#495f4d","#648269","#839f89","#a6baaa","#c8d5cb","#ebefec"] },
+      "error": { "role": "neutral", "displayName": "Field Error", "canonical": "#a3200f", "tonalRamp": ["#31100c","#5a1e16","#872d22","#b83e2e","#d35f50","#df8b81","#ecb8b1","#f8e5e2"] }
     },
     "typographyMeta": {
-      "display": { "displayName": "Display", "purpose": "The hero H1 only, Page White on the cobalt table above the open book." },
-      "headline": { "displayName": "Headline", "purpose": "Spread H2s and the back cover's closing line." },
-      "title": { "displayName": "Title", "purpose": "Card, way, place and flap names; sheet and chat headings." },
-      "figure": { "displayName": "Figure", "purpose": "Prices on the flap and pick card; the care month." },
-      "caption": { "displayName": "Storybook Caption", "purpose": "The hero's narrating caption card." },
-      "tab": { "displayName": "Tab", "purpose": "Index tabs and the wordmark." },
-      "body": { "displayName": "Body", "purpose": "All reading text, 1.15rem for an older audience." },
-      "small": { "displayName": "Small", "purpose": "Notes, card text, meta lines." },
-      "label": { "displayName": "Label", "purpose": "Field and readout labels, chips, buttons." }
+      "display": { "displayName": "Display", "purpose": "The hero headline only, bottom-left of the hero sheet." },
+      "headline": { "displayName": "Headline", "purpose": "Section H2s and the footer's closing line." },
+      "figure": { "displayName": "Figure", "purpose": "The live price readout; care month and phone number share the treatment." },
+      "title": { "displayName": "Title", "purpose": "Card, way, place and panel headings." },
+      "body": { "displayName": "Body", "purpose": "All reading text, 1.125rem for an older audience." },
+      "lede": { "displayName": "Lede", "purpose": "Section intros in ink-2, capped at 38ch." },
+      "small": { "displayName": "Small", "purpose": "Card text, step detail, panel copy." },
+      "label": { "displayName": "Label", "purpose": "Buttons, pills, nav, chips, field labels." }
     },
     "shadows": [
-      { "name": "lift", "value": "0 1px 2px rgba(29,26,22,.16), 0 10px 22px -10px rgba(20,12,4,.42)", "purpose": "Buttons, tabs, pills, caption, seg pill, small floating cards." },
-      { "name": "lift-hi", "value": "0 2px 3px rgba(29,26,22,.16), 0 22px 38px -14px rgba(20,12,4,.5)", "purpose": "Pick card, mobile hero panel, menu, toast, flying order label." },
-      { "name": "card-go", "value": "0 1px 2px rgba(110,72,0,.45), 0 12px 22px -10px rgba(40,24,0,.55)", "purpose": "Every wattle ordering control." },
-      { "name": "die-cut", "value": "filter: url(#cut) — feMorphology dilate 2.4 filled #f4efe4, feGaussianBlur 3.2, feOffset dy 4, #140c04 at 0.3", "purpose": "White core rim and soft cast shadow on every cut-paper SVG, tag, way card, place card and truck." },
-      { "name": "rimmed-flap", "value": "0 0 0 3px #f4efe4, 0 1px 2px rgba(0,0,0,.25), 0 10px 14px -8px rgba(60,20,0,.5)", "purpose": "Price flap and map flags." },
-      { "name": "floating-sheet", "value": "0 30px 80px -20px rgba(0,10,40,.6)", "purpose": "Order sheet and chat panel." }
+      { "name": "soft-lift", "value": "0 1px 2px rgba(19,26,21,.06), 0 18px 40px -22px rgba(19,40,25,.35)", "purpose": "Cards, place cards, panels, pills, the bar, menu, hero chip, toast." },
+      { "name": "forest-press", "value": "0 10px 24px -12px rgba(15,43,29,.6)", "purpose": "Forest buttons only." },
+      { "name": "overlay", "value": "0 30px 80px -20px rgba(10,30,15,.45)", "purpose": "The order drawer and chat panel." },
+      { "name": "inset-line", "value": "inset 0 0 0 1.5px rgba(19,26,21,.3)", "purpose": "Line buttons; a 1px rule inset on filter chips, months and chat actions." },
+      { "name": "focus-ring", "value": "outline: 2px solid #3b8a4c; outline-offset: 3px", "purpose": "Every focusable element." },
+      { "name": "glass", "value": "background: rgba(255,255,255,.6 to .82); backdrop-filter: blur(10px to 14px) saturate(1.2)", "purpose": "The floating bar, ghost pills and the hero chip only." }
     ],
     "motion": [
-      { "name": "spring", "value": "cubic-bezier(0.34, 1.56, 0.64, 1)", "purpose": "Every response and entrance: overshoot and settle." },
-      { "name": "out", "value": "cubic-bezier(0.16, 1, 0.3, 1)", "purpose": "Page swings, sheet opening, fade-ups, page-turn of care stages." },
-      { "name": "js-spring", "value": "damped spring, default k 140 d 14 (tree grow k 120 d 10, hinges k 90 d 9)", "purpose": "WebGL hinges, tree growth, pull-tab follow." },
-      { "name": "grammar", "value": "open / stand / slide / spin / lift / flutter", "purpose": "The only kinds of movement the book makes." },
-      { "name": "reduced", "value": "prefers-reduced-motion: reduce", "purpose": "Keep state changes; drop the scroll pin, springs, travel and flutter." }
+      { "name": "ease-soft", "value": "cubic-bezier(0.16, 1, 0.3, 1)", "purpose": "Everything that moves into place: reveals, slices, hovers, overlays." },
+      { "name": "reveal", "value": "translateY(24px), opacity .25 to rest over 1s, stagger .08s (max 4)", "purpose": "Section content; starts visible." },
+      { "name": "arrival", "value": "translateY(18px), opacity .2 to rest over 1.1s", "purpose": "Hero headline, notes, chip and CTAs, once." },
+      { "name": "highlight-wipe", "value": "background-size 0% to 100% over .9s, .25s delay", "purpose": "The lime pill behind a word." },
+      { "name": "slice-settle", "value": "columns translateY(12%), rows translateX(+/-8%) to rest over 1.1s, .1s stagger", "purpose": "Rescue photo slices." },
+      { "name": "button-lift", "value": "translateY(-2px) hover, translateY(1px) scale(.98) active, .4s", "purpose": "Buttons; primary CTAs also drift magnetically toward the pointer." },
+      { "name": "tick", "value": "translateY(.35em), opacity 0 to rest over .4s", "purpose": "Price, stage text, new order lines, chat messages." },
+      { "name": "reduced-motion", "value": "durations .01ms; motion class removed", "purpose": "Content at rest, state changes only." }
     ],
     "breakpoints": [
-      { "name": "wide", "value": "1100px" },
-      { "name": "page", "value": "900px (also max-aspect-ratio 23/20 for the hero)" },
-      { "name": "phone", "value": "440px" }
+      { "name": "bar-collapse", "value": "1100px" },
+      { "name": "stack", "value": "860px" },
+      { "name": "narrow", "value": "440px" }
     ]
   },
   "components": [
     {
-      "name": "Go Button (ordering)",
+      "name": "Forest Button",
       "kind": "button",
-      "refersTo": "button-go",
-      "description": "The only yellow button: adds to or sends the order.",
-      "html": "<button class=\"ds-btn-go\">Add to my order</button>",
-      "css": ".ds-btn-go { display: inline-flex; align-items: center; min-height: 3.1rem; padding: 0.7rem 1.3rem; border: 0; border-radius: 999px; background: #ffc928; color: #1d1a16; font-family: Andika, 'Segoe UI', system-ui, sans-serif; font-weight: 700; font-size: 1.05rem; box-shadow: 0 1px 2px rgba(110,72,0,.45), 0 12px 22px -10px rgba(40,24,0,.55); transition: transform .35s cubic-bezier(0.34,1.56,0.64,1), box-shadow .25s; cursor: pointer; } .ds-btn-go:hover { box-shadow: 0 2px 3px rgba(110,72,0,.45), 0 18px 30px -12px rgba(40,24,0,.6); } .ds-btn-go:active { transform: translateY(2px) scale(.98); } .ds-btn-go:focus-visible { outline: 3px solid #1d1a16; outline-offset: 3px; }"
+      "refersTo": "button-forest",
+      "description": "The primary action on light sheets.",
+      "html": "<a class=\"ds-btn ds-btn-forest\" href=\"#\">Choose your tree <svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M5 12h14M13 6l6 6-6 6\"/></svg></a>",
+      "css": ".ds-btn { display: inline-flex; align-items: center; justify-content: center; gap: .5rem; min-height: 3.1rem; padding: .7rem 1.4rem; border: 0; border-radius: 999px; font-family: Onest, 'Segoe UI', system-ui, sans-serif; font-weight: 500; font-size: 1.02rem; line-height: 1.1; text-decoration: none; white-space: nowrap; cursor: pointer; transition: transform .4s cubic-bezier(.16,1,.3,1), background-color .2s, box-shadow .3s; } .ds-btn:hover { transform: translateY(-2px); } .ds-btn:active { transform: translateY(1px) scale(.98); } .ds-btn:focus-visible { outline: 2px solid var(--leaf, #3b8a4c); outline-offset: 3px; } .ds-btn-forest { background: var(--forest, #0f2b1d); color: var(--on-forest, #eef3ea); box-shadow: 0 10px 24px -12px rgba(15,43,29,.6); } .ds-btn-forest:hover { background: var(--forest-2, #183d2a); }"
     },
     {
       "name": "Line Button",
       "kind": "button",
       "refersTo": "button-line",
-      "description": "Secondary action: transparent with a 2px ink ring.",
-      "html": "<button class=\"ds-btn-line\">See it in the pop-up</button>",
-      "css": ".ds-btn-line { display: inline-flex; align-items: center; min-height: 3.1rem; padding: 0.7rem 1.3rem; border: 0; border-radius: 999px; background: transparent; color: #1d1a16; box-shadow: inset 0 0 0 2px #1d1a16; font-family: Andika, 'Segoe UI', system-ui, sans-serif; font-weight: 700; font-size: 1.05rem; transition: transform .35s cubic-bezier(0.34,1.56,0.64,1), background-color .2s; cursor: pointer; } .ds-btn-line:hover { background: #f2eee5; } .ds-btn-line:active { transform: translateY(2px) scale(.98); } .ds-btn-line:focus-visible { outline: 3px solid #1d1a16; outline-offset: 3px; }"
+      "description": "Secondary action on light sheets.",
+      "html": "<a class=\"ds-btn-line\" href=\"#\">Our story</a>",
+      "css": ".ds-btn-line { display: inline-flex; align-items: center; gap: .5rem; min-height: 3.1rem; padding: .7rem 1.4rem; border-radius: 999px; background: transparent; color: var(--ink, #131a15); box-shadow: inset 0 0 0 1.5px rgba(19,26,21,.3); font-family: Onest, 'Segoe UI', system-ui, sans-serif; font-weight: 500; font-size: 1.02rem; text-decoration: none; transition: transform .4s cubic-bezier(.16,1,.3,1), box-shadow .3s; } .ds-btn-line:hover { transform: translateY(-2px); box-shadow: inset 0 0 0 1.5px var(--ink, #131a15); } .ds-btn-line:focus-visible { outline: 2px solid var(--leaf, #3b8a4c); outline-offset: 3px; }"
     },
     {
-      "name": "Index Tabs",
-      "kind": "nav",
-      "refersTo": "index-tab",
-      "description": "Card tabs hanging from the top edge, each in its spread's colour.",
-      "html": "<nav class=\"ds-tabs\"><a href=\"#\" style=\"--tab:#9cccf5\">Sizes</a><a href=\"#\" style=\"--tab:#fdfcf9\" aria-current=\"true\">Shelf</a><a href=\"#\" style=\"--tab:#e8892b\">Get it home</a><a href=\"#\" style=\"--tab:#c4461f;color:#fdfcf9\">Rescue</a></nav>",
-      "css": ".ds-tabs { display: flex; gap: .35rem; align-items: flex-start; background: #2c5fd0; padding: 0 1rem 1rem; } .ds-tabs a { display: block; padding: 1.1rem .95rem .6rem; background: var(--tab); color: #1d1a16; border-radius: 0 0 12px 12px; box-shadow: 0 1px 2px rgba(29,26,22,.16), 0 10px 22px -10px rgba(20,12,4,.42); font-family: Gluten, Andika, sans-serif; font-weight: 700; font-size: 1.05rem; line-height: 1; text-decoration: none; transform: translateY(-.45rem); transition: transform .45s cubic-bezier(0.34,1.56,0.64,1); } .ds-tabs a:hover { transform: translateY(0); } .ds-tabs a[aria-current] { transform: translateY(.35rem); } .ds-tabs a:focus-visible { outline: 3px solid #fdfcf9; outline-offset: 3px; }"
+      "name": "Lime Button on Forest",
+      "kind": "button",
+      "refersTo": "button-lime-on-forest",
+      "description": "The only lime button, used where it sits on a forest surface.",
+      "html": "<div class=\"ds-forest-ground\"><a class=\"ds-btn-lime\" href=\"#\">Clearing a block? Call Bruce</a></div>",
+      "css": ".ds-forest-ground { padding: 1.6rem; border-radius: 28px; background: var(--forest, #0f2b1d); } .ds-btn-lime { display: inline-flex; align-items: center; min-height: 3.1rem; padding: .7rem 1.4rem; border-radius: 999px; background: var(--lime, #cdeb73); color: var(--forest, #0f2b1d); font-family: Onest, 'Segoe UI', system-ui, sans-serif; font-weight: 500; font-size: 1.02rem; text-decoration: none; transition: transform .4s cubic-bezier(.16,1,.3,1); } .ds-btn-lime:hover { transform: translateY(-2px); } .ds-btn-lime:focus-visible { outline: 2px solid var(--lime, #cdeb73); outline-offset: 3px; }"
+    },
+    {
+      "name": "Order Pill",
+      "kind": "chip",
+      "refersTo": "pill-order",
+      "description": "Header order pill with the lime live count.",
+      "html": "<button class=\"ds-pill ds-pill-order\" type=\"button\"><svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M6 8h12l-1 12H7z\"/><path d=\"M9 8a3 3 0 0 1 6 0\"/></svg><span class=\"ds-count\">2</span><span>$540</span></button>",
+      "css": ".ds-pill { display: inline-flex; align-items: center; gap: .45rem; min-height: 2.8rem; padding: .45rem 1rem; border: 0; border-radius: 999px; font-family: Onest, 'Segoe UI', system-ui, sans-serif; font-weight: 500; font-size: .98rem; cursor: pointer; box-shadow: 0 1px 2px rgba(19,26,21,.06), 0 18px 40px -22px rgba(19,40,25,.35); } .ds-pill:focus-visible { outline: 2px solid var(--leaf, #3b8a4c); outline-offset: 3px; } .ds-pill-order { background: var(--forest, #0f2b1d); color: var(--on-forest, #eef3ea); } .ds-pill-order:hover { background: var(--forest-2, #183d2a); } .ds-count { display: inline-grid; place-items: center; min-width: 1.5rem; height: 1.5rem; padding: 0 .35rem; border-radius: 999px; background: var(--lime, #cdeb73); color: var(--forest, #0f2b1d); font-size: .85rem; font-weight: 600; font-variant-numeric: tabular-nums; }"
     },
     {
       "name": "Filter Chips",
       "kind": "chip",
       "refersTo": "filter-chip",
-      "description": "Shelf filters; selected turns ink and tilts up.",
-      "html": "<div class=\"ds-chips\"><button class=\"ds-chip\" aria-pressed=\"true\">Everything <small>14</small></button><button class=\"ds-chip\" aria-pressed=\"false\">Trees <small>3</small></button><button class=\"ds-chip\" aria-pressed=\"false\">Care <small>4</small></button></div>",
-      "css": ".ds-chips { display: flex; flex-wrap: wrap; gap: .45rem; } .ds-chip { display: inline-flex; align-items: baseline; gap: .4rem; padding: .6rem 1.05rem; border: 0; border-radius: 999px; background: #f2eee5; color: #1d1a16; font-family: Andika, sans-serif; font-weight: 700; font-size: 1rem; transition: transform .4s cubic-bezier(0.34,1.56,0.64,1), background-color .2s; cursor: pointer; } .ds-chip small { font-size: .85rem; color: #4a453d; } .ds-chip[aria-pressed='true'] { background: #1d1a16; color: #fdfcf9; transform: rotate(-2deg) translateY(-2px); } .ds-chip[aria-pressed='true'] small { color: #cfc8bb; } .ds-chip:focus-visible { outline: 3px solid #1d1a16; outline-offset: 2px; }"
+      "description": "Shelf filters; selected turns forest and its count turns lime.",
+      "html": "<div class=\"ds-filters\"><button class=\"ds-filter\" aria-pressed=\"true\" type=\"button\">All <small>12</small></button><button class=\"ds-filter\" aria-pressed=\"false\" type=\"button\">Care <small>4</small></button><button class=\"ds-filter\" aria-pressed=\"false\" type=\"button\">Services <small>3</small></button></div>",
+      "css": ".ds-filters { display: flex; flex-wrap: wrap; gap: .4rem; } .ds-filter { display: inline-flex; align-items: baseline; gap: .35rem; padding: .55rem 1.05rem; border: 0; border-radius: 999px; background: var(--paper, #fff); color: var(--ink, #131a15); box-shadow: inset 0 0 0 1px var(--rule, #dfe2d8); font-family: Onest, 'Segoe UI', system-ui, sans-serif; font-weight: 500; font-size: 1rem; cursor: pointer; transition: background-color .2s, box-shadow .2s; } .ds-filter small { font-size: .85rem; color: var(--ink-2, #4e564f); } .ds-filter:hover { box-shadow: inset 0 0 0 1px var(--ink-2, #4e564f); } .ds-filter[aria-pressed='true'] { background: var(--forest, #0f2b1d); color: var(--on-forest, #eef3ea); box-shadow: none; } .ds-filter[aria-pressed='true'] small { color: var(--lime, #cdeb73); } .ds-filter:focus-visible { outline: 2px solid var(--leaf, #3b8a4c); outline-offset: 2px; }"
     },
     {
-      "name": "Field",
+      "name": "Floating Bar",
+      "kind": "nav",
+      "refersTo": "nav-link-active",
+      "description": "Glass pill bar with pill links; the current link sits on lime wash.",
+      "html": "<nav class=\"ds-bar\"><strong class=\"ds-mark\">replants</strong><span class=\"ds-links\"><a href=\"#\">Sizes</a><a href=\"#\" aria-current=\"true\">Rescue</a><a href=\"#\">Shop</a><a href=\"#\">Care</a></span></nav>",
+      "css": ".ds-bar { display: flex; align-items: center; gap: 1.2rem; padding: .4rem .45rem .4rem 1.2rem; border-radius: 999px; background: rgba(250,251,246,.82); backdrop-filter: blur(14px) saturate(1.2); box-shadow: 0 1px 2px rgba(19,26,21,.06), 0 18px 40px -22px rgba(19,40,25,.35); font-family: Onest, 'Segoe UI', system-ui, sans-serif; } .ds-mark { font-weight: 600; font-size: 1.2rem; letter-spacing: -.03em; color: var(--ink, #131a15); } .ds-links { display: flex; gap: .2rem; margin: 0 auto; } .ds-links a { padding: .5rem .85rem; border-radius: 999px; text-decoration: none; font-weight: 500; font-size: .96rem; color: var(--ink-2, #4e564f); transition: background-color .2s, color .2s; } .ds-links a:hover { color: var(--ink, #131a15); } .ds-links a[aria-current] { background: var(--lime-2, #e6f5b8); color: var(--forest, #0f2b1d); } .ds-links a:focus-visible { outline: 2px solid var(--leaf, #3b8a4c); outline-offset: 3px; }"
+    },
+    {
+      "name": "Text Field",
       "kind": "input",
-      "refersTo": "field",
-      "description": "Paper field with a soft ink border that firms on focus.",
-      "html": "<label class=\"ds-field\"><span>Planting date</span><input type=\"text\" placeholder=\"dd/mm/yyyy\"></label>",
-      "css": ".ds-field { display: grid; gap: .35rem; font-family: Andika, sans-serif; color: #1d1a16; } .ds-field span { font-weight: 700; font-size: .95rem; } .ds-field input { min-height: 3rem; padding: .6rem .9rem; border: 2px solid rgba(29,26,22,.25); border-radius: 10px; background: #fdfcf9; color: #1d1a16; font: inherit; font-size: 1.15rem; } .ds-field input:focus { border-color: #1d1a16; outline: none; box-shadow: 0 0 0 3px rgba(29,26,22,.15); } .ds-field input::placeholder { color: #6b655b; }"
+      "refersTo": "input",
+      "description": "Paper field with rule stroke; leaf border and ring on focus.",
+      "html": "<label class=\"ds-field\"><span>Mobile number</span><input type=\"tel\" placeholder=\"04xx xxx xxx\"></label>",
+      "css": ".ds-field { display: grid; gap: .35rem; font-family: Onest, 'Segoe UI', system-ui, sans-serif; } .ds-field span { font-weight: 500; font-size: .95rem; color: var(--ink, #131a15); } .ds-field input { min-height: 3rem; padding: .6rem 1rem; border: 1px solid var(--rule, #dfe2d8); border-radius: 14px; background: var(--paper, #fff); font: inherit; font-size: 1.125rem; color: var(--ink, #131a15); caret-color: var(--leaf, #3b8a4c); } .ds-field input::placeholder { color: #6e756d; } .ds-field input:focus { outline: none; border-color: var(--leaf, #3b8a4c); box-shadow: 0 0 0 3px rgba(59,138,76,.18); }"
     },
     {
-      "name": "Price Flap",
-      "kind": "custom",
-      "refersTo": "price-flap",
-      "description": "Red earth flip card with a white core rim; flips on every price change.",
-      "html": "<span class=\"ds-flap\">$200</span>",
-      "css": ".ds-flap { display: inline-block; padding: .3rem .6rem .35rem; border-radius: 6px; background: #c4461f linear-gradient(transparent calc(50% - 1px), rgba(0,0,0,.22) 50%, rgba(255,255,255,.12) calc(50% + 1px), transparent calc(50% + 2px)); color: #fdfcf9; box-shadow: 0 0 0 3px #f4efe4, 0 1px 2px rgba(0,0,0,.25), 0 10px 14px -8px rgba(60,20,0,.5); font-family: Gluten, Andika, sans-serif; font-weight: 760; font-size: 2.6rem; line-height: 1; transition: transform .55s cubic-bezier(0.34,1.56,0.64,1); } .ds-flap:hover { transform: rotateX(-12deg); }"
-    },
-    {
-      "name": "Shelf Tag",
+      "name": "Card",
       "kind": "card",
-      "refersTo": "shelf-tag",
-      "description": "Chamfered die-cut tag in its group colour, hanging on a string.",
-      "html": "<div class=\"ds-tag\"><div class=\"ds-tag__cut\"><span class=\"ds-tag__hole\"></span><b class=\"ds-tag__name\">Transplant Formula 2.5 kg</b><p>Two feeds for the first 12 months.</p><b class=\"ds-tag__price\">$35</b></div></div>",
-      "css": ".ds-tag { position: relative; width: 16.5rem; margin-top: 2.5rem; filter: drop-shadow(0 0 1.5px #f4efe4) drop-shadow(0 0 1.5px #f4efe4) drop-shadow(0 4px 3px rgba(20,12,4,.3)) drop-shadow(0 10px 12px rgba(20,12,4,.16)); transform-origin: 50% 1rem; transform: rotate(1.5deg); transition: transform .9s cubic-bezier(0.34,1.56,0.64,1); } .ds-tag:hover { transform: rotate(-3deg); } .ds-tag::before { content: ''; position: absolute; z-index: 2; left: 50%; top: -2.5rem; width: 2px; height: 3.4rem; background: #7a6a52; } .ds-tag__cut { position: relative; display: grid; gap: .4rem; padding: 2.2rem 1.15rem 1.15rem; background: #8fbf3a; color: #1d1a16; font-family: Andika, sans-serif; clip-path: polygon(1.5rem 0, calc(100% - 1.5rem) 0, 100% 1.5rem, 100% 100%, 0 100%, 0 1.5rem); } .ds-tag__hole { position: absolute; top: .55rem; left: 50%; translate: -50% 0; width: .95rem; height: .95rem; border-radius: 50%; background: #fdfcf9; box-shadow: inset 0 1px 3px rgba(0,0,0,.45); } .ds-tag__name { font-family: Gluten, Andika, sans-serif; font-size: 1.35rem; line-height: 1.1; } .ds-tag__price { font-family: Gluten, Andika, sans-serif; font-weight: 760; font-size: 1.6rem; }"
+      "refersTo": "card",
+      "description": "Paper sheet card with soft lift; rises on hover.",
+      "html": "<article class=\"ds-card\"><h3>12-month warranty</h3><p>If a tree we planted fails in its first year, we replace it.</p></article>",
+      "css": ".ds-card { max-width: 22rem; padding: 1.6rem; border-radius: 28px; background: var(--paper, #fff); box-shadow: 0 1px 2px rgba(19,26,21,.06), 0 18px 40px -22px rgba(19,40,25,.35); font-family: Onest, 'Segoe UI', system-ui, sans-serif; transition: transform .5s cubic-bezier(.16,1,.3,1); } .ds-card:hover { transform: translateY(-4px); } .ds-card h3 { margin: 0 0 .6rem; font-size: 1.4rem; font-weight: 500; letter-spacing: -.01em; line-height: 1.2; color: var(--ink, #131a15); } .ds-card p { margin: 0; font-size: 1rem; line-height: 1.6; color: var(--ink-2, #4e564f); }"
     },
     {
-      "name": "Storybook Caption",
+      "name": "Highlight Headline",
       "kind": "custom",
-      "refersTo": "hero-caption",
-      "description": "The book's narrating caption: a paper speech card that pops in on change.",
-      "html": "<p class=\"ds-caption\">Once, this grass tree stood in the bulldozer's way.</p>",
-      "css": ".ds-caption { display: inline-block; max-width: 26rem; margin: 0; padding: .6rem 1.1rem .7rem; background: #fdfcf9; color: #1d1a16; border-radius: 10px 10px 10px 2px; box-shadow: 0 1px 2px rgba(29,26,22,.16), 0 10px 22px -10px rgba(20,12,4,.42); font-family: Gluten, Andika, sans-serif; font-weight: 600; font-size: 1.25rem; line-height: 1.3; transform-origin: 0 100%; transition: transform .6s cubic-bezier(0.34,1.56,0.64,1); } .ds-caption:hover { transform: rotate(-2deg); }"
+      "refersTo": "headline",
+      "description": "Light Onest headline with one word on the lime pill, wiping in.",
+      "html": "<h2 class=\"ds-h2\">Getting it <mark class=\"ds-hl\">home</mark></h2>",
+      "css": ".ds-h2 { margin: 0; font-family: Onest, 'Segoe UI', system-ui, sans-serif; font-size: clamp(2.2rem, 1.3rem + 2.8vw, 4rem); font-weight: 300; line-height: 1.02; letter-spacing: -.03em; color: var(--ink, #131a15); } .ds-hl { color: inherit; padding: 0 .18em; margin: 0 -.06em; border-radius: .5em; background: none; background-image: linear-gradient(var(--lime, #cdeb73), var(--lime, #cdeb73)); background-repeat: no-repeat; background-size: 100% 100%; -webkit-box-decoration-break: clone; box-decoration-break: clone; animation: ds-wipe .9s cubic-bezier(.16,1,.3,1) .25s backwards; } @keyframes ds-wipe { from { background-size: 0% 100%; } } @media (prefers-reduced-motion: reduce) { .ds-hl { animation: none; } }"
     },
     {
-      "name": "Order Pill",
-      "kind": "button",
-      "refersTo": "order-pill",
-      "description": "Header order button with live count and total.",
-      "html": "<button class=\"ds-order\"><span class=\"ds-order__count\">2</span> Your order $235</button>",
-      "css": ".ds-order { display: inline-flex; align-items: center; gap: .45rem; min-height: 2.9rem; padding: .5rem 1rem .5rem .85rem; border: 0; border-radius: 999px; background: #ffc928; color: #1d1a16; box-shadow: 0 1px 2px rgba(110,72,0,.45), 0 12px 22px -10px rgba(40,24,0,.55); font-family: Andika, sans-serif; font-weight: 700; font-size: 1rem; transition: transform .4s cubic-bezier(0.34,1.56,0.64,1); cursor: pointer; } .ds-order:hover { transform: translateY(-2px); } .ds-order:focus-visible { outline: 3px solid #1d1a16; outline-offset: 3px; } .ds-order__count { display: inline-grid; place-items: center; min-width: 1.6rem; height: 1.6rem; padding: 0 .35rem; border-radius: 999px; background: #1d1a16; color: #fdfcf9; font-size: .9rem; font-variant-numeric: tabular-nums; }"
+      "name": "Photo Slices",
+      "kind": "custom",
+      "refersTo": "card-dark",
+      "description": "One photo cut across four staggered rounded columns on forest.",
+      "html": "<div class=\"ds-slices\"><span style=\"--x:0%;--h:78%;--t:14%\"></span><span style=\"--x:33.333%;--h:92%;--t:0%\"></span><span style=\"--x:66.666%;--h:70%;--t:24%\"></span><span style=\"--x:100%;--h:84%;--t:8%\"></span></div>",
+      "css": ".ds-slices { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; height: 16rem; padding: 1.6rem; border-radius: 28px; background: var(--forest, #0f2b1d); align-items: start; } .ds-slices span { display: block; height: var(--h); margin-top: var(--t); border-radius: 22px; background: linear-gradient(160deg, #8ab36a, #3b8a4c 45%, #6e4630); background-size: calc(400% + 36px) 112%; background-position: var(--x) 40%; animation: ds-settle 1.1s cubic-bezier(.16,1,.3,1) backwards; } .ds-slices span:nth-child(2) { animation-delay: .1s; } .ds-slices span:nth-child(3) { animation-delay: .2s; } .ds-slices span:nth-child(4) { animation-delay: .3s; } @keyframes ds-settle { from { transform: translateY(12%); } } @media (prefers-reduced-motion: reduce) { .ds-slices span { animation: none; } }"
     }
   ],
   "narrative": {
-    "northStar": "The Pop-up Bush Picture Book",
-    "overview": "The site is a children's pop-up book lying open on a cobalt table. Every chapter is a full-bleed spread of flat gouache colour with a fold down the middle; everything that stands on it is die-cut card, coloured on the face, showing a white core at every cut edge, casting a soft shadow onto the page. The hero is a real WebGL pop-up book whose right page springs a cut-paper grass tree up out of the gutter, in the bulldozer's way. Illustrations are cut paper (SVG shapes and extruded 3D cards), never icons pasted on; photos are tipped in as snapshots with tape.\n\nThe book is meant to be played with. Things answer a hand: the pull-tab grows the tree, the price flap flips, the height chart stands up and leans from the cursor, snapshots can be picked up, the care wheel spins, map flags fold up. Every movement uses one damped spring that overshoots and settles. Colour is loud and saturated but held in fields: one field per spread, one colour per card. One yellow is kept back for ordering, so the eye always finds the way to buy.\n\nThe previous \"Flagging Tape and Tree Tags\" world (white sand ground, pink tape, hairline panels, Anybody and Lexend) was rejected and nothing visual carries over from it.",
+    "northStar": "The Specimen Sheet",
+    "overview": "One rescued grass tree is shown the way a botanist pins a specimen: alone, centred, lit, on a calm light sheet with a few small handwritten-feeling notes around it. Everything else steps back. The page is a stack of rounded sheets laid on a bone table, each one quiet and light, so that the tree in the hero and the one dark rescue chapter carry the story.\n\nThe voice is calm, light and premium rather than busy or folksy. One typeface does all the work, with very light large headlines and plain readable body text sized for an older audience. Colour is held almost entirely in the greens and bones; lime appears only as a pill behind a word or as the mark of something chosen. Photos are not shown as rectangles: they are cut across rounded columns or staggered pills that slide into place.\n\nMotion is soft and reactive, never bouncy: content rises a short distance from an already visible state, highlights wipe in behind words, photo slices settle into their positions, and the 3D tree turns under the hand. The previous pop-up bush picture book world (cobalt table, red earth, wattle yellow, Gluten display face) is retired and nothing from it carries over.",
     "keyCharacteristics": [
-      "Full-bleed gouache spreads with a gutter fold, on a cobalt table.",
-      "Die-cut card everywhere: coloured face, white core rim, soft cast shadow.",
-      "Wattle yellow belongs to ordering and nothing else.",
-      "Gluten for titles, figures, tabs and the book's own captions; Andika for every sentence a person reads.",
-      "Spring overshoot on everything, in a fixed grammar: open, stand, slide, spin, lift, flutter.",
-      "Works fully without WebGL and with reduced motion."
+      "Bone ground with every section as a rounded 28px sheet inside a 12px frame.",
+      "One typeface, Onest, light 300 for display and headlines.",
+      "Lime only as a highlight or active state; forest for primary actions and the one dark chapter.",
+      "Pills for nav, buttons, chips, filters, counts and photo slices.",
+      "Four-point sparkles as the only ornament.",
+      "A WebGL grass tree on a floating soil-and-grass island as the hero object, with a photo fallback."
     ],
     "rules": [
-      { "name": "The Wattle Law Rule", "body": "Wattle yellow is reserved for ordering controls: the \"Add to my order\" buttons, the header order pill, the size pull-tab that sets what you add, shelf steppers, chosen day and time chips, the chosen send method, the order progress fill, chat \"add\" actions, and the label that flies into the order. Nothing decorative, informational or navigational is ever yellow. If it does not build or send an order, it is not yellow.", "section": "colors" },
-      { "name": "The One Field Rule", "body": "Each spread is one flat colour field; each card is one flat colour. No gradients between palette colours; texture comes from the shared paper grain, not from colour mixing.", "section": "colors" },
-      { "name": "The Two Voices Rule", "body": "Gluten names, counts and narrates; Andika instructs and explains. Any instruction, answer, form label or paragraph is Andika.", "section": "typography" },
-      { "name": "The Big Print Rule", "body": "Body is 1.15rem. Nothing a person must act on sits below 0.95rem.", "section": "typography" },
-      { "name": "The Spread Rule", "body": "Every chapter is a full-bleed gouache field spread: one palette colour edge to edge, the shared paper grain over it, a 22px shade at the top where the next page's edge lies, and a 140px gutter fold shading down the centre line. Content sits on two pages either side of the fold (1fr 1fr with a clamp 3-9rem gap; the left page right-aligned, max 36rem) or runs across both pages capped at 82rem. Spreads are padded by the band (clamp 4.5-7.5rem) and the fluid gutter. The sequence is fixed by the story: cobalt hero, sky sizes, paper shelf, cobalt home, earth rescue, gum care, crown visit, earth-deep back cover.", "section": "layout" },
-      { "name": "The Title Over the Book Rule", "body": "The hero H1 sits on the cobalt table above the open book's left page, like a title over the book, never on the page. The left page cannot hold a 4rem-plus headline and the size picker at a legible size, so the page carries the lede, head toggle, pull-tab, price flap and order button, and the headline is sized to the table space above it. On phones and narrow aspect ratios (900px or below 23:20) the pop-up takes the top 54svh and the headline and picker sit on a paper panel below it.", "section": "layout" },
-      { "name": "The Die-Cut Rule", "body": "Anything cut from card shows its white core and casts a soft shadow. In SVG that is the `#cut` filter; in 3D it is `card()`, a shape extruded to 0.007 card thickness with the face in its colour and the extruded edge in Card Core, casting and receiving shadows. A coloured shape with no core rim is a sticker, not card.", "section": "elevation" },
-      { "name": "The Soft Shadow Rule", "body": "No zero-blur ledge shadows. Every cast shadow has blur and falls down and away from the light; no hard offset blocks under text, buttons or cards. Pressed impressions into the board are the only zero-blur edges.", "section": "elevation" },
-      { "name": "The Spring Rule", "body": "One spring for everything: `cubic-bezier(0.34, 1.56, 0.64, 1)` in CSS, damped springs in JS and WebGL. Exits and page swings use `cubic-bezier(0.16, 1, 0.3, 1)`. The grammar is fixed: open (pages and sheets swing on a hinge), stand (cards and chart trees rise from folded flat), slide (tabs, trucks, chips), spin (care wheel, wheel stages), lift (snapshots, flaps, the crane), flutter (paper leaves and the crown in a gust). Headings arrive word by word with a small tilt.", "section": "components" },
-      { "name": "The Already There Rule", "body": "Entrances start from visible: an element waiting for its entrance is offset, folded or tilted, never hidden, so a missed observer never hides content.", "section": "components" },
-      { "name": "The Still Book Rule", "body": "Under reduced motion every state change stays (sizes, prices, steps, stages), and the scroll pin, springs, travel and flutter are dropped; springs jump to their targets and the 3D scene renders only on change.", "section": "components" }
+      { "name": "The Lime Is A Highlighter Rule", "body": "Full lime is only ever a pill behind a word, a count, or the mark of a chosen thing. It never fills a section, a card or a band. The hero's soft lime glow (a radial at 45% fading to nothing) is the one atmospheric use and stays behind the tree.", "section": "colors" },
+      { "name": "The One Dark Chapter Rule", "body": "Forest is the colour of action and of the rescue story. As a full sheet it appears once in the content (the rescue chapter) and once as the footer; within other sheets it is limited to buttons, selected states and the single \"Talk to us\" card.", "section": "colors" },
+      { "name": "The Lime Button Lives On Forest Rule", "body": "A lime button is used only where it sits on a forest surface (the rescue chapter, the \"Talk to us\" card). On light sheets the primary button is forest.", "section": "colors" },
+      { "name": "The One Face Rule", "body": "Onest is the only typeface. Hierarchy comes from size and weight (300 for anything large, 500 for anything you press), never from a second family.", "section": "typography" },
+      { "name": "The Light Large Rule", "body": "Anything set above 2rem is weight 300 with negative tracking. Large text is never bold.", "section": "typography" },
+      { "name": "The No Kicker Rule", "body": "Headlines stand on their own. There are no small uppercase labels above them.", "section": "typography" },
+      { "name": "The Sheet Not Box Rule", "body": "Sections never get shadows; they read as rounded sheets by colour change against the bone table. Only objects that sit on a sheet or float above the page lift.", "section": "elevation" }
     ],
     "dos": [
-      "**Do** make every chapter a full-bleed gouache spread with a gutter fold, in the fixed story order.",
-      "**Do** keep wattle yellow (#ffc928) for ordering controls only.",
-      "**Do** give every cut shape a Card Core rim and a soft cast shadow: the `#cut` filter in SVG, `card()` in 3D.",
-      "**Do** move everything on the spring (cubic-bezier(0.34, 1.56, 0.64, 1)) within the open / stand / slide / spin / lift / flutter grammar.",
-      "**Do** start entrances from visible: offset, folded or tilted, never at zero opacity.",
-      "**Do** set the hero H1 on the cobalt table above the left page, not on the page.",
-      "**Do** caption every photo with where it came from.",
-      "**Do** keep reduced motion fully working: keep state changes, drop the scroll pin, springs and flutter.",
-      "**Do** fall back to the Fremantle photo when WebGL is missing."
+      "Do keep lime (#cdeb73) to highlight pills, counts and selected states; use lime-2 for soft active surfaces.",
+      "Do make forest (#0f2b1d) the primary button colour on light sheets.",
+      "Do set every section as a 28px rounded sheet on the bone-table ground inside the 12px frame.",
+      "Do set anything above 2rem in Onest 300 with negative tracking.",
+      "Do use pills (999px) for anything pressable or that labels state, including photo slices.",
+      "Do start reveals from visible (opacity 0.25, 24px offset) on cubic-bezier(0.16, 1, 0.3, 1).",
+      "Do provide the photo fallback wherever a WebGL object appears."
     ],
     "donts": [
-      "**Don't** use wattle yellow for decoration, highlights, navigation, status or headings.",
-      "**Don't** use zero-blur ledge shadows or hard offset blocks under text, buttons or cards.",
-      "**Don't** draw cut-paper shapes without their white core rim.",
-      "**Don't** blend palette colours in gradients; one field per spread, one colour per card.",
-      "**Don't** set instructions, answers or labels in Gluten, or anything actionable below 0.95rem.",
-      "**Don't** bring back the rejected tape world: no pink tape, white sand ground, hairline panels, Anybody or Lexend."
+      "Don't fill a section, card or band with full lime.",
+      "Don't add a second dark chapter; forest as a full sheet is the rescue chapter and the footer.",
+      "Don't introduce a second typeface or set large text bold.",
+      "Don't add ornaments other than the four-point sparkle.",
+      "Don't put small uppercase labels or kickers above headlines.",
+      "Don't show rescue photos as plain rectangles where a sliced treatment fits.",
+      "Don't use bouncy or overshooting easing; motion settles softly.",
+      "Don't bring back the pop-up book palette (cobalt, red earth, wattle, ochre) or its display face."
     ]
   }
 }

@@ -15,7 +15,7 @@ export function createCare(canvas, { reduced = false } = {}) {
   camera.position.set(0, 0.95, 2.5);
   camera.lookAt(0, 0.28, 0);
 
-  scene.add(new THREE.HemisphereLight('#ffffff', '#c9d3f0', 1.6));
+  scene.add(new THREE.HemisphereLight('#ffffff', '#b4c08f', 1.6));
   const sun = new THREE.DirectionalLight('#fff4e2', 2.4);
   sun.position.set(-1.2, 2.6, 1.8);
   sun.castShadow = true;

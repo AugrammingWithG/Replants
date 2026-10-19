@@ -2,7 +2,7 @@
 
 const GREENS = ['#8fbf3a', '#7cad2f', '#a3cc4d', '#6d9f2a', '#5f8f22'];
 const STRAWS = ['#c99a52', '#b98843', '#d8b06a'];
-const INK = '#1d1a16';
+const INK = '#131a15';
 
 function rng(seed) {
   let s = seed >>> 0 || 1;
@@ -69,8 +69,8 @@ export function treeSvg(h, heads = 1, { seed = 5, label = '' } = {}) {
   };
 }
 
-const tub = (w, h, x, y, band = '#c4461f') =>
-  `<path d="M${x} ${y} h${w} l-${w * 0.08} ${h} h-${w * 0.84} z" fill="#fdfcf9"/><rect x="${x + w * 0.04}" y="${y + h * 0.3}" width="${w * 0.92}" height="${h * 0.3}" fill="${band}"/><rect x="${x - 3}" y="${y - 7}" width="${w + 6}" height="9" rx="3" fill="#1d1a16"/>`;
+const tub = (w, h, x, y, band = '#3b8a4c') =>
+  `<path d="M${x} ${y} h${w} l-${w * 0.08} ${h} h-${w * 0.84} z" fill="#fdfcf9"/><rect x="${x + w * 0.04}" y="${y + h * 0.3}" width="${w * 0.92}" height="${h * 0.3}" fill="${band}"/><rect x="${x - 3}" y="${y - 7}" width="${w + 6}" height="9" rx="3" fill="#131a15"/>`;
 
 const miniTree = (x, y, s = 1) => {
   const rand = rng(Math.round(x * 7 + y));
@@ -83,10 +83,10 @@ export const ART = {
   'tub-s': `<svg viewBox="0 0 120 80" aria-hidden="true">${tub(34, 34, 43, 38)}</svg>`,
   'tub-m': `<svg viewBox="0 0 120 80" aria-hidden="true">${tub(46, 44, 37, 28)}</svg>`,
   'tub-l': `<svg viewBox="0 0 120 80" aria-hidden="true">${tub(70, 58, 25, 16)}</svg>`,
-  prune: `<svg viewBox="0 0 120 80" aria-hidden="true"><path d="M30 64 L64 34" stroke="#c4461f" stroke-width="12" stroke-linecap="round"/><path d="M44 70 L68 38" stroke="#2c5fd0" stroke-width="12" stroke-linecap="round"/><path d="M64 34 L96 12 L92 24 Z M68 38 L100 22 L90 34 Z" fill="#cfc9be" stroke="${INK}" stroke-width="2" stroke-linejoin="round"/><circle cx="66" cy="36" r="4" fill="${INK}"/></svg>`,
-  maint: `<svg viewBox="0 0 120 80" aria-hidden="true"><path d="M36 30 h40 l-4 40 h-32 z" fill="#2c5fd0"/><path d="M76 40 L100 22" stroke="#2c5fd0" stroke-width="7" stroke-linecap="round"/><ellipse cx="102" cy="20" rx="6" ry="9" transform="rotate(-50 102 20)" fill="#2c5fd0"/><path d="M44 30 q12 -20 24 0" stroke="${INK}" stroke-width="5" fill="none"/><path d="M106 30 l4 8 M100 32 l2 9 M110 24 l6 6" stroke="#9cccf5" stroke-width="3" stroke-linecap="round"/></svg>`,
-  makeover: `<svg viewBox="0 0 120 80" aria-hidden="true"><rect x="8" y="58" width="104" height="14" rx="4" fill="#c4461f"/>${miniTree(30, 58, 1)}${miniTree(66, 58, 1.3)}<circle cx="94" cy="50" r="9" fill="#e8892b"/><path d="M94 58 v-3" stroke="#3d7a55" stroke-width="3"/></svg>`,
-  clearing: `<svg viewBox="0 0 120 80" aria-hidden="true"><rect x="14" y="52" width="66" height="14" rx="7" fill="${INK}"/><path d="M18 52 h56 v-14 h-22 l-6 -14 h-24 z" fill="#e8892b"/><rect x="26" y="28" width="16" height="12" fill="#9cccf5"/><path d="M80 44 l14 -4 l6 2 l2 26 h-10 z" fill="#3a352e"/>${miniTree(104, 52, 0.7)}</svg>`,
+  prune: `<svg viewBox="0 0 120 80" aria-hidden="true"><path d="M30 64 L64 34" stroke="#3b8a4c" stroke-width="12" stroke-linecap="round"/><path d="M44 70 L68 38" stroke="#0f2b1d" stroke-width="12" stroke-linecap="round"/><path d="M64 34 L96 12 L92 24 Z M68 38 L100 22 L90 34 Z" fill="#cfc9be" stroke="${INK}" stroke-width="2" stroke-linejoin="round"/><circle cx="66" cy="36" r="4" fill="${INK}"/></svg>`,
+  maint: `<svg viewBox="0 0 120 80" aria-hidden="true"><path d="M36 30 h40 l-4 40 h-32 z" fill="#0f2b1d"/><path d="M76 40 L100 22" stroke="#0f2b1d" stroke-width="7" stroke-linecap="round"/><ellipse cx="102" cy="20" rx="6" ry="9" transform="rotate(-50 102 20)" fill="#0f2b1d"/><path d="M44 30 q12 -20 24 0" stroke="${INK}" stroke-width="5" fill="none"/><path d="M106 30 l4 8 M100 32 l2 9 M110 24 l6 6" stroke="#e6f5b8" stroke-width="3" stroke-linecap="round"/></svg>`,
+  makeover: `<svg viewBox="0 0 120 80" aria-hidden="true"><rect x="8" y="58" width="104" height="14" rx="4" fill="#3b8a4c"/>${miniTree(30, 58, 1)}${miniTree(66, 58, 1.3)}<circle cx="94" cy="50" r="9" fill="#b08a5c"/><path d="M94 58 v-3" stroke="#3d7a55" stroke-width="3"/></svg>`,
+  clearing: `<svg viewBox="0 0 120 80" aria-hidden="true"><rect x="14" y="52" width="66" height="14" rx="7" fill="${INK}"/><path d="M18 52 h56 v-14 h-22 l-6 -14 h-24 z" fill="#b08a5c"/><rect x="26" y="28" width="16" height="12" fill="#e6f5b8"/><path d="M80 44 l14 -4 l6 2 l2 26 h-10 z" fill="#3a352e"/>${miniTree(104, 52, 0.7)}</svg>`,
   voucher: `<svg viewBox="0 0 120 80" aria-hidden="true"><path d="M16 22 h88 v12 a6 6 0 0 0 0 12 v12 h-88 v-12 a6 6 0 0 0 0 -12 z" fill="#fdfcf9" stroke="${INK}" stroke-width="2"/><path d="M40 24 v36" stroke="${INK}" stroke-width="2" stroke-dasharray="4 4"/>${miniTree(72, 54, 0.9)}</svg>`,
   timber: `<svg viewBox="0 0 120 80" aria-hidden="true"><g fill="#b4703a" stroke="${INK}" stroke-width="2"><circle cx="40" cy="56" r="16"/><circle cx="74" cy="56" r="16"/><circle cx="57" cy="30" r="16"/></g><g fill="none" stroke="#7a4a2a" stroke-width="2"><circle cx="40" cy="56" r="8"/><circle cx="74" cy="56" r="8"/><circle cx="57" cy="30" r="8"/></g></svg>`,
 };
