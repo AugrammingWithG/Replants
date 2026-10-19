@@ -1,0 +1,456 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Replants · Rescued grass trees, Perth</title>
+  <meta name="description" content="Grass trees and zamias salvaged from WA bushland being cleared, rehomed in Perth gardens since 2000. Pick a size, see the price, and get it picked up, delivered or installed.">
+  <meta name="theme-color" content="#e2e2de">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <meta property="og:title" content="Replants · Rescued grass trees, Perth">
+  <meta property="og:description" content="Every tree here was due to be bulldozed. Grass trees salvaged from cleared bushland since 2000.">
+  <meta property="og:type" content="website">
+  <link rel="preload" href="assets/fonts/anybody-var.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/lexend-var.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="styles.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "GardenStore",
+    "name": "Replants",
+    "url": "https://replants.com",
+    "telephone": "+61408885435",
+    "email": "sales@replants.com",
+    "foundingDate": "2000",
+    "address": { "@type": "PostalAddress", "streetAddress": "96 Wray Avenue", "addressLocality": "Fremantle", "addressRegion": "WA", "postalCode": "6160", "addressCountry": "AU" },
+    "openingHoursSpecification": [{ "@type": "OpeningHoursSpecification", "dayOfWeek": ["Wednesday","Thursday","Friday","Saturday","Sunday"], "opens": "10:00", "closes": "16:00" }]
+  }
+  </script>
+  <script type="importmap">
+  { "imports": {
+      "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
+      "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
+  } }
+  </script>
+</head>
+<body>
+  <svg class="sprite" aria-hidden="true" focusable="false">
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M4 12h15M13 6l6 6-6 6"/></symbol>
+    <symbol id="i-down" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></symbol>
+    <symbol id="i-phone" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></symbol>
+    <symbol id="i-pin" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></symbol>
+    <symbol id="i-file" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></symbol>
+    <symbol id="i-turn" viewBox="0 0 24 24"><path d="M3 12a9 9 0 1 0 3-6.7L3 8M3 3v5h5"/></symbol>
+    <symbol id="i-minus" viewBox="0 0 24 24"><path d="M5 12h14"/></symbol>
+    <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+    <symbol id="i-menu" viewBox="0 0 24 24"><path d="M3 7h18M3 12h18M3 17h18"/></symbol>
+    <defs>
+      <filter id="spray" x="-10%" y="-10%" width="120%" height="120%">
+        <feTurbulence type="fractalNoise" baseFrequency="1.1" numOctaves="2" seed="7" result="n"/>
+        <feDisplacementMap in="SourceGraphic" in2="n" scale="5" xChannelSelector="R" yChannelSelector="G"/>
+      </filter>
+    </defs>
+  </svg>
+
+  <a class="skip" href="#main">Skip to content</a>
+
+  <aside class="tape tape--strip" aria-label="Current special">
+    <p class="tape__print">
+      <strong>Trailer Special</strong>
+      <span class="long">3 pre-dug trees + 3 tubs of formula</span>
+      <span><b>$325</b> <s>$475</s></span>
+      <span class="long">Saturdays 8am–12pm, Rockingham</span>
+      <a href="mailto:mail@replants.com?subject=Trailer%20Special%20booking">Book a slot <svg class="ico"><use href="#i-arrow"/></svg></a>
+    </p>
+  </aside>
+
+  <header class="site-head">
+    <a class="brand" href="#top" aria-label="Replants home">
+      <img class="brand__mark" src="assets/brand/grass-tree-mark.png" alt="" width="128" height="296">
+      <span class="brand__word">replants</span>
+    </a>
+    <nav class="site-nav" aria-label="Main">
+      <button class="site-nav__toggle" aria-expanded="false" aria-controls="nav-list"><svg class="ico"><use href="#i-menu"/></svg><span>Menu</span></button>
+      <ul id="nav-list">
+        <li><a href="#trees">Trees &amp; prices</a></li>
+        <li><a href="#get-it-home">Get it home</a></li>
+        <li><a href="#rescue">Where they come from</a></li>
+        <li><a href="#plant">Planting &amp; care</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#visit">Visit</a></li>
+      </ul>
+    </nav>
+    <a class="call" href="tel:+61408885435"><svg class="ico"><use href="#i-phone"/></svg><span>0408 885 435</span></a>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="top" aria-labelledby="hero-title">
+      <div class="hero__copy">
+        <h1 id="hero-title" class="hero__title">Every tree here was due to be <span class="tape tape--word"><span>bulldozed.</span></span></h1>
+        <p class="hero__lede">We dig grass trees out of WA bushland that’s being cleared for housing and rehome them in gardens across Perth. Since 2000, from Rockingham and Fremantle.</p>
+        <div class="readout" aria-live="polite">
+          <dl class="readout__facts">
+            <div><dt data-out="trunk-label">Trunk</dt><dd data-out="height">0.60 m</dd></div>
+            <div><dt>Age</dt><dd data-out="age">about 50 years</dd></div>
+            <div><dt>Price</dt><dd data-out="price" class="readout__price">$200</dd></div>
+          </dl>
+          <div class="readout__actions">
+            <a class="btn btn--primary" href="#get-it-home">Get this tree home <svg class="ico"><use href="#i-arrow"/></svg></a>
+            <a class="btn btn--quiet" href="#trees">All sizes &amp; prices</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero__stage" data-stage>
+        <canvas class="hero__canvas" aria-label="A 3D grass tree with pink flagging tape and a price tag. Drag sideways to turn it." role="img"></canvas>
+        <img class="hero__fallback" src="assets/photos/55_Fremantle_Residence3.jpg" alt="Three rescued grass trees planted in a Fremantle front garden" width="500" height="343">
+        <p class="hero__hint"><svg class="ico"><use href="#i-turn"/></svg> Drag to turn the tree</p>
+      </div>
+
+      <fieldset class="rail" id="trees">
+        <legend class="rail__legend">Pick a trunk height <span>Salvage-site prices. Bagged trees from the Fremantle nursery cost about 20% more.</span></legend>
+        <div class="rail__wire" role="radiogroup" aria-label="Grass tree size" data-rail></div>
+      </fieldset>
+    </section>
+
+    <section class="station station--sand" id="get-it-home" aria-labelledby="home-title">
+      <div class="station__head">
+        <h2 id="home-title">Three ways to get it <span class="tape tape--mark">home</span></h2>
+        <p>Choose your tree at our Rockingham salvage site or Fremantle nursery, or tell us the size and we’ll pick a good one for your spot. Bring a photo or plan of the space if you’re unsure.</p>
+      </div>
+
+      <div class="home">
+        <fieldset class="methods">
+          <legend class="visually-hidden">How you want to get it</legend>
+          <label class="method">
+            <input type="radio" name="method" value="pickup" checked>
+            <span class="method__body">
+              <span class="method__name">Pick it up yourself</span>
+              <span class="method__cost">Tree price only</span>
+              <span class="method__text">We dig it, trim the roots and foliage, and load it onto your trailer or ute. Single-head trees up to 1&nbsp;m of trunk are fine to plant yourself if you’re fit and able. Bring a container for 15&nbsp;L of soil and allow 15–45 minutes.</span>
+            </span>
+          </label>
+          <label class="method">
+            <input type="radio" name="method" value="delivered">
+            <span class="method__body">
+              <span class="method__name">Delivered</span>
+              <span class="method__cost">$100 for one tree, $75 each for two or more</span>
+              <span class="method__text">Our crane truck drops it into the hole you’ve dug: 1&nbsp;m wide, 0.5&nbsp;m deep. You finish planting with our instructions. Metro rate; outside Perth add $110 an hour travel.</span>
+            </span>
+          </label>
+          <label class="method">
+            <input type="radio" name="method" value="installed">
+            <span class="method__body">
+              <span class="method__name">Installed</span>
+              <span class="method__cost">Delivery + $100 a tree, or $75 if you dig</span>
+              <span class="method__text">We deliver, dig and plant it for you. For trunks up to 1.2&nbsp;m; bigger feature trees are priced on request.</span>
+            </span>
+          </label>
+        </fieldset>
+
+        <form class="docket" data-docket novalidate>
+          <div class="docket__hole" aria-hidden="true"></div>
+          <h3 class="docket__title">Your tree</h3>
+          <div class="docket__row">
+            <label for="d-size">Size</label>
+            <select id="d-size" data-size-select></select>
+          </div>
+          <div class="docket__row">
+            <span id="qty-label">How many</span>
+            <div class="stepper" role="group" aria-labelledby="qty-label">
+              <button type="button" data-qty="-1" aria-label="One fewer tree"><svg class="ico"><use href="#i-minus"/></svg></button>
+              <output data-out="qty" aria-live="polite">1</output>
+              <button type="button" data-qty="1" aria-label="One more tree"><svg class="ico"><use href="#i-plus"/></svg></button>
+            </div>
+          </div>
+          <label class="docket__check" data-dig-wrap hidden>
+            <input type="checkbox" data-dig> I’ll dig the holes myself (saves $25 a tree)
+          </label>
+          <label class="docket__check">
+            <input type="checkbox" data-formula checked> Add a tub of Transplant Formula per tree <span class="docket__note">needed for the 12-month warranty</span>
+          </label>
+
+          <table class="docket__lines">
+            <caption class="visually-hidden">Estimated cost</caption>
+            <tbody data-lines></tbody>
+            <tfoot><tr><th scope="row">Estimate</th><td data-out="total">$215</td></tr></tfoot>
+          </table>
+          <p class="docket__fine">Estimate only. Tight access, clay, rock or pipes can add to delivery and installation; we tell you before we start. Pensioner? Ask about our discount on trees.</p>
+
+          <div class="docket__form">
+            <div class="field">
+              <label for="f-name">Your name</label>
+              <input id="f-name" name="name" autocomplete="name" required>
+              <p class="field__error" id="e-name" hidden>Add your name so we know who to ask for.</p>
+            </div>
+            <div class="field">
+              <label for="f-phone">Phone</label>
+              <input id="f-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" required>
+              <p class="field__error" id="e-phone" hidden>Add a phone number so we can confirm a time.</p>
+            </div>
+            <div class="field">
+              <label for="f-suburb">Suburb</label>
+              <input id="f-suburb" name="suburb" autocomplete="address-level2">
+            </div>
+          </div>
+          <button class="btn btn--primary btn--block" type="submit" data-submit>Send my request <svg class="ico"><use href="#i-arrow"/></svg></button>
+          <p class="docket__stamp" data-stamp role="status" hidden><span>Request ready</span> Your email app should open with it filled in. Prefer to talk? Call 0408 885 435.</p>
+          <p class="docket__fine">Concept: there’s no online checkout yet, so requests go to sales@replants.com by email.</p>
+        </form>
+      </div>
+    </section>
+
+    <section class="station station--char" id="rescue" aria-labelledby="rescue-title">
+      <div class="station__head">
+        <h2 id="rescue-title"><span class="tape tape--mark">Saved</span> from the bulldozer, one tree at a time</h2>
+        <p>Bruce Abbott started Replants in 2000 because whole blocks of Perth bush were being scraped bare for new suburbs. We work with developers and landowners to get the grass trees, zamias and understorey out before the machines go in, and we’ve moved thousands of grass trees into gardens and landscape projects since.</p>
+      </div>
+
+      <div class="rescue">
+        <figure class="rescue__lead">
+          <img src="assets/photos/61_Bruce_Darren__and.jpg" alt="Bruce with landowners Darren and Keren among grass trees tied with red tape on their cleared block" width="500" height="333" loading="lazy">
+          <figcaption><span class="tape tape--tag">Mahogany Creek</span> 75 grass trees saved from one building envelope. The ones with red tape were the last to be dug.</figcaption>
+        </figure>
+        <figure class="rescue__side">
+          <img src="assets/photos/62_Bruce_digging_2.jpg" alt="The orange Replants excavator lifting a grass tree out of bushland" width="500" height="333" loading="lazy">
+          <figcaption>Each tree comes out with its root ball, roots trimmed, foliage pruned.</figcaption>
+        </figure>
+        <figure class="rescue__side">
+          <img src="assets/photos/51_bruce-and-truckweb.jpg" alt="Bruce beside the Replants crane truck lifting a large grass tree" width="500" height="344" loading="lazy">
+          <figcaption>The crane truck reaches over fences and walls to set big trees in place.</figcaption>
+        </figure>
+      </div>
+
+      <div class="practice">
+        <h3>How we clear a site</h3>
+        <ol class="practice__steps">
+          <li><b>Keep</b> as much natural vegetation standing as the plan allows.</li>
+          <li><b>Transplant</b> the valuable plants: grass trees, zamias, understorey.</li>
+          <li><b>Mill</b> jarrah, marri, tuart, banksia and sheoak for timber and firewood.</li>
+          <li><b>Mulch</b> green waste into mulch and compost.</li>
+          <li><b>Relocate</b> the native animals living there.</li>
+        </ol>
+        <p class="practice__call">Clearing your own block for a house or shed? We salvage from small lots in the Perth hills and the South West, and it can cut your clearing bill. <a href="tel:+61408885435">Call Bruce on 0408 885 435</a> or email <a href="mailto:bruce@replants.com">bruce@replants.com</a>.</p>
+      </div>
+    </section>
+
+    <section class="station station--sand" id="plant" aria-labelledby="plant-title">
+      <div class="station__head">
+        <h2 id="plant-title">Plant it <span class="tape tape--mark">right</span>, once</h2>
+        <p>Grass trees grow about 12&nbsp;mm of trunk a year, so choose one that suits the space now. Give it sun, free-draining sand, and water at the roots, never on the leaves.</p>
+      </div>
+
+      <div class="plant">
+        <figure class="section-cut">
+          <svg viewBox="0 0 640 400" role="img" aria-labelledby="cut-title cut-desc">
+            <title id="cut-title">Planting a grass tree, in section</title>
+            <desc id="cut-desc">A hole 1 metre wide and 0.5 metres deep, filled around the root ball with free-draining sand. Mulch stops 150 millimetres short of the trunk, a moat holds water at the base, and a dripper waters the roots.</desc>
+            <defs>
+              <pattern id="sand" width="10" height="10" patternUnits="userSpaceOnUse"><rect width="10" height="10" class="cut-sand"/><circle cx="2" cy="3" r=".9" class="cut-grain"/><circle cx="7" cy="7" r=".7" class="cut-grain"/></pattern>
+              <pattern id="soil" width="14" height="14" patternUnits="userSpaceOnUse"><rect width="14" height="14" class="cut-soil"/><path d="M0 14 14 0" class="cut-hatch"/></pattern>
+            </defs>
+            <rect x="0" y="210" width="640" height="190" fill="url(#soil)"/>
+            <path d="M170 210 h300 v150 h-300z" fill="url(#sand)"/>
+            <path d="M40 200 h196 M404 200 h196" class="cut-mulch"/>
+            <path d="M236 210 q14 -14 28 0 M376 210 q14 -14 28 0" class="cut-moat"/>
+            <ellipse cx="320" cy="262" rx="70" ry="40" class="cut-root"/>
+            <rect x="296" y="96" width="48" height="166" rx="6" class="cut-trunk"/>
+            <path d="M320 96 L250 30 M320 96 L280 14 M320 96 L320 6 M320 96 L362 14 M320 96 L392 30 M320 96 L410 66 M320 96 L230 66 M320 96 L222 100 M320 96 L418 102" class="cut-crown"/>
+            <rect x="292" y="168" width="56" height="12" class="cut-tape"/>
+            <circle cx="268" cy="206" r="5" class="cut-drip"/>
+            <path d="M268 206 v-6 h-60" class="cut-pipe"/>
+            <g class="cut-dim">
+              <path d="M170 380 h300 M170 372 v16 M470 372 v16"/>
+              <path d="M500 210 v150 M492 210 h16 M492 360 h16"/>
+              <path d="M236 188 h60 M236 182 v12 M296 182 v12"/>
+            </g>
+            <g class="cut-lead">
+              <path d="M266 150 v34"/>
+              <path d="M126 156 L262 202"/>
+              <path d="M444 150 L392 202"/>
+              <path d="M574 150 v42"/>
+            </g>
+            <g class="cut-call" aria-hidden="true">
+              <circle cx="320" cy="380" r="19"/><text x="320" y="387">1</text>
+              <circle cx="500" cy="285" r="19"/><text x="500" y="292">2</text>
+              <circle cx="212" cy="318" r="19"/><text x="212" y="325">3</text>
+              <circle cx="266" cy="131" r="19"/><text x="266" y="138">4</text>
+              <circle cx="444" cy="131" r="19"/><text x="444" y="138">5</text>
+              <circle cx="110" cy="140" r="19"/><text x="110" y="147">6</text>
+              <circle cx="574" cy="131" r="19"/><text x="574" y="138">7</text>
+            </g>
+          </svg>
+          <figcaption>
+            <ol class="cut-legend">
+              <li>Hole 1&nbsp;m wide</li>
+              <li>0.5&nbsp;m deep</li>
+              <li>Free-draining sand around the root ball</li>
+              <li>Mulch stops 150&nbsp;mm short of the trunk</li>
+              <li>A moat holds water at the base</li>
+              <li>Dripper or bubbler, into the moat</li>
+              <li>Mulch, but not pine bark</li>
+            </ol>
+          </figcaption>
+        </figure>
+
+        <ul class="rules">
+          <li><b>Sun.</b> Open, sunny spots are best; part shade is fine.</li>
+          <li><b>Sand, not clay.</b> On heavy soil, add gypsum to the bottom of the hole and mound coarse sand so there’s at least 500&nbsp;mm under and around the roots.</li>
+          <li><b>Room to spread.</b> A single head fills 1–1.5&nbsp;m across; keep trunks at least 1.5&nbsp;m apart.</li>
+          <li><b>Mulch, with a gap.</b> Keep it 150&nbsp;mm clear of the trunk. Skip pine bark.</li>
+          <li><b>Water the roots.</b> Drippers or bubblers into the moat. Don’t let sprinklers wet the leaves.</li>
+          <li><b>Clean the hole.</b> Replacing an old tree or palm? Dig out every bit of the old roots first.</li>
+        </ul>
+      </div>
+
+      <div class="downloads">
+        <a href="https://replants.com/files/docs/6_GRASS_TREE_TRANSPLANTING_INSTRUCTIONS_formula.pdf"><svg class="ico"><use href="#i-file"/></svg> Transplanting instructions, with formula <span>PDF</span></a>
+        <a href="https://replants.com/files/docs/1_GRASS_TREE_TRANSPLANTING_INSTRUCTIONS_seasol.pdf"><svg class="ico"><use href="#i-file"/></svg> Transplanting instructions, with Seasol <span>PDF</span></a>
+        <a href="https://replants.com/files/docs/9_Grass_tree_Maintenance_Job_Sheet.pdf"><svg class="ico"><use href="#i-file"/></svg> Maintenance checklist <span>PDF</span></a>
+      </div>
+    </section>
+
+    <section class="station station--tape" id="care" aria-labelledby="care-title">
+      <div class="station__head">
+        <h2 id="care-title">What the first <span class="tape tape--mark">two years</span> look like</h2>
+        <p>Brown tips in the first months are normal. Here’s what to expect, so you know when to relax and when to call.</p>
+      </div>
+
+      <ol class="timeline">
+        <li style="--from:0;--to:6">
+          <h3>0–6 months</h3>
+          <p class="timeline__state">Settling in</p>
+          <p>Roots grow fast. Leaf tips, and sometimes the outer layer of foliage, go brown. Don’t worry.</p>
+        </li>
+        <li style="--from:6;--to:12">
+          <h3>6–12 months</h3>
+          <p class="timeline__state">Establishing</p>
+          <p>New roots chase deep water down. Yellow shoots appear in the centre and turn green in the sun.</p>
+        </li>
+        <li style="--from:12;--to:24">
+          <h3>12–24 months</h3>
+          <p class="timeline__state">Established</p>
+          <p>New foliage takes over and old leaves form a dry skirt. Keep deep-watering through hot spells.</p>
+        </li>
+        <li style="--from:24;--to:30">
+          <h3>24 months on</h3>
+          <p class="timeline__state">Self-reliant</p>
+          <p>It finds its own water. Trim the skirt if you like, to show the black trunk again.</p>
+        </li>
+      </ol>
+
+      <div class="care">
+        <div class="checks">
+          <h3>Looking stressed? Four checks</h3>
+          <details>
+            <summary>Is the new growth in the centre healthy? <svg class="ico"><use href="#i-down"/></svg></summary>
+            <p>If it is, brown outer leaves are likely just the heat. If not, the tree is stressed: apply Seasol or Ecovital over the foliage and around the base once a month. Healthy trees benefit too.</p>
+          </details>
+          <details>
+            <summary>Is it getting enough water? <svg class="ico"><use href="#i-down"/></svg></summary>
+            <p>In hot months, water 2–3 times a week with about 50&nbsp;L each time. In cooler months, 1–2 times a week. Skip it when it’s raining a lot.</p>
+          </details>
+          <details>
+            <summary>Is it getting too much? <svg class="ico"><use href="#i-down"/></svg></summary>
+            <p>Check mulch isn’t piled against the trunk, and that the black trunk at ground level is dry and firm, not soft. If it’s soft, clear the mulch and sand away from it.</p>
+          </details>
+          <details>
+            <summary>Are there bugs or powder on the leaves? <svg class="ico"><use href="#i-down"/></svg></summary>
+            <p>Look low in the foliage. White powder is mildew; small grey-white bugs are mealybugs. Spray with Mancozeb or white oil, but not in hot weather.</p>
+          </details>
+          <p class="checks__help">Still worried? Email a photo to <a href="mailto:support@replants.com">support@replants.com</a>.</p>
+        </div>
+
+        <div class="warranty">
+          <h3>12-month warranty</h3>
+          <p>When you plant with Replants Transplant Formula and follow our care guide, we’ll replace a tree that doesn’t make it with a like tree for 25% of the original price, plus delivery and installation if needed.</p>
+          <details>
+            <summary>The conditions <svg class="ico"><use href="#i-down"/></svg></summary>
+            <ul>
+              <li>Planted using the Replants transplanting method.</li>
+              <li>Watered as we advise, by dripper, bubbler or flooder at the base.</li>
+              <li>Foliage kept dry: no regular sprinkler spray.</li>
+              <li>The moat around the base kept in shape.</li>
+              <li>Formula reapplied 6 months after planting.</li>
+              <li>Flower spikes removed at the first flowering.</li>
+            </ul>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section class="station station--sand" id="services" aria-labelledby="services-title">
+      <div class="station__head">
+        <h2 id="services-title">Other <span class="tape tape--mark">work</span> we do</h2>
+      </div>
+      <div class="services">
+        <div class="services__ledger">
+          <dl>
+            <div><dt>Pruning</dt><dd>Shape the foliage or show off the trunk. Single heads up to 1.8&nbsp;m; bigger and multi-head trees quoted first.</dd><dd class="services__price">$75 first tree, $25 each after</dd></div>
+            <div><dt>Trunk burning</dt><dd>After pruning, we can blacken the trunk the way bushfire does, where your shire allows it.</dd><dd class="services__price">Ask us</dd></div>
+            <div><dt>Maintenance visits</dt><dd>One visit or a programme, to catch problems before the tree’s health suffers. Treatments up to $25 a tree.</dd><dd class="services__price">$75 for 1–4 trees, $100 for 5–10</dd></div>
+            <div><dt>Transplant Formula</dt><dd>Trace elements and helpful microbes for root growth, moisture and disease resistance.</dd><dd class="services__price">0.8&nbsp;kg $15 · 1.7&nbsp;kg $25 · 15&nbsp;kg $225</dd></div>
+            <div><dt>Native garden makeovers</dt><dd>Lawn and thirsty plants out; design, reticulation, bush logs, stone and natives in.</dd><dd class="services__price"><a href="mailto:sales@replants.com?subject=Garden%20consultation">Book a consultation</a></dd></div>
+            <div><dt>Country orders</dt><dd>Small orders by freight to regional WA; big trees delivered and planted by our crew.</dd><dd class="services__price"><a href="mailto:enquiries@replants.com?subject=Country%20order">Ask about your area</a></dd></div>
+            <div><dt>Gift vouchers</dt><dd>Any amount.</dd><dd class="services__price"><a href="mailto:mail@replants.com?subject=Gift%20voucher">Request a voucher</a></dd></div>
+            <div><dt>Salvaged native timber</dt><dd>Jarrah, marri, tuart, banksia and sheoak from cleared sites, milled for furniture, craft and flooring.</dd><dd class="services__price"><a href="mailto:enquiries@replants.com?subject=Salvaged%20timber">Join the list</a></dd></div>
+          </dl>
+        </div>
+        <figure class="prune">
+          <div class="prune__pair">
+            <img src="assets/photos/77_grassTreeUnprunned.jpg" alt="A grass tree before pruning, foliage hiding the trunk" width="331" height="500" loading="lazy">
+            <img src="assets/photos/86_grassTreePrunned.jpg" alt="The same grass tree after pruning, trunk exposed" width="331" height="500" loading="lazy">
+          </div>
+          <figcaption>Before and after a prune.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="station station--char" id="visit" aria-labelledby="visit-title">
+      <div class="station__head">
+        <h2 id="visit-title">Come and <span class="tape tape--mark">choose one</span></h2>
+      </div>
+      <div class="visit">
+        <article class="place">
+          <h3>Fremantle nursery</h3>
+          <p class="place__addr">96 Wray Avenue, Fremantle 6160</p>
+          <p class="place__hours">Wednesday to Sunday, 10am–4pm</p>
+          <p>Our garden nursery and cultural centre, full of bagged, nursery-hardened trees. Worth a visit just to look. Best to call before you come.</p>
+          <a class="btn btn--line" href="https://maps.google.com/?q=96+Wray+Avenue+Fremantle+WA+6160"><svg class="ico"><use href="#i-pin"/></svg> Directions</a>
+        </article>
+        <article class="place">
+          <h3>Rockingham salvage site</h3>
+          <p class="place__addr">Office Road, off Patterson Road, Rockingham</p>
+          <p class="place__hours">By appointment · Saturday pick-ups 8am–12pm</p>
+          <p>Opposite no. 29, follow the small signs from Patterson Road. A Replants crew member walks you into the bush to choose, then we dig and load. Wear sturdy shoes and bring sun or rain gear.</p>
+          <a class="btn btn--line" href="https://maps.google.com/?q=29+Office+Road+Rockingham+WA"><svg class="ico"><use href="#i-pin"/></svg> Directions</a>
+        </article>
+        <div class="reach">
+          <a class="reach__phone" href="tel:+61408885435">0408 885 435</a>
+          <dl class="reach__mail">
+            <div><dt>Orders and quotes</dt><dd><a href="mailto:sales@replants.com">sales@replants.com</a></dd></div>
+            <div><dt>General questions</dt><dd><a href="mailto:enquiries@replants.com">enquiries@replants.com</a></dd></div>
+            <div><dt>Tree health</dt><dd><a href="mailto:support@replants.com">support@replants.com</a></dd></div>
+          </dl>
+          <p>We take EFTPOS at both sites, cash, or cheque if you’re up for a retro ride. Delivered and installed trees are paid in full upfront.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-foot">
+    <div class="site-foot__brand">
+      <span class="brand__word">replants</span>
+      <p>Saving grass trees from cleared bushland since 2000. An award-winning Fremantle enviro-business.</p>
+    </div>
+    <ul class="site-foot__links">
+      <li><a href="https://replants.com/-gallery">Gallery</a></li>
+      <li><a href="https://replants.com/employment">Work with us</a></li>
+      <li><a href="https://www.facebook.com/pages/Replantscom/153228184775467">Facebook</a></li>
+    </ul>
+    <p class="site-foot__fine">© 2000–2026 Replants · Concept mockup by Cre8tive Sync, not the live site. Prices from replants.com, October 2026.</p>
+  </footer>
+
+  <script type="module" src="app.js"></script>
+</body>
+</html>

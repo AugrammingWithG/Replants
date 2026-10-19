@@ -1,0 +1,35 @@
+{
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "side-tab",
+        "value": "*",
+        "files": [
+          "index.html"
+        ],
+        "createdAt": "2026-10-19T08:53:42.505Z",
+        "reason": "finish reviewer: flagged borders are 3px top rules on .place/.reach/timeline, not side stripes; craft floor bans only left/right"
+      },
+      {
+        "rule": "all-caps-body",
+        "value": "*",
+        "files": [
+          "index.html"
+        ],
+        "createdAt": "2026-10-19T08:53:42.661Z",
+        "reason": "finish reviewer: uppercase runs are short display-face labels and headings"
+      },
+      {
+        "rule": "cramped-padding",
+        "value": "*",
+        "files": [
+          "index.html"
+        ],
+        "createdAt": "2026-10-19T08:53:42.775Z",
+        "reason": "finish reviewer: stations carry 4.5-8.5rem padding; methods border-top is a ledger rule over padded rows"
+      }
+    ]
+  }
+}

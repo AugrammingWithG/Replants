@@ -1,0 +1,647 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-19T09:13:56.984Z",
+  "title": "Design System: replants",
+  "extensions": {
+    "colorMeta": {
+      "tape": {
+        "role": "primary",
+        "displayName": "Flagging Tape Pink",
+        "canonical": "#ff2d87",
+        "tonalRamp": [
+          "oklch(15% 0.141 1.9)",
+          "oklch(26% 0.163 1.9)",
+          "oklch(37% 0.185 1.9)",
+          "oklch(48% 0.208 1.9)",
+          "oklch(59% 0.230 1.9)",
+          "oklch(70% 0.237 1.9)",
+          "oklch(82% 0.212 1.9)",
+          "oklch(95% 0.186 1.9)"
+        ]
+      },
+      "tape-hem": {
+        "role": "primary",
+        "displayName": "Tape Hem",
+        "canonical": "#ee2a80",
+        "tonalRamp": [
+          "oklch(15% 0.140 1.1)",
+          "oklch(26% 0.161 1.1)",
+          "oklch(37% 0.182 1.1)",
+          "oklch(48% 0.204 1.1)",
+          "oklch(59% 0.225 1.1)",
+          "oklch(70% 0.219 1.1)",
+          "oklch(82% 0.195 1.1)",
+          "oklch(95% 0.170 1.1)"
+        ]
+      },
+      "peg": {
+        "role": "secondary",
+        "displayName": "Survey Peg Orange",
+        "canonical": "#ff7a1a",
+        "tonalRamp": [
+          "oklch(15% 0.097 48.9)",
+          "oklch(26% 0.115 48.9)",
+          "oklch(37% 0.132 48.9)",
+          "oklch(48% 0.149 48.9)",
+          "oklch(59% 0.166 48.9)",
+          "oklch(70% 0.183 48.9)",
+          "oklch(82% 0.172 48.9)",
+          "oklch(95% 0.152 48.9)"
+        ]
+      },
+      "crown": {
+        "role": "tertiary",
+        "displayName": "Grass Crown Green",
+        "canonical": "#8db33a",
+        "tonalRamp": [
+          "oklch(15% 0.081 125.2)",
+          "oklch(26% 0.095 125.2)",
+          "oklch(37% 0.109 125.2)",
+          "oklch(48% 0.123 125.2)",
+          "oklch(59% 0.137 125.2)",
+          "oklch(70% 0.151 125.2)",
+          "oklch(82% 0.140 125.2)",
+          "oklch(95% 0.123 125.2)"
+        ]
+      },
+      "char": {
+        "role": "neutral",
+        "displayName": "Fire-Blackened Char",
+        "canonical": "#171513",
+        "tonalRamp": [
+          "oklch(15% 0.005 67.5)",
+          "oklch(26% 0.005 67.5)",
+          "oklch(37% 0.004 67.5)",
+          "oklch(48% 0.004 67.5)",
+          "oklch(59% 0.003 67.5)",
+          "oklch(70% 0.003 67.5)",
+          "oklch(82% 0.002 67.5)",
+          "oklch(95% 0.002 67.5)"
+        ]
+      },
+      "char-2": {
+        "role": "neutral",
+        "displayName": "Char Two",
+        "canonical": "#221f1b",
+        "tonalRamp": [
+          "oklch(15% 0.008 75.2)",
+          "oklch(26% 0.009 75.2)",
+          "oklch(37% 0.008 75.2)",
+          "oklch(48% 0.007 75.2)",
+          "oklch(59% 0.006 75.2)",
+          "oklch(70% 0.005 75.2)",
+          "oklch(82% 0.005 75.2)",
+          "oklch(95% 0.004 75.2)"
+        ]
+      },
+      "char-rule": {
+        "role": "neutral",
+        "displayName": "Char Rule",
+        "canonical": "#3d3832",
+        "tonalRamp": [
+          "oklch(15% 0.010 72.4)",
+          "oklch(26% 0.012 72.4)",
+          "oklch(37% 0.012 72.4)",
+          "oklch(48% 0.011 72.4)",
+          "oklch(59% 0.010 72.4)",
+          "oklch(70% 0.009 72.4)",
+          "oklch(82% 0.007 72.4)",
+          "oklch(95% 0.006 72.4)"
+        ]
+      },
+      "on-char": {
+        "role": "neutral",
+        "displayName": "Ash",
+        "canonical": "#efece6",
+        "tonalRamp": [
+          "oklch(15% 0.003 84.6)",
+          "oklch(26% 0.004 84.6)",
+          "oklch(37% 0.005 84.6)",
+          "oklch(48% 0.005 84.6)",
+          "oklch(59% 0.006 84.6)",
+          "oklch(70% 0.007 84.6)",
+          "oklch(82% 0.008 84.6)",
+          "oklch(95% 0.009 84.6)"
+        ]
+      },
+      "on-char-2": {
+        "role": "neutral",
+        "displayName": "Grey Ash",
+        "canonical": "#b8b1a5",
+        "tonalRamp": [
+          "oklch(15% 0.009 81.3)",
+          "oklch(26% 0.011 81.3)",
+          "oklch(37% 0.013 81.3)",
+          "oklch(48% 0.014 81.3)",
+          "oklch(59% 0.016 81.3)",
+          "oklch(70% 0.018 81.3)",
+          "oklch(82% 0.018 81.3)",
+          "oklch(95% 0.016 81.3)"
+        ]
+      },
+      "sand": {
+        "role": "neutral",
+        "displayName": "Bleached Bassendean Sand",
+        "canonical": "#e2e2de",
+        "tonalRamp": [
+          "oklch(15% 0.002 106.5)",
+          "oklch(26% 0.002 106.5)",
+          "oklch(37% 0.003 106.5)",
+          "oklch(48% 0.003 106.5)",
+          "oklch(59% 0.004 106.5)",
+          "oklch(70% 0.004 106.5)",
+          "oklch(82% 0.005 106.5)",
+          "oklch(95% 0.005 106.5)"
+        ]
+      },
+      "sand-lift": {
+        "role": "neutral",
+        "displayName": "Sand Lift",
+        "canonical": "#efefec",
+        "tonalRamp": [
+          "oklch(15% 0.001 106.5)",
+          "oklch(26% 0.002 106.5)",
+          "oklch(37% 0.002 106.5)",
+          "oklch(48% 0.002 106.5)",
+          "oklch(59% 0.003 106.5)",
+          "oklch(70% 0.003 106.5)",
+          "oklch(82% 0.004 106.5)",
+          "oklch(95% 0.004 106.5)"
+        ]
+      },
+      "sand-deep": {
+        "role": "neutral",
+        "displayName": "Sand Deep",
+        "canonical": "#d2d1cb",
+        "tonalRamp": [
+          "oklch(15% 0.003 98.9)",
+          "oklch(26% 0.004 98.9)",
+          "oklch(37% 0.005 98.9)",
+          "oklch(48% 0.006 98.9)",
+          "oklch(59% 0.006 98.9)",
+          "oklch(70% 0.007 98.9)",
+          "oklch(82% 0.008 98.9)",
+          "oklch(95% 0.008 98.9)"
+        ]
+      },
+      "rule": {
+        "role": "neutral",
+        "displayName": "Survey Rule",
+        "canonical": "#b2b0a8",
+        "tonalRamp": [
+          "oklch(15% 0.006 95.2)",
+          "oklch(26% 0.007 95.2)",
+          "oklch(37% 0.008 95.2)",
+          "oklch(48% 0.009 95.2)",
+          "oklch(59% 0.010 95.2)",
+          "oklch(70% 0.011 95.2)",
+          "oklch(82% 0.011 95.2)",
+          "oklch(95% 0.010 95.2)"
+        ]
+      },
+      "ink-2": {
+        "role": "neutral",
+        "displayName": "Bark Grey",
+        "canonical": "#4a443b",
+        "tonalRamp": [
+          "oklch(15% 0.013 78.1)",
+          "oklch(26% 0.015 78.1)",
+          "oklch(37% 0.017 78.1)",
+          "oklch(48% 0.016 78.1)",
+          "oklch(59% 0.014 78.1)",
+          "oklch(70% 0.013 78.1)",
+          "oklch(82% 0.011 78.1)",
+          "oklch(95% 0.009 78.1)"
+        ]
+      },
+      "ink-2-on-tape": {
+        "role": "neutral",
+        "displayName": "Tape Shadow",
+        "canonical": "#3b0f22",
+        "tonalRamp": [
+          "oklch(15% 0.067 357.0)",
+          "oklch(26% 0.072 357.0)",
+          "oklch(37% 0.065 357.0)",
+          "oklch(48% 0.059 357.0)",
+          "oklch(59% 0.052 357.0)",
+          "oklch(70% 0.045 357.0)",
+          "oklch(82% 0.038 357.0)",
+          "oklch(95% 0.030 357.0)"
+        ]
+      },
+      "alu-hi": {
+        "role": "neutral",
+        "displayName": "Aluminium Highlight",
+        "canonical": "#e3e6e8",
+        "tonalRamp": [
+          "oklch(15% 0.002 236.5)",
+          "oklch(26% 0.002 236.5)",
+          "oklch(37% 0.002 236.5)",
+          "oklch(48% 0.003 236.5)",
+          "oklch(59% 0.003 236.5)",
+          "oklch(70% 0.003 236.5)",
+          "oklch(82% 0.004 236.5)",
+          "oklch(95% 0.004 236.5)"
+        ]
+      },
+      "alu": {
+        "role": "neutral",
+        "displayName": "Aluminium",
+        "canonical": "#cdd2d6",
+        "tonalRamp": [
+          "oklch(15% 0.003 241.7)",
+          "oklch(26% 0.004 241.7)",
+          "oklch(37% 0.005 241.7)",
+          "oklch(48% 0.005 241.7)",
+          "oklch(59% 0.006 241.7)",
+          "oklch(70% 0.007 241.7)",
+          "oklch(82% 0.008 241.7)",
+          "oklch(95% 0.007 241.7)"
+        ]
+      },
+      "alu-lo": {
+        "role": "neutral",
+        "displayName": "Aluminium Shade",
+        "canonical": "#aeb4b9",
+        "tonalRamp": [
+          "oklch(15% 0.005 242.9)",
+          "oklch(26% 0.006 242.9)",
+          "oklch(37% 0.007 242.9)",
+          "oklch(48% 0.007 242.9)",
+          "oklch(59% 0.008 242.9)",
+          "oklch(70% 0.009 242.9)",
+          "oklch(82% 0.009 242.9)",
+          "oklch(95% 0.008 242.9)"
+        ]
+      },
+      "tag-ink": {
+        "role": "neutral",
+        "displayName": "Stamp Ink",
+        "canonical": "#26282c",
+        "tonalRamp": [
+          "oklch(15% 0.007 264.4)",
+          "oklch(26% 0.008 264.4)",
+          "oklch(37% 0.007 264.4)",
+          "oklch(48% 0.007 264.4)",
+          "oklch(59% 0.006 264.4)",
+          "oklch(70% 0.005 264.4)",
+          "oklch(82% 0.004 264.4)",
+          "oklch(95% 0.003 264.4)"
+        ]
+      },
+      "field-stroke": {
+        "role": "neutral",
+        "displayName": "Field Steel",
+        "canonical": "#8e9398",
+        "tonalRamp": [
+          "oklch(15% 0.005 248.0)",
+          "oklch(26% 0.006 248.0)",
+          "oklch(37% 0.007 248.0)",
+          "oklch(48% 0.008 248.0)",
+          "oklch(59% 0.009 248.0)",
+          "oklch(70% 0.009 248.0)",
+          "oklch(82% 0.008 248.0)",
+          "oklch(95% 0.007 248.0)"
+        ]
+      },
+      "stamp-oxblood": {
+        "role": "neutral",
+        "displayName": "Stamp Oxblood",
+        "canonical": "#7d002c",
+        "tonalRamp": [
+          "oklch(15% 0.122 11.6)",
+          "oklch(26% 0.136 11.6)",
+          "oklch(37% 0.150 11.6)",
+          "oklch(48% 0.137 11.6)",
+          "oklch(59% 0.124 11.6)",
+          "oklch(70% 0.110 11.6)",
+          "oklch(82% 0.095 11.6)",
+          "oklch(95% 0.078 11.6)"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "Hero H1 only (and the Visit phone number at width 70%)."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Station H2s, uppercase, one keyword on a tape mark."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "H3s, method names, docket title, place names."
+      },
+      "figure": {
+        "displayName": "Figure",
+        "purpose": "Readout values, prices, docket total, ledger names; tabular numerals."
+      },
+      "tape-print": {
+        "displayName": "Tape Print",
+        "purpose": "Announcement strip only."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "All reading text, Lexend 400; 1.125rem under 640px; max 68ch."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Nav links, field labels, summaries, method costs."
+      }
+    },
+    "shadows": [
+      {
+        "name": "metal-bevel",
+        "value": "inset 0 0 0 1px rgb(0 0 0 / .14), inset 0 1px 0 rgb(255 255 255 / .55)",
+        "purpose": "Every aluminium surface (the docket edge is .18)."
+      },
+      {
+        "name": "hanging-tag",
+        "value": "0 3px 4px -2px rgb(0 0 0 / .4)",
+        "purpose": "Size tags at rest on the wire."
+      },
+      {
+        "name": "hanging-tag-selected",
+        "value": "0 8px 10px -6px rgb(0 0 0 / .45)",
+        "purpose": "The chosen tag, lifted 3px."
+      },
+      {
+        "name": "punched-hole",
+        "value": "inset 0 1px 2px rgb(0 0 0 / .5)",
+        "purpose": "Holes through metal; the docket hole uses inset 0 2px 3px."
+      },
+      {
+        "name": "primary-lift",
+        "value": "0 6px 16px -6px rgb(23 21 19 / .55)",
+        "purpose": "Primary button at rest."
+      },
+      {
+        "name": "primary-lift-hover",
+        "value": "0 10px 22px -8px rgb(23 21 19 / .6)",
+        "purpose": "Primary button on hover."
+      },
+      {
+        "name": "menu-drop",
+        "value": "0 18px 30px -16px rgb(0 0 0 / .4)",
+        "purpose": "Open mobile menu panel."
+      }
+    ],
+    "motion": [
+      {
+        "name": "ease-out",
+        "value": "cubic-bezier(.16, 1, .3, 1)",
+        "purpose": "All physical motion: button lift, tag swing, spray ring, chevrons, stamp."
+      },
+      {
+        "name": "tie-on",
+        "value": "clip-path inset(0 100% 0 0) to inset(0), 1.1s ease-out, .25s delay",
+        "purpose": "Hero tape band ties on once at load."
+      },
+      {
+        "name": "tag-swing",
+        "value": "transform .5s ease-out",
+        "purpose": "Size tag hover swing, and straighten on select."
+      },
+      {
+        "name": "spray-in",
+        "value": "opacity .25s, transform .45s ease-out from scale(.85) rotate(-6deg)",
+        "purpose": "Spray ring appearing on the chosen tag."
+      },
+      {
+        "name": "stamp",
+        "value": ".45s ease-out, scale 1.25 to 1 with fade",
+        "purpose": "Docket confirmation stamp."
+      },
+      {
+        "name": "tree-grow",
+        "value": "1400ms grow, 380ms leave",
+        "purpose": "3D tree grows at load and regrows on size change."
+      },
+      {
+        "name": "reduced-motion",
+        "value": "animation and transition none; wind 0; auto-turn off",
+        "purpose": "All motion stops under prefers-reduced-motion."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "nav-tight",
+        "value": "1180px"
+      },
+      {
+        "name": "single-column",
+        "value": "1024px"
+      },
+      {
+        "name": "phone",
+        "value": "640px"
+      }
+    ],
+    "tree3d": {
+      "bark": {
+        "ground": "#100e0c",
+        "roughness": 0.92,
+        "bumpScale": 2.2
+      },
+      "crown": {
+        "leafDark": "#283f10",
+        "leafBase": "#3b5716",
+        "leafTip": "#9fbc3a",
+        "leafNew": "#cddc58",
+        "skirtBase": "#4a3823",
+        "skirtTip": "#9c8150",
+        "roughness": 0.7
+      },
+      "tape": {
+        "color": "#ff2d87",
+        "material": "unlit",
+        "toneMapped": false
+      },
+      "tag": {
+        "gradient": [
+          "#eceff1",
+          "#cfd4d8",
+          "#a9b0b6"
+        ],
+        "stamp": "Anybody 900/700, dark strike with lit lower edge",
+        "metalness": 0.55,
+        "roughness": 0.38
+      },
+      "wire": {
+        "color": "#9aa0a6",
+        "metalness": 0.9,
+        "roughness": 0.3
+      },
+      "ground": {
+        "shadowCatcher": "#5b4630 at 0.3",
+        "mound": "#cfc8b7",
+        "sprayRing": "#ff7a1a",
+        "staff": "#c99a62 with #1a1714 ticks, 1.6 m"
+      },
+      "light": {
+        "hemisphere": [
+          "#fff6e6",
+          "#8f7552",
+          0.55
+        ],
+        "sun": [
+          "#fff1dc",
+          2.6
+        ],
+        "rim": [
+          "#ffd6ea",
+          0.6
+        ],
+        "toneMapping": "ACESFilmic, exposure 1.05"
+      }
+    }
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Char pill with a pink arrow; the one main action per view.",
+      "html": "<a class=\"ds-btn-primary\" href=\"#\">Get this tree home <svg class=\"ds-ico\" viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M4 12h15M13 6l6 6-6 6\"/></svg></a>",
+      "css": ":host{--tape:#ff2d87;--tape-hem:#ee2a80;--peg:#ff7a1a;--char:#171513;--on-char:#efece6;--on-char-2:#b8b1a5;--sand:#e2e2de;--sand-lift:#efefec;--rule:#b2b0a8;--ink-2:#4a443b;--alu:#cdd2d6;--display:\"Anybody\",\"Arial Narrow\",sans-serif;--read:\"Lexend\",\"Segoe UI\",system-ui,sans-serif;--ease-out:cubic-bezier(.16,1,.3,1);} .ds-ico{width:1.1em;height:1.1em;fill:none;stroke:currentColor;stroke-width:2.25;stroke-linecap:round;stroke-linejoin:round;flex:none;} .ds-btn-primary{display:inline-flex;align-items:center;gap:.6rem;min-height:3.25rem;padding:.8rem 1.4rem;border-radius:999px;background:var(--char);color:var(--on-char);font:800 1.1rem/1 var(--display);font-stretch:105%;text-decoration:none;box-shadow:0 6px 16px -6px rgb(23 21 19 / .55);transition:transform .25s var(--ease-out),box-shadow .25s var(--ease-out);} .ds-btn-primary .ds-ico{color:var(--tape);transition:transform .25s var(--ease-out);} .ds-btn-primary:hover{transform:translateY(-2px);box-shadow:0 10px 22px -8px rgb(23 21 19 / .6);} .ds-btn-primary:hover .ds-ico{transform:translateX(3px);} .ds-btn-primary:active{transform:none;} .ds-btn-primary:focus-visible{outline:3px solid var(--peg);outline-offset:3px;}"
+    },
+    {
+      "name": "Quiet Button",
+      "kind": "button",
+      "refersTo": "button-quiet",
+      "description": "Secondary action: char text on a thick pink underline.",
+      "html": "<a class=\"ds-btn-quiet\" href=\"#\">All sizes &amp; prices</a>",
+      "css": ":host{--tape:#ff2d87;--tape-hem:#ee2a80;--peg:#ff7a1a;--char:#171513;--on-char:#efece6;--on-char-2:#b8b1a5;--sand:#e2e2de;--sand-lift:#efefec;--rule:#b2b0a8;--ink-2:#4a443b;--alu:#cdd2d6;--display:\"Anybody\",\"Arial Narrow\",sans-serif;--read:\"Lexend\",\"Segoe UI\",system-ui,sans-serif;--ease-out:cubic-bezier(.16,1,.3,1);} .ds-btn-quiet{display:inline-flex;align-items:center;min-height:3.25rem;padding:.8rem .5rem;color:var(--char);font:800 1.1rem/1 var(--display);font-stretch:105%;text-decoration:underline;text-decoration-color:var(--tape);text-decoration-thickness:3px;text-underline-offset:.3em;} .ds-btn-quiet:hover{text-decoration-color:currentColor;} .ds-btn-quiet:focus-visible{outline:3px solid var(--peg);outline-offset:3px;}"
+    },
+    {
+      "name": "Line Button (on char)",
+      "kind": "button",
+      "refersTo": "button-line",
+      "description": "Outlined pill for actions on char stations; ring turns pink on hover.",
+      "html": "<div class=\"ds-char\"><a class=\"ds-btn-line\" href=\"#\"><svg class=\"ds-ico\" viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z\"/><circle cx=\"12\" cy=\"10\" r=\"3\"/></svg> Directions</a></div>",
+      "css": ":host{--tape:#ff2d87;--tape-hem:#ee2a80;--peg:#ff7a1a;--char:#171513;--on-char:#efece6;--on-char-2:#b8b1a5;--sand:#e2e2de;--sand-lift:#efefec;--rule:#b2b0a8;--ink-2:#4a443b;--alu:#cdd2d6;--display:\"Anybody\",\"Arial Narrow\",sans-serif;--read:\"Lexend\",\"Segoe UI\",system-ui,sans-serif;--ease-out:cubic-bezier(.16,1,.3,1);} .ds-ico{width:1.1em;height:1.1em;fill:none;stroke:currentColor;stroke-width:2.25;stroke-linecap:round;stroke-linejoin:round;flex:none;} .ds-char{background:var(--char);padding:1.5rem;} .ds-btn-line{display:inline-flex;align-items:center;gap:.6rem;min-height:3.25rem;padding:.8rem 1.4rem;border-radius:999px;color:var(--on-char);font:800 1.1rem/1 var(--display);font-stretch:105%;text-decoration:none;box-shadow:inset 0 0 0 2px var(--on-char-2);transition:box-shadow .2s;} .ds-btn-line:hover{box-shadow:inset 0 0 0 2px var(--tape);} .ds-btn-line:focus-visible{outline:3px solid var(--peg);outline-offset:3px;}"
+    },
+    {
+      "name": "Tape Strip",
+      "kind": "custom",
+      "refersTo": "tape-strip",
+      "description": "Full-width hemmed flagging tape carrying the current announcement.",
+      "html": "<p class=\"ds-tape-strip\"><strong>Trailer Special</strong><span><b>$325</b> <s>$475</s></span><a href=\"#\">Book a slot</a></p>",
+      "css": ":host{--tape:#ff2d87;--tape-hem:#ee2a80;--peg:#ff7a1a;--char:#171513;--on-char:#efece6;--on-char-2:#b8b1a5;--sand:#e2e2de;--sand-lift:#efefec;--rule:#b2b0a8;--ink-2:#4a443b;--alu:#cdd2d6;--display:\"Anybody\",\"Arial Narrow\",sans-serif;--read:\"Lexend\",\"Segoe UI\",system-ui,sans-serif;--ease-out:cubic-bezier(.16,1,.3,1);} .ds-tape-strip{background:linear-gradient(var(--tape-hem),var(--tape-hem)) top/100% 3px no-repeat,linear-gradient(var(--tape-hem),var(--tape-hem)) bottom/100% 3px no-repeat,var(--tape);color:var(--char);margin:0;display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:.25rem 1.1rem;padding:.55rem 1.5rem;font:700 .88rem var(--display);font-stretch:112%;letter-spacing:.02em;text-transform:uppercase;} .ds-tape-strip>*{display:inline-flex;align-items:center;gap:.45rem;} .ds-tape-strip>*+*::before{content:\"\";width:.4rem;height:.4rem;background:var(--char);transform:rotate(45deg);margin-right:.7rem;} .ds-tape-strip strong,.ds-tape-strip b{font-weight:900;} .ds-tape-strip s{text-decoration-thickness:2px;opacity:.8;} .ds-tape-strip a{color:inherit;text-decoration:none;border-bottom:2px solid var(--char);} .ds-tape-strip a:focus-visible{outline:3px solid var(--char);outline-offset:3px;}"
+    },
+    {
+      "name": "Station Headline with Tape Mark",
+      "kind": "custom",
+      "refersTo": "tape-mark",
+      "description": "Condensed uppercase station heading with one keyword laid on skewed tape.",
+      "html": "<h2 class=\"ds-station-h\">Three ways to get it <span class=\"ds-tape-mark\">home</span></h2>",
+      "css": ":host{--tape:#ff2d87;--tape-hem:#ee2a80;--peg:#ff7a1a;--char:#171513;--on-char:#efece6;--on-char-2:#b8b1a5;--sand:#e2e2de;--sand-lift:#efefec;--rule:#b2b0a8;--ink-2:#4a443b;--alu:#cdd2d6;--display:\"Anybody\",\"Arial Narrow\",sans-serif;--read:\"Lexend\",\"Segoe UI\",system-ui,sans-serif;--ease-out:cubic-bezier(.16,1,.3,1);} .ds-station-h{margin:0;font:850 3rem/.95 var(--display);font-stretch:68%;letter-spacing:-.015em;text-transform:uppercase;color:var(--char);} .ds-tape-mark{display:inline-block;padding:.02em .14em .04em;margin:0 -.06em;rotate:-1.6deg;background:linear-gradient(var(--tape-hem),var(--tape-hem)) top/100% 3px no-repeat,linear-gradient(var(--tape-hem),var(--tape-hem)) bottom/100% 3px no-repeat,var(--tape);color:var(--char);}"
+    },
+    {
+      "name": "Stamped Size Tag",
+      "kind": "chip",
+      "refersTo": "size-tag",
+      "description": "Aluminium radio tag on a wire with a punched hole; the chosen one straightens and gets a sprayed pink ring. (Shipped tags punch letters on canvas over a brushed texture; this snippet approximates both in CSS.)",
+      "html": "<label class=\"ds-tag\"><input type=\"radio\" name=\"ds-size\" checked><span class=\"ds-tag-plate\"><span class=\"ds-tag-h\">0.6 M</span><span class=\"ds-tag-heads\">single head</span><span class=\"ds-tag-p\">$200</span></span><svg class=\"ds-tag-spray\" viewBox=\"0 0 120 150\" preserveAspectRatio=\"none\" aria-hidden=\"true\"><path d=\"M64 7C101 5 117 42 114 80c-3 42-27 64-58 63-34-1-50-30-49-69C8 34 29 6 70 10\" stroke-width=\"5\"/><path d=\"M58 11c34-3 52 30 51 66-1 40-22 59-52 60\" stroke-width=\"2\" opacity=\".5\"/></svg></label><label class=\"ds-tag\"><input type=\"radio\" name=\"ds-size\"><span class=\"ds-tag-plate\"><span class=\"ds-tag-h\">0.8 M</span><span class=\"ds-tag-heads\">single head</span><span class=\"ds-tag-p\">$250</span></span><svg class=\"ds-tag-spray\" viewBox=\"0 0 120 150\" preserveAspectRatio=\"none\" aria-hidden=\"true\"><path d=\"M64 7C101 5 117 42 114 80c-3 42-27 64-58 63-34-1-50-30-49-69C8 34 29 6 70 10\" stroke-width=\"5\"/><path d=\"M58 11c34-3 52 30 51 66-1 40-22 59-52 60\" stroke-width=\"2\" opacity=\".5\"/></svg></label>",
+      "css": ":host{--tape:#ff2d87;--tape-hem:#ee2a80;--peg:#ff7a1a;--char:#171513;--on-char:#efece6;--on-char-2:#b8b1a5;--sand:#e2e2de;--sand-lift:#efefec;--rule:#b2b0a8;--ink-2:#4a443b;--alu:#cdd2d6;--display:\"Anybody\",\"Arial Narrow\",sans-serif;--read:\"Lexend\",\"Segoe UI\",system-ui,sans-serif;--ease-out:cubic-bezier(.16,1,.3,1);} .ds-tag{--tilt:-1.5deg;position:relative;display:inline-block;width:6.8rem;margin:1.6rem .6rem 1rem;cursor:pointer;vertical-align:top;} .ds-tag+.ds-tag{--tilt:1.8deg;} .ds-tag input{position:absolute;inset:0;opacity:0;margin:0;cursor:pointer;} .ds-tag-plate{position:relative;display:grid;padding:1.4rem .6rem .65rem;border-radius:3px;background:linear-gradient(160deg,#e3e6e8,#cdd2d6 45%,#aeb4b9);box-shadow:inset 0 0 0 1px rgb(0 0 0 / .14),inset 0 1px 0 rgb(255 255 255 / .55),0 3px 4px -2px rgb(0 0 0 / .4);transform:rotate(var(--tilt));transform-origin:50% -1.2rem;transition:transform .5s var(--ease-out),box-shadow .3s;text-align:center;} .ds-tag-plate::before{content:\"\";position:absolute;left:50%;top:-1.25rem;width:2px;height:1.85rem;translate:-50% 0;background:#7b766f;} .ds-tag-plate::after{content:\"\";position:absolute;left:50%;top:.45rem;width:.6rem;height:.6rem;translate:-50% 0;border-radius:50%;background:var(--sand);box-shadow:inset 0 1px 2px rgb(0 0 0 / .5);} .ds-tag-h{font:850 1.55rem/1 var(--display);font-stretch:80%;font-variant-numeric:tabular-nums;color:#4b5056;text-shadow:-.7px -.9px 0 rgba(18,20,24,.9),.9px 1.2px 0 rgba(255,255,255,.8);} .ds-tag-p{font:850 1.1rem var(--display);font-stretch:95%;font-variant-numeric:tabular-nums;color:#4b5056;text-shadow:-.7px -.9px 0 rgba(18,20,24,.9),.9px 1.2px 0 rgba(255,255,255,.8);} .ds-tag-heads{font:700 .82rem var(--read);color:#3e3e42;} .ds-tag:hover .ds-tag-plate{transform:rotate(calc(var(--tilt) * -2));} .ds-tag input:checked+.ds-tag-plate{transform:rotate(0deg) translateY(-3px);box-shadow:inset 0 0 0 1px rgb(0 0 0 / .14),inset 0 1px 0 rgb(255 255 255 / .55),0 8px 10px -6px rgb(0 0 0 / .45);} .ds-tag input:focus-visible+.ds-tag-plate{outline:3px solid var(--peg);outline-offset:4px;} .ds-tag-spray{position:absolute;left:-.55rem;top:-.7rem;width:calc(100% + 1.1rem);height:calc(100% + 1.25rem);pointer-events:none;overflow:visible;opacity:0;transform:scale(.85) rotate(-6deg);transition:opacity .25s,transform .45s var(--ease-out);} .ds-tag-spray path{fill:none;stroke:var(--tape);stroke-linecap:round;} .ds-tag input:checked~.ds-tag-spray{opacity:1;transform:none;}"
+    },
+    {
+      "name": "Docket Plate with Field",
+      "kind": "card",
+      "refersTo": "docket",
+      "description": "The aluminium quote plate: punched hole with a tape tag tied through, Lexend labels, 10px fields, ledger total.",
+      "html": "<div class=\"ds-docket\"><span class=\"ds-docket-hole\"></span><p class=\"ds-docket-title\">Your estimate</p><label class=\"ds-field\"><span>Your suburb</span><input placeholder=\"e.g. Fremantle\"></label><table class=\"ds-docket-lines\"><tbody><tr><th>1 × 0.6 m tree</th><td>$200</td></tr><tr><th>Delivery</th><td>$100</td></tr></tbody><tfoot><tr><th>Total</th><td>$300</td></tr></tfoot></table></div>",
+      "css": ":host{--tape:#ff2d87;--tape-hem:#ee2a80;--peg:#ff7a1a;--char:#171513;--on-char:#efece6;--on-char-2:#b8b1a5;--sand:#e2e2de;--sand-lift:#efefec;--rule:#b2b0a8;--ink-2:#4a443b;--alu:#cdd2d6;--display:\"Anybody\",\"Arial Narrow\",sans-serif;--read:\"Lexend\",\"Segoe UI\",system-ui,sans-serif;--ease-out:cubic-bezier(.16,1,.3,1);} .ds-docket{position:relative;display:grid;gap:1rem;max-width:24rem;padding:3.25rem 2rem 2rem;border-radius:4px;background:linear-gradient(rgb(216 219 222 / .5),rgb(216 219 222 / .5)),linear-gradient(160deg,#e3e6e8,#cdd2d6 50%,#aeb4b9);box-shadow:inset 0 0 0 1px rgb(0 0 0 / .18),inset 0 1px 0 rgb(255 255 255 / .55);color:#1f2023;font:400 1.1875rem/1.55 var(--read);} .ds-docket-hole{position:absolute;top:1.15rem;left:50%;width:1.3rem;height:1.3rem;translate:-50% 0;border-radius:50%;background:var(--sand);box-shadow:inset 0 2px 3px rgb(0 0 0 / .5);} .ds-docket-hole::after{content:\"\";position:absolute;left:50%;bottom:45%;width:1.6rem;height:4.5rem;translate:-50% 0;rotate:8deg;transform-origin:bottom center;border-radius:2px;background:var(--tape);box-shadow:0 2px 4px rgb(0 0 0 / .2);} .ds-docket-title{margin:0;font:850 1.6rem var(--display);font-stretch:80%;text-transform:uppercase;} .ds-field{display:grid;gap:.3rem;font-weight:700;font-size:1rem;} .ds-field input{font:400 1.1875rem var(--read);color:var(--char);background:var(--sand-lift);border:2px solid #8e9398;border-radius:10px;min-height:3rem;padding:.5rem .8rem;} .ds-field input:hover{border-color:var(--char);} .ds-field input:focus-visible{outline:3px solid var(--peg);outline-offset:1px;} .ds-docket-lines{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums;} .ds-docket-lines th,.ds-docket-lines td{padding:.45rem 0;border-bottom:1px dashed #8e9398;font-size:1rem;font-weight:400;text-align:left;} .ds-docket-lines td{text-align:right;} .ds-docket-lines tfoot th,.ds-docket-lines tfoot td{border-bottom:0;border-top:2px solid var(--char);padding-top:.8rem;font:850 2.2rem/1 var(--display);font-stretch:80%;} .ds-docket-lines tfoot th{font-size:1.25rem;text-transform:uppercase;vertical-align:bottom;}"
+    },
+    {
+      "name": "Delivery Method Row",
+      "kind": "custom",
+      "refersTo": "method-row-selected",
+      "description": "Radio rows on rules; the chosen row fills with tape.",
+      "html": "<div class=\"ds-methods\"><label class=\"ds-method\"><input type=\"radio\" name=\"ds-m\"><span class=\"ds-method-body\"><span class=\"ds-method-name\">Pick it up</span><span class=\"ds-method-cost\">Free</span></span></label><label class=\"ds-method\"><input type=\"radio\" name=\"ds-m\" checked><span class=\"ds-method-body\"><span class=\"ds-method-name\">Delivered</span><span class=\"ds-method-cost\">$100 one tree</span></span></label></div>",
+      "css": ":host{--tape:#ff2d87;--tape-hem:#ee2a80;--peg:#ff7a1a;--char:#171513;--on-char:#efece6;--on-char-2:#b8b1a5;--sand:#e2e2de;--sand-lift:#efefec;--rule:#b2b0a8;--ink-2:#4a443b;--alu:#cdd2d6;--display:\"Anybody\",\"Arial Narrow\",sans-serif;--read:\"Lexend\",\"Segoe UI\",system-ui,sans-serif;--ease-out:cubic-bezier(.16,1,.3,1);} .ds-methods{border-top:2px solid var(--char);font:400 1.1875rem/1.55 var(--read);color:var(--char);} .ds-method{display:block;position:relative;border-bottom:1px solid var(--rule);cursor:pointer;} .ds-method input{position:absolute;inset:0;opacity:0;margin:0;cursor:pointer;} .ds-method-body{display:grid;grid-template-columns:2.25rem 1fr auto;align-items:center;gap:1.25rem;padding:1.5rem 1.25rem;transition:background .25s;} .ds-method-body::before{content:\"\";width:1.6rem;height:1.6rem;border-radius:50%;box-shadow:inset 0 0 0 2px var(--char);transition:box-shadow .25s var(--ease-out),background .25s;} .ds-method-name{font:850 1.6rem/1.15 var(--display);font-stretch:75%;text-transform:uppercase;} .ds-method-cost{font-weight:700;font-size:1rem;text-align:right;} .ds-method:hover .ds-method-body{background:var(--sand-lift);} .ds-method input:checked+.ds-method-body{background:var(--tape);} .ds-method input:checked+.ds-method-body::before{background:var(--char);box-shadow:inset 0 0 0 2px var(--char),inset 0 0 0 6px var(--tape);} .ds-method input:focus-visible+.ds-method-body{outline:3px solid var(--peg);outline-offset:-3px;}"
+    },
+    {
+      "name": "Accordion",
+      "kind": "custom",
+      "refersTo": null,
+      "description": "Questions on 2px char rules with a turning stroked chevron.",
+      "html": "<div class=\"ds-checks\"><details open><summary>Is it getting enough water? <svg class=\"ds-ico\" viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M6 9l6 6 6-6\"/></svg></summary><p>Water at the base by dripper or bubbler, never on the foliage.</p></details><details><summary>Is it getting too much? <svg class=\"ds-ico\" viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M6 9l6 6 6-6\"/></svg></summary><p>Check the centre leaves before adding more water.</p></details></div>",
+      "css": ":host{--tape:#ff2d87;--tape-hem:#ee2a80;--peg:#ff7a1a;--char:#171513;--on-char:#efece6;--on-char-2:#b8b1a5;--sand:#e2e2de;--sand-lift:#efefec;--rule:#b2b0a8;--ink-2:#4a443b;--alu:#cdd2d6;--display:\"Anybody\",\"Arial Narrow\",sans-serif;--read:\"Lexend\",\"Segoe UI\",system-ui,sans-serif;--ease-out:cubic-bezier(.16,1,.3,1);} .ds-ico{width:1.1em;height:1.1em;fill:none;stroke:currentColor;stroke-width:2.25;stroke-linecap:round;stroke-linejoin:round;flex:none;} .ds-checks{font:400 1.1875rem/1.55 var(--read);color:var(--char);} .ds-checks details{border-top:2px solid var(--char);} .ds-checks details:last-of-type{border-bottom:2px solid var(--char);} .ds-checks summary{display:flex;justify-content:space-between;align-items:center;gap:1rem;padding:1rem 0;font-weight:700;cursor:pointer;list-style:none;} .ds-checks summary::-webkit-details-marker{display:none;} .ds-checks summary .ds-ico{transition:transform .3s var(--ease-out);} .ds-checks details[open] summary .ds-ico{transform:rotate(180deg);} .ds-checks details>p{margin:0;padding:0 0 1.25rem;color:var(--ink-2);} .ds-checks summary:focus-visible{outline:3px solid var(--peg);outline-offset:3px;}"
+    },
+    {
+      "name": "Navigation",
+      "kind": "nav",
+      "refersTo": "call-pill",
+      "description": "Sticky sand header: lowercase wordmark, Lexend links with a tape underline on hover, char call pill.",
+      "html": "<header class=\"ds-head\"><span class=\"ds-word\">replants</span><nav><a href=\"#\">Trees &amp; prices</a><a href=\"#\">Get it home</a><a href=\"#\">Visit</a></nav><a class=\"ds-call\" href=\"#\"><svg class=\"ds-ico\" viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z\"/></svg>0408 885 435</a></header>",
+      "css": ":host{--tape:#ff2d87;--tape-hem:#ee2a80;--peg:#ff7a1a;--char:#171513;--on-char:#efece6;--on-char-2:#b8b1a5;--sand:#e2e2de;--sand-lift:#efefec;--rule:#b2b0a8;--ink-2:#4a443b;--alu:#cdd2d6;--display:\"Anybody\",\"Arial Narrow\",sans-serif;--read:\"Lexend\",\"Segoe UI\",system-ui,sans-serif;--ease-out:cubic-bezier(.16,1,.3,1);} .ds-ico{width:1.1em;height:1.1em;fill:none;stroke:currentColor;stroke-width:2.25;stroke-linecap:round;stroke-linejoin:round;flex:none;} .ds-head{display:flex;align-items:center;gap:2rem;padding:.85rem 1.5rem;background:rgb(226 226 222 / .94);border-bottom:1px solid var(--rule);color:var(--char);} .ds-word{font:850 1.85rem/1 var(--display);font-stretch:92%;letter-spacing:-.035em;} .ds-head nav{display:flex;gap:1.5rem;margin-left:auto;} .ds-head nav a{color:inherit;font:700 1rem var(--read);text-decoration:none;padding:.35rem 0;border-bottom:3px solid transparent;transition:border-color .2s;} .ds-head nav a:hover{border-color:var(--tape);} .ds-head a:focus-visible{outline:3px solid var(--peg);outline-offset:3px;} .ds-call{display:inline-flex;align-items:center;gap:.5rem;padding:.55rem 1rem;border-radius:999px;background:var(--char);color:var(--on-char);font:800 1.05rem var(--display);font-stretch:105%;font-variant-numeric:tabular-nums;text-decoration:none;transition:background .2s;} .ds-call .ds-ico{color:var(--tape);} .ds-call:hover{background:#000;}"
+    }
+  ],
+  "narrative": {
+    "northStar": "Flagging Tape & Tree Tags",
+    "overview": "On a clearing site, fluoro pink tape around a trunk means \"this one gets saved\". The whole system is built from that marking kit: hemmed pink flagging tape carries announcements and the one key word of each headline, stamped aluminium tags with a wire hole carry sizes and prices, and a spray-painted ring marks the selection. The ground is bleached Bassendean sand (grey-white, never cream); ink and the dark stations are char black from fire-blackened trunks. Green appears only on living things.\n\nThe page is a sequence of full-bleed stations, alternating sand, char and one drenched tape station, each opening with a huge condensed uppercase Anybody headline beside a short Lexend paragraph. Content sits on rules and ledgers rather than in cards: a 2px char top rule opens a list, 1px rules divide its rows. Metal is reserved for things a yard would actually stamp: the size tags and the quote docket. The 3D grass tree in the hero is the same world in material form: charred bark, needle crown, the same pink tape tied round the trunk and a stamped tag on a wire.\n\nMotion is sparse and physical. Tape ties on once (a clip reveal), the tree grows once at load and regrows when a size is picked, the crown and tape tail sway in wind; tags swing on hover and the docket's confirmation stamps down. Everything else is still, and all of it stops under reduced motion. Type is large throughout for an older audience.",
+    "keyCharacteristics": [
+      "Fluoro tape pink is the committed colour and owns full-width bands, not accents.",
+      "Condensed heavy Anybody on tape and metal; Lexend 400 for every sentence a person reads.",
+      "Sand, char and tape stations, separated by colour, never by cards or shadows.",
+      "Stamped aluminium is a material with a texture, a wire hole and punched lettering, used only for tags and the docket.",
+      "Selection is marked by hand: a sprayed ring, a tape-filled row, a stamped confirmation."
+    ],
+    "rules": [
+      {
+        "name": "The Tape Owns Bands Rule",
+        "body": "Pink is applied as tape: a hemmed band, a skewed mark behind a word, a drenched station, a filled row. It is never a decorative accent line or gradient; the only line uses are link and nav-hover underlines and the 3px top rule on each visit card. On char, pink may also set short text (the warranty title, opening hours, the phone number on hover).",
+        "section": "colors"
+      },
+      {
+        "name": "The Living Green Rule",
+        "body": "Green appears only on the tree and the plant in the cross-section. If it is not alive, it is not green.",
+        "section": "colors"
+      },
+      {
+        "name": "The Peg Means Focus Rule",
+        "body": "Peg orange is the keyboard focus colour everywhere, including on aluminium. On the tape station the focus ring switches to char, since orange on pink fails.",
+        "section": "colors"
+      },
+      {
+        "name": "The Two Voices Rule",
+        "body": "Anybody prints and stamps; Lexend speaks. Any full sentence, caption, answer or instruction is Lexend. Anybody never sets running text.",
+        "section": "typography"
+      },
+      {
+        "name": "The Readable Zero Rule",
+        "body": "Years, prices and sizes must read unambiguously. Never use a reading face with a slashed or dotted zero; all figures use tabular numerals.",
+        "section": "typography"
+      },
+      {
+        "name": "The Big Type Rule",
+        "body": "Body never drops below 1.125rem and secondary sentences (fine print, captions, field errors) never below 0.92rem. Only short printed labels on tape, tags and badges go smaller (0.78-0.9rem).",
+        "section": "typography"
+      },
+      {
+        "name": "The Objects Cast, Panels Don't Rule",
+        "body": "Shadows belong to things that hang or lift (tags, the primary button, the menu). Content blocks, stations and ledgers never carry a shadow.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "Do put one headline keyword per station on a hemmed tape mark, rotated about -1.6deg.",
+      "Do set every price, size and year in tabular figures, and every reading sentence in Lexend 400 at 1.1875rem or larger.",
+      "Do use stamped aluminium (texture, bevel, punched hole) only for tags, the docket and other objects a yard would physically stamp.",
+      "Do mark selection physically: a sprayed ring, a tape-filled row, a straightened tag, a stamp.",
+      "Do separate content with rules (2px char to open, 1px to divide) and with station colour changes.",
+      "Do use peg orange for focus, switching to char on the tape station.",
+      "Do keep the tree's tape unlit so 3D pink and CSS pink are the same colour."
+    ],
+    "donts": [
+      "Don't use pink as a decorative accent line or gradient; it is tape, laid in bands (underlines and the visit-card rule are the only line uses).",
+      "Don't colour anything green that is not alive.",
+      "Don't use a cream or warm-beige ground; the sand is grey-white.",
+      "Don't set running text or captions in Anybody, or use a reading face with a slashed zero.",
+      "Don't put content in shadowed cards; panels are flat, only hanging or lifted objects cast.",
+      "Don't add motion beyond tie-on, grow, wind sway, tag swing and the stamp; everything else is still, and all of it stops under reduced motion."
+    ]
+  }
+}

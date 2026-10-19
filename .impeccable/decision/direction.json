@@ -1,0 +1,130 @@
+{
+  "title": "Choose the visual world for Replants",
+  "question": "The roll assigned Perth Sand, In Section. Keep it, take the pick, or re-roll.",
+  "options": [
+    {
+      "id": "assigned",
+      "label": "Perth Sand, In Section",
+      "kicker": "THE ROLL",
+      "lineage": "Geotechnical borehole logs and the Swan Coastal Plain soil profile",
+      "thesis": "The site is the planting hole: you scroll down through the sand a rescued tree goes into.",
+      "palette": ["#d98a3d", "#f0c27a", "#e7e1d3", "#16130f", "#8fbf3a"],
+      "materials": ["Spearwood ochre sand", "Bassendean grey sand", "fire-blackened trunk", "borehole log rules"],
+      "viewport": "A live 3D grass tree sits in a cut-away block of layered sand; drag its trunk height and the price, age and ways to get it update beside a depth scale.",
+      "risk": "Earthy orange can read rustic if the type and log grid are set softly instead of with engineering precision.",
+      "raised": [
+        { "from": "challenger-darkroom", "raise": "The page runs as fixed stations in strict order: Choose, Get it home, Plant, The first 24 months." },
+        { "from": "challenger-jacquard", "raise": "One data table drives both the 3D tree and the accessible HTML price table, so neither can drift." },
+        { "from": "challenger-algorave", "raise": "Every control previews its consequence before commit: the total updates while you drag, before you book." },
+        { "from": "challenger-ticket-wallet", "raise": "States stamp rather than vanish: the Trailer Special's old price is struck through and stays visible." }
+      ]
+    },
+    {
+      "id": "model-pick",
+      "label": "Flagging Tape & Tree Tags",
+      "kicker": "IMPECCABLE’S PICK",
+      "lineage": "The marking system of a land-clearing site",
+      "thesis": "Fluoro tape around a trunk means this one gets saved; the site is built from that tag.",
+      "palette": ["#ff3d7f", "#ff8a1f", "#f4efe4", "#1a1a17", "#6f8f3a"],
+      "materials": ["fluoro flagging tape", "numbered tree tags", "spray-paint on sand"],
+      "viewport": "A 3D grass tree wrapped in pink flagging tape whose tag carries its size and price, beside a booking strip.",
+      "risk": "The most obvious read of a rescue business; strong, but closest to where most runs would land."
+    },
+    {
+      "id": "challenger-darkroom",
+      "label": "Darkroom Safelight",
+      "verdict": "declined",
+      "lineage": "Printing darkroom under amber safelight",
+      "thesis": "The tree's recovery as a print slowly developing in the tray.",
+      "palette": ["#c8641e", "#2a2420", "#d8d2c4"],
+      "materials": ["amber safelight", "silver-grey prints", "enamel trays"],
+      "viewport": "A developing print of a grass tree under amber light.",
+      "case": "Fuses poorly: homeowners buying a tree don't identify with photo chemistry.",
+      "kept": "Fixed stations in strict order.",
+      "risk": "Hides the price and the action behind a metaphor.",
+      "hero": "https://impeccable.style/worlds/cards/signals-instruments-darkroom-safelight-bay-hero.webp"
+    },
+    {
+      "id": "challenger-jacquard",
+      "label": "Jacquard Brocade",
+      "verdict": "declined",
+      "lineage": "Punched-card loom weaving",
+      "thesis": "Each tree woven from its own instruction card.",
+      "palette": ["#141a3a", "#c9a227", "#efe6cf"],
+      "materials": ["midnight silk", "gold weft", "punch cards"],
+      "viewport": "A brocade grass tree emerging row by row.",
+      "case": "Fuses poorly: luxury textile has nothing to do with WA bush.",
+      "kept": "One data matrix drives both the render and the accessible version.",
+      "risk": "Reads as a fashion house, not a tree rescuer.",
+      "hero": "https://impeccable.style/worlds/cards/textiles-weave-drape-fashion-jacquard-punched-brocade-hero.webp"
+    },
+    {
+      "id": "challenger-algorave",
+      "label": "Algorave Floor",
+      "verdict": "declined",
+      "lineage": "Live-coded music performance",
+      "thesis": "Edit the tree like live code.",
+      "palette": ["#0b0b0b", "#39ff6a", "#ff2bd6"],
+      "materials": ["projector black", "phosphor code"],
+      "viewport": "A code buffer that grows a tree.",
+      "case": "Fuses poorly: alienates an older, phone-first audience.",
+      "kept": "Changes preview before they commit.",
+      "risk": "Unreadable to the people who buy grass trees.",
+      "hero": "https://impeccable.style/worlds/cards/medium-native-algorave-source-floor-hero.webp"
+    },
+    {
+      "id": "challenger-ticket-wallet",
+      "label": "Jet-Age Ticket Wallet",
+      "verdict": "declined",
+      "lineage": "1960s airline ticket coupons",
+      "thesis": "Your pick-up booked as a coupon book.",
+      "palette": ["#1c2a5a", "#c8202f", "#ffffff"],
+      "materials": ["carbon coupons", "baggage tags"],
+      "viewport": "A tear-off coupon for a Saturday pick-up.",
+      "case": "Fuses poorly: travel ephemera has no tie to the bush or the garden.",
+      "kept": "States stamp, never vanish.",
+      "risk": "Pretty but unrelated to the product.",
+      "hero": "https://impeccable.style/worlds/cards/vernacular-ephemera-jet-age-ticket-wallet-hero.webp"
+    },
+    {
+      "id": "challenger-timetable",
+      "label": "Timetable Slide Rack",
+      "verdict": "declined",
+      "lineage": "Pocket airline timetables on a light table",
+      "thesis": "Prices as a raked timetable.",
+      "palette": ["#e2a92b", "#2e3640", "#f2ecd9", "#d6422b"],
+      "materials": ["tinted glass slides", "goldenrod light bed"],
+      "viewport": "A raked rack of price slides.",
+      "case": "Fuses poorly: lateral travel and one type size fight an older audience.",
+      "kept": "Strict type discipline: very few sizes, rank by weight.",
+      "risk": "Clever, but makes simple prices hard to read.",
+      "hero": "https://impeccable.style/worlds/cards/rw-timetable-slide-rack-hero.webp"
+    },
+    {
+      "id": "challenger-cloud",
+      "label": "Iridescent Cloud Edge",
+      "verdict": "declined",
+      "lineage": "Cloud iridescence",
+      "thesis": "Recovery as a shifting spectral band.",
+      "palette": ["#f7f7f5", "#5b6370", "#9fe3c8", "#e6a6c7"],
+      "materials": ["cloud white", "pastel diffraction"],
+      "viewport": "A white field with a thin spectral edge.",
+      "case": "Fuses poorly: too cool and abstract for sun-baked sand and black trunks.",
+      "kept": "A named state vocabulary (stressed, establishing, established, self-reliant).",
+      "risk": "Generic wellness look.",
+      "hero": "https://impeccable.style/worlds/cards/clouds-storms-auroras-iridescent-cloud-edge-hero.webp"
+    }
+  ],
+  "reroll": { "registers": ["safer", "bolder"] },
+  "buildPath": { "value": "code", "toggle": false },
+  "canon": true,
+  "canonCard": {
+    "label": "The category standard",
+    "thesis": "A clean native-nursery shop, executed at full craft.",
+    "palette": ["#ffffff", "#1f2a1c", "#3f7d3a"],
+    "materials": ["clean grid", "plant photography", "product cards"],
+    "viewport": "Photo hero with headline and Shop button, a row of tree-size cards below.",
+    "risk": "Looks like every garden centre; the rescue story becomes a footnote."
+  },
+  "steer": true
+}

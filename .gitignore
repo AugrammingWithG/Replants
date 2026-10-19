@@ -1,0 +1,8 @@
+.impeccable/review/
+.impeccable/live/
+.impeccable/config.local.json
+node_modules/
+.DS_Store
+Thumbs.db
+desktop.ini
+.impeccable/questions/
