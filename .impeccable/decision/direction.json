@@ -1,130 +1,237 @@
 {
-  "title": "Choose the visual world for Replants",
-  "question": "The roll assigned Perth Sand, In Section. Keep it, take the pick, or re-roll.",
+  "title": "Choose the new visual world",
+  "question": "A full restart, playful and reactive. The roll dealt the pop-up book. Keep it, take an alternate, or re-roll.",
   "options": [
     {
       "id": "assigned",
-      "label": "Perth Sand, In Section",
+      "label": "Pop-up Bush Picture Book",
       "kicker": "THE ROLL",
-      "lineage": "Geotechnical borehole logs and the Swan Coastal Plain soil profile",
-      "thesis": "The site is the planting hole: you scroll down through the sand a rescued tree goes into.",
-      "palette": ["#d98a3d", "#f0c27a", "#e7e1d3", "#16130f", "#8fbf3a"],
-      "materials": ["Spearwood ochre sand", "Bassendean grey sand", "fire-blackened trunk", "borehole log rules"],
-      "viewport": "A live 3D grass tree sits in a cut-away block of layered sand; drag its trunk height and the price, age and ways to get it update beside a depth scale.",
-      "risk": "Earthy orange can read rustic if the type and log grid are set softly instead of with engineering precision.",
+      "lineage": "Australian picture books and paper-engineered pop-ups",
+      "thesis": "The rescue told as a pop-up book you play with: open it and the grass tree springs up out of the gutter.",
+      "palette": [
+        "#2f6fd6",
+        "#f2b51f",
+        "#d4512f",
+        "#9bbf3a",
+        "#1d1a16"
+      ],
+      "materials": [
+        "die-cut card in flat gouache colour",
+        "pull-tabs, flaps and paper hinges",
+        "real Replants photos tipped in like snapshots"
+      ],
+      "viewport": "A 3D pop-up spread fills the screen. The grass tree folds up as the page opens; pulling the paper tab grows it, and the price flap flips to the new figure. Book it from the same spread.",
+      "risk": "Reads as a children's book unless the type, prices and booking stay plain and grown-up.",
       "raised": [
-        { "from": "challenger-darkroom", "raise": "The page runs as fixed stations in strict order: Choose, Get it home, Plant, The first 24 months." },
-        { "from": "challenger-jacquard", "raise": "One data table drives both the 3D tree and the accessible HTML price table, so neither can drift." },
-        { "from": "challenger-algorave", "raise": "Every control previews its consequence before commit: the total updates while you drag, before you book." },
-        { "from": "challenger-ticket-wallet", "raise": "States stamp rather than vanish: the Trailer Special's old price is struck through and stays visible." }
+        {
+          "from": "challenger-agit-train",
+          "raise": "One line of travel: the page follows the rescue, bush to crane truck to your garden, and the truck drives across each spread as you scroll."
+        },
+        {
+          "from": "challenger-sleeping-city",
+          "raise": "The bush keeps Perth time: the paper sky is dawn, noon or dusk by the visitor's own clock."
+        },
+        {
+          "from": "challenger-quilt",
+          "raise": "Every tipped-in photo carries its origin beside it, such as Mahogany Creek or a Fremantle install."
+        },
+        {
+          "from": "challenger-arcade",
+          "raise": "One colour is reserved for the action: only the booking controls wear it."
+        },
+        {
+          "from": "challenger-six-pack",
+          "raise": "Every tab, wheel and flap moves on damped springs and overshoots a little, never snaps."
+        }
       ]
     },
     {
       "id": "model-pick",
-      "label": "Flagging Tape & Tree Tags",
+      "label": "After the Fire",
       "kicker": "IMPECCABLE’S PICK",
-      "lineage": "The marking system of a land-clearing site",
-      "thesis": "Fluoro tape around a trunk means this one gets saved; the site is built from that tag.",
-      "palette": ["#ff3d7f", "#ff8a1f", "#f4efe4", "#1a1a17", "#6f8f3a"],
-      "materials": ["fluoro flagging tape", "numbered tree tags", "spray-paint on sand"],
-      "viewport": "A 3D grass tree wrapped in pink flagging tape whose tag carries its size and price, beside a booking strip.",
-      "risk": "The most obvious read of a rescue business; strong, but closest to where most runs would land."
+      "lineage": "WA bush regrowth after a burn",
+      "thesis": "Grass trees are fire trees: a black trunk, a bright green crown, and the flower spike that follows a burn.",
+      "palette": [
+        "#141110",
+        "#ff6a1f",
+        "#d9d4cc",
+        "#b6e33b"
+      ],
+      "materials": [
+        "charcoal-black bark",
+        "ember glow",
+        "ash-grey paper"
+      ],
+      "viewport": "A huge 3D blackened trunk and crown fill the screen. Embers drift up and swirl around the cursor, and the size picker sits on an ash panel.",
+      "risk": "Near-black with one hot accent is where many sites land, and fire imagery can unsettle buyers in a bushfire state."
     },
     {
-      "id": "challenger-darkroom",
-      "label": "Darkroom Safelight",
-      "verdict": "declined",
-      "lineage": "Printing darkroom under amber safelight",
-      "thesis": "The tree's recovery as a print slowly developing in the tray.",
-      "palette": ["#c8641e", "#2a2420", "#d8d2c4"],
-      "materials": ["amber safelight", "silver-grey prints", "enamel trays"],
-      "viewport": "A developing print of a grass tree under amber light.",
-      "case": "Fuses poorly: homeowners buying a tree don't identify with photo chemistry.",
-      "kept": "Fixed stations in strict order.",
-      "risk": "Hides the price and the action behind a metaphor.",
-      "hero": "https://impeccable.style/worlds/cards/signals-instruments-darkroom-safelight-bay-hero.webp"
+      "id": "challenger-push-pin",
+      "label": "Rainbow Skirt Poster",
+      "verdict": "competitive",
+      "lineage": "Push Pin Studios posters, 1960s–70s",
+      "thesis": "Each section is one poster: a jet-black grass-tree silhouette whose skirt unfurls in ribbons of flat candy colour.",
+      "palette": [
+        "#f4ead6",
+        "#ff5fa2",
+        "#18b3a6",
+        "#f7b32b",
+        "#b493e6",
+        "#111111"
+      ],
+      "materials": [
+        "flat poster ink, no shading",
+        "hand-drawn display lettering",
+        "SVG ribbon paths"
+      ],
+      "viewport": "A giant silhouette anchors the screen. Its skirt ribbons sway and part around the cursor, and the size and price sit in a lettered frame below.",
+      "case": "Fuses well: a grass tree's skirt reads as the poster's ribboned hair, which gives clear emblems. It loses on audience fit, because it is American 60s pop rather than WA.",
+      "risk": "Becomes a psychedelic costume if the ribbons aren't also the controls.",
+      "hero": "https://impeccable.style/worlds/cards/brand-identity-canon-push-pin-poster-hero.webp",
+      "board": "https://impeccable.style/worlds/cards/brand-identity-canon-push-pin-poster.webp"
     },
     {
-      "id": "challenger-jacquard",
-      "label": "Jacquard Brocade",
+      "id": "challenger-agit-train",
+      "label": "Agit-train Broadside",
       "verdict": "declined",
-      "lineage": "Punched-card loom weaving",
-      "thesis": "Each tree woven from its own instruction card.",
-      "palette": ["#141a3a", "#c9a227", "#efe6cf"],
-      "materials": ["midnight silk", "gold weft", "punch cards"],
-      "viewport": "A brocade grass tree emerging row by row.",
-      "case": "Fuses poorly: luxury textile has nothing to do with WA bush.",
-      "kept": "One data matrix drives both the render and the accessible version.",
-      "risk": "Reads as a fashion house, not a tree rescuer.",
-      "hero": "https://impeccable.style/worlds/cards/textiles-weave-drape-fashion-jacquard-punched-brocade-hero.webp"
+      "lineage": "Constructivist agit-trains",
+      "thesis": "The rescue as a campaign train of red wedges and stencilled slogans.",
+      "palette": [
+        "#efe6d2",
+        "#1b1a17",
+        "#d62a1e"
+      ],
+      "materials": [
+        "stencil type",
+        "photomontage"
+      ],
+      "viewport": "Railcars of slogans and photos driving across the screen on one diagonal.",
+      "case": "Fuses poorly: Perth gardeners don't see themselves in Soviet propaganda, and the slogans crowd out prices.",
+      "risk": "Political costume.",
+      "kept": "One strong line of travel that scroll drives.",
+      "hero": "https://impeccable.style/worlds/cards/design-canon-constructivist-agit-train-hero.webp"
     },
     {
-      "id": "challenger-algorave",
-      "label": "Algorave Floor",
+      "id": "challenger-sleeping-city",
+      "label": "Sleeping City Fold",
       "verdict": "declined",
-      "lineage": "Live-coded music performance",
-      "thesis": "Edit the tree like live code.",
-      "palette": ["#0b0b0b", "#39ff6a", "#ff2bd6"],
-      "materials": ["projector black", "phosphor code"],
-      "viewport": "A code buffer that grows a tree.",
-      "case": "Fuses poorly: alienates an older, phone-first audience.",
-      "kept": "Changes preview before they commit.",
-      "risk": "Unreadable to the people who buy grass trees.",
-      "hero": "https://impeccable.style/worlds/cards/medium-native-algorave-source-floor-hero.webp"
+      "lineage": "surreal folded-map dreams",
+      "thesis": "Suburbs folding like a quilt at night.",
+      "palette": [
+        "#14203f",
+        "#f2c95b",
+        "#efeee8"
+      ],
+      "materials": [
+        "night quilt",
+        "stitched lights"
+      ],
+      "viewport": "A night map that folds over the bush.",
+      "case": "Fuses poorly: dream logic hides the size, price and booking.",
+      "risk": "Pretty but vague.",
+      "kept": "The scene follows the visitor's real local time.",
+      "hero": "https://impeccable.style/worlds/cards/dream-surreal-impossible-worlds-sleeping-city-fold-hero.webp"
     },
     {
-      "id": "challenger-ticket-wallet",
-      "label": "Jet-Age Ticket Wallet",
+      "id": "challenger-quilt",
+      "label": "Memory Quilt Atlas",
       "verdict": "declined",
-      "lineage": "1960s airline ticket coupons",
-      "thesis": "Your pick-up booked as a coupon book.",
-      "palette": ["#1c2a5a", "#c8202f", "#ffffff"],
-      "materials": ["carbon coupons", "baggage tags"],
-      "viewport": "A tear-off coupon for a Saturday pick-up.",
-      "case": "Fuses poorly: travel ephemera has no tie to the bush or the garden.",
-      "kept": "States stamp, never vanish.",
-      "risk": "Pretty but unrelated to the product.",
-      "hero": "https://impeccable.style/worlds/cards/vernacular-ephemera-jet-age-ticket-wallet-hero.webp"
+      "lineage": "pieced memory quilts",
+      "thesis": "Each rescue as one stitched patch with its own history.",
+      "palette": [
+        "#6f8fb5",
+        "#1a1a1a",
+        "#c8312b",
+        "#6b4a2b"
+      ],
+      "materials": [
+        "worn fabric",
+        "stitch rule"
+      ],
+      "viewport": "A quilt of rescue stories.",
+      "case": "Fuses poorly: it is sombre and slow, and the visitor wants a tree, not an archive.",
+      "risk": "Mournful.",
+      "kept": "Provenance stitched to every piece.",
+      "hero": "https://impeccable.style/worlds/cards/textiles-weave-drape-fashion-memory-quilt-atlas-hero.webp"
     },
     {
-      "id": "challenger-timetable",
-      "label": "Timetable Slide Rack",
+      "id": "challenger-arcade",
+      "label": "Arcade Pixel Glow",
       "verdict": "declined",
-      "lineage": "Pocket airline timetables on a light table",
-      "thesis": "Prices as a raked timetable.",
-      "palette": ["#e2a92b", "#2e3640", "#f2ecd9", "#d6422b"],
-      "materials": ["tinted glass slides", "goldenrod light bed"],
-      "viewport": "A raked rack of price slides.",
-      "case": "Fuses poorly: lateral travel and one type size fight an older audience.",
-      "kept": "Strict type discipline: very few sizes, rank by weight.",
-      "risk": "Clever, but makes simple prices hard to read.",
-      "hero": "https://impeccable.style/worlds/cards/rw-timetable-slide-rack-hero.webp"
+      "lineage": "CRT arcade cabinets",
+      "thesis": "The rescue as a pixel game.",
+      "palette": [
+        "#050505",
+        "#f7d046",
+        "#36d36b",
+        "#ff4f6e"
+      ],
+      "materials": [
+        "fat pixels",
+        "scanlines"
+      ],
+      "viewport": "A pixel bush you dig trees out of.",
+      "case": "Fuses poorly: an older audience, and pixel type fails the large-text rule.",
+      "risk": "Gimmick.",
+      "kept": "One colour reserved by law for the action.",
+      "hero": "https://impeccable.style/worlds/cards/medium-native-crt-arcade-pixel-glow-hero.webp"
     },
     {
-      "id": "challenger-cloud",
-      "label": "Iridescent Cloud Edge",
+      "id": "challenger-six-pack",
+      "label": "Night-flight Gauges",
       "verdict": "declined",
-      "lineage": "Cloud iridescence",
-      "thesis": "Recovery as a shifting spectral band.",
-      "palette": ["#f7f7f5", "#5b6370", "#9fe3c8", "#e6a6c7"],
-      "materials": ["cloud white", "pastel diffraction"],
-      "viewport": "A white field with a thin spectral edge.",
-      "case": "Fuses poorly: too cool and abstract for sun-baked sand and black trunks.",
-      "kept": "A named state vocabulary (stressed, establishing, established, self-reliant).",
-      "risk": "Generic wellness look.",
-      "hero": "https://impeccable.style/worlds/cards/clouds-storms-auroras-iridescent-cloud-edge-hero.webp"
+      "lineage": "aircraft instrument panels",
+      "thesis": "Tree health as six glowing dials.",
+      "palette": [
+        "#0b0c0c",
+        "#f2f2ee",
+        "#5dff8a",
+        "#ffb02e"
+      ],
+      "materials": [
+        "matte panel",
+        "luminous dials"
+      ],
+      "viewport": "Six gauges for size, price, age and care.",
+      "case": "Fuses poorly: a cockpit is a tool costume, nothing a gardener knows.",
+      "risk": "Cold.",
+      "kept": "Damped physical motion on every control.",
+      "hero": "https://impeccable.style/worlds/cards/signals-instruments-night-flight-six-pack-hero.webp"
     }
   ],
-  "reroll": { "registers": ["safer", "bolder"] },
-  "buildPath": { "value": "code", "toggle": false },
+  "reroll": {
+    "registers": [
+      "safer",
+      "bolder"
+    ]
+  },
+  "buildPath": {
+    "value": "code",
+    "toggle": false
+  },
   "canon": true,
   "canonCard": {
     "label": "The category standard",
-    "thesis": "A clean native-nursery shop, executed at full craft.",
-    "palette": ["#ffffff", "#1f2a1c", "#3f7d3a"],
-    "materials": ["clean grid", "plant photography", "product cards"],
-    "viewport": "Photo hero with headline and Shop button, a row of tree-size cards below.",
-    "risk": "Looks like every garden centre; the rescue story becomes a footnote."
+    "thesis": "A garden-centre shop, done impeccably: photo hero, product grid, add to cart.",
+    "palette": [
+      "#ffffff",
+      "#1f3d2b",
+      "#7bb661"
+    ],
+    "materials": [
+      "clean grid",
+      "product photography"
+    ],
+    "viewport": "A big photo of an installed grass tree, a headline and a shop button, then a grid of sizes with prices.",
+    "risk": "Indistinguishable from every nursery by design."
   },
-  "steer": true
+  "steer": true,
+  "seed": "27a8e657",
+  "round": "2026-10-20 replacement world",
+  "answer": {
+    "optionId": "assigned",
+    "label": "Pop-up Bush Picture Book",
+    "buildPath": "code",
+    "buildPathFlipped": false
+  }
 }

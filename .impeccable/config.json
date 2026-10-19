@@ -4,33 +4,6 @@
     "ignoreFiles": [],
     "ignoreValues": [
       {
-        "rule": "side-tab",
-        "value": "*",
-        "files": [
-          "index.html"
-        ],
-        "createdAt": "2026-10-19T08:53:42.505Z",
-        "reason": "finish reviewer: flagged borders are 3px top rules on .place/.reach/timeline, not side stripes; craft floor bans only left/right"
-      },
-      {
-        "rule": "all-caps-body",
-        "value": "*",
-        "files": [
-          "index.html"
-        ],
-        "createdAt": "2026-10-19T08:53:42.661Z",
-        "reason": "finish reviewer: uppercase runs are short display-face labels and headings"
-      },
-      {
-        "rule": "cramped-padding",
-        "value": "*",
-        "files": [
-          "index.html"
-        ],
-        "createdAt": "2026-10-19T08:53:42.775Z",
-        "reason": "finish reviewer: stations carry 4.5-8.5rem padding; methods border-top is a ledger rule over padded rows"
-      },
-      {
         "rule": "pulsing-dot",
         "value": "*",
         "files": [
@@ -38,6 +11,60 @@
         ],
         "createdAt": "2026-10-19T16:00:51.862Z",
         "reason": "assistant: only pulsing dot is the chat typing indicator, shown only while a reply is pending; reduced-motion stops it"
+      },
+      {
+        "rule": "bounce-easing",
+        "value": "*",
+        "files": [
+          "styles.css"
+        ],
+        "createdAt": "2026-10-19T18:27:38.346Z",
+        "reason": "user asked for bouncy transitions; spring overshoot is the pop-up world's motion grammar (stand, slide, spin)"
+      },
+      {
+        "rule": "layout-transition",
+        "value": "*",
+        "files": [
+          "styles.css"
+        ],
+        "createdAt": "2026-10-19T18:27:38.568Z",
+        "reason": "segmented toggle pill must change width between labels; one small element"
+      },
+      {
+        "rule": "cramped-padding",
+        "value": "*",
+        "files": [
+          "index.html"
+        ],
+        "createdAt": "2026-10-19T18:47:19.405Z",
+        "reason": "flagged sections are full-bleed chapter fields with 1-3.5rem side padding (var(--gx)); static scan misses the custom property"
+      },
+      {
+        "rule": "bounce-easing",
+        "value": "*",
+        "files": [
+          "js/app.js"
+        ],
+        "createdAt": "2026-10-19T18:47:19.628Z",
+        "reason": "user asked for bouncy transitions; same spring grammar as styles.css"
+      },
+      {
+        "rule": "pulsing-dot",
+        "value": "*",
+        "files": [
+          "index.html"
+        ],
+        "createdAt": "2026-10-19T18:47:19.878Z",
+        "reason": "chat typing indicator, shown only while a reply is pending; reduced motion stops it"
+      },
+      {
+        "rule": "nested-cards",
+        "value": "*",
+        "files": [
+          "index.html"
+        ],
+        "createdAt": "2026-10-19T19:01:08.459Z",
+        "reason": "the two hits are the order drawer's progress track and its segmented place toggle, neither is a card; verified by rendering with hidden panels shown"
       }
     ]
   }
