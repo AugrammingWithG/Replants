@@ -17,6 +17,8 @@ Constraints: 3D required. Large legible text for an older audience. Works withou
 
 Revision (user, 2026-10-19): the first build felt overwhelming. User chose "same idea, much calmer", asked for transitions, and picked three helpers: Ask Replants chat, pick-up slot booking, aftercare reminders.
 
+Revision (user, 2026-10-20): "i feel like the website is dead. i want it to be alive with the transitions and 3d, you can interact with it plus transitions". Life comes from motion and 3D interaction, never from more things on screen.
+
 ## Direction contract
 
 THESIS: On a clearing site, pink tape around a trunk means "this one gets saved". The page keeps that one mark and lets everything else go quiet: a rescued tree, one strip of tape, a calm path to booking it. It refuses both the nursery template of photo hero and product cards, and the loud version of itself.
@@ -27,6 +29,6 @@ STORY: This tree was due to be bulldozed. Slide to a size, see price and age. Bo
 
 FIRST VIEWPORT: Quiet sand nav with the phone pill. H1 "Every tree here was due to be bulldozed." in sentence case at left, last word on the pink tape band that runs behind the WebGL grass tree at right (taped, tagged with live size and price, height stake for scale). Under the lede, one picker: single/multi-head toggle, a trunk-height slider with tick labels, readout (trunk, age, price) and "Get this tree home". The chat button waits off-screen until the visitor scrolls.
 
-FORM: Flagging Tape and Tree Tags, calm rendition. Seed key a13b33de. Signature interaction: dragging the slider regrows the 3D tree while the price counts to its new value. Motion grammar: tape ties on and the tree grows once at load; booking steps slide in the direction of travel; the chat panel grows out of its button; the care timeline draws once as time passing; everything else still. Reduced motion keeps state changes, drops travel.
+FORM: Flagging Tape and Tree Tags, calm rendition, alive. Seed key a13b33de. Signature interaction: dragging the slider regrows the 3D tree while the price counts to its new value; scrolling past the hero digs the tree out of the ground with its root ball, the rescue acted out. Second 3D moment: in the care section a planted tree (mulch bed, no clearing-site marks) recovers month by month as the visitor scrubs or plays the first two years. The hero tree breathes: wind with occasional gusts, stronger when the pointer moves fast; the camera leans toward the pointer; a tap rustles the crown and knocks the tag; pollen drifts. Page motion: the headline rises word by word, then the tape ties on; section headings and contents settle once from a short offset, already visible; rescue photos wipe open; choice cards lean slightly toward the pointer; the order tag swings when its total changes; booking steps slide in the direction of travel; the chat panel grows from its button. Services and visit stay still. Reduced motion keeps state changes and drops travel, parallax, gusts and pollen.
 
 FINISH: unreviewed and undocumented is unfinished; this build ends with the finish review, the verdict, DESIGN.md, and every shipping raster carrying its provenance

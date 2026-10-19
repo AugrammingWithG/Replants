@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-10-19T16:15:03.271Z",
+  "generatedAt": "2026-10-19T17:09:31.502Z",
   "title": "Design System: replants",
   "extensions": {
     "colorMeta": {
@@ -299,7 +299,7 @@
       {
         "name": "ease",
         "value": "cubic-bezier(.16, 1, .3, 1)",
-        "purpose": "Default ease-out for travel: tie-on, pill slide, pane in, panel grow, chevrons, button lift."
+        "purpose": "Default ease-out for travel: word rise, tie-on, settle, wipe, pill slide, pane in, panel grow, chevrons, button lift, card return, tick."
       },
       {
         "name": "ease-quart",
@@ -307,19 +307,29 @@
         "purpose": "Care timeline draw."
       },
       {
+        "name": "word-rise",
+        "value": "translateY(108%) to none in a clipped word box, .95s ease, 65ms per word from .1s; lede .55s and picker .7s fade up 18px; stage fade-in 1.4s from .2s",
+        "purpose": "Hero headline rises word by word at load."
+      },
+      {
         "name": "tie-on",
-        "value": "clip-path inset(0 100% 0 0) to inset(0), 1.2s ease, .3s delay",
-        "purpose": "Hero tape band ties on once at load."
+        "value": "clip-path inset(0 100% 0 0) to inset(0), 1.2s ease, .75s delay",
+        "purpose": "Hero tape band ties on once at load, after the headline words rise."
       },
       {
         "name": "tree-grow",
         "value": "1400ms grow, 380ms leave",
-        "purpose": "3D tree grows at load and regrows on size change."
+        "purpose": "3D tree grows at load and regrows on size change (both modes)."
       },
       {
         "name": "price-count",
         "value": "420ms, quartic ease-out, rAF tween",
         "purpose": "Price and order estimate count to their new value."
+      },
+      {
+        "name": "readout-tick",
+        "value": ".4s ease from opacity .3, translateY(5px)",
+        "purpose": "A changed readout value ticks in."
       },
       {
         "name": "pill-slide",
@@ -337,6 +347,16 @@
         "purpose": "Chat panel grows out of its button."
       },
       {
+        "name": "section-settle",
+        "value": "headings translateY(.45em) 1.05s; contents translateY(26px) 1.1s, 90ms stagger capped at 6; once at 12% in view; no opacity change",
+        "purpose": "Band heads and section groups settle once, starting visible. Services and visit contents excluded."
+      },
+      {
+        "name": "photo-wipe",
+        "value": "clip-path inset(100% 0 0 0) to inset(0) 1.2s; scale 1.12 to 1 over 1.6s; 90ms stagger",
+        "purpose": "Rescue photos wipe open from the bottom."
+      },
+      {
         "name": "timeline-draw",
         "value": "scaleX 0 to 1 over 1.4s ease-quart; dots fill .3s apart",
         "purpose": "Care timeline draws once on entering view."
@@ -347,9 +367,49 @@
         "purpose": "Chat messages and reminder rows arriving."
       },
       {
+        "name": "card-tilt",
+        "value": "perspective(700px) rotateX/rotateY up to 6deg toward the pointer; return .6s ease; (hover: hover) only",
+        "purpose": "Choice cards lean toward the pointer. Named exception to The Lift Means Float Rule; no shadow."
+      },
+      {
+        "name": "tag-swing",
+        "value": "rotate 0, 2.6, -1.7, .9, -.35, 0deg over 1.1s cubic-bezier(.3,.7,.4,1); origin 50% 2.6rem",
+        "purpose": "Order tag swings on its tape when its total changes."
+      },
+      {
+        "name": "tree-wind",
+        "value": "per-vertex sway weighted by tip distance; natural gust 0.35-0.7 every 5-11s; tap without drag gusts 1.2; gust decays to 25% per second",
+        "purpose": "Both 3D modes breathe; a tap rustles the crown."
+      },
+      {
+        "name": "tree-lean",
+        "value": "camera orbits up to 0.22rad and tilts with the pointer, eased at 3/s; pointer speed over 0.4 adds a gust in its direction; hero, (hover: hover) only",
+        "purpose": "Hero camera leans toward the pointer."
+      },
+      {
+        "name": "tag-spring",
+        "value": "damped spring in fixed 16ms steps (k .02, damping .06), clamped to 0.7rad, nudged by gusts",
+        "purpose": "3D price tag swings when tapped, resized or gusted."
+      },
+      {
+        "name": "pollen",
+        "value": "points #d8c27c at 75%, rising .04-.09 units/s, carried by gusts; 110 hero, 60 care",
+        "purpose": "Motes drifting through the light."
+      },
+      {
+        "name": "dig-out",
+        "value": "scroll-scrubbed: lift = -heroTop / (heroHeight * .42), eased in-out; tree rises with a slight rock, root ball unclipped, specks fall, hole opens, sand #cfc8b7 to dug soil #8a6440",
+        "purpose": "Scrolling past the hero digs the tree out of the ground."
+      },
+      {
+        "name": "care-scrub",
+        "value": "0-30 months; stage buttons glide 700ms quartic ease-out; Play 230ms per month; text swap dims to .2 over .25s; autoplays once .5s after 55% in view unless touched; pauses offscreen",
+        "purpose": "Care tree recovers month by month."
+      },
+      {
         "name": "reduced-motion",
-        "value": "tie-on and timeline draw off; pill and underline transitions off; animations .01s; number tween, WAAPI slides and smooth scroll skipped; 3D growth instant, wind and auto-turn off",
-        "purpose": "State changes kept, travel dropped."
+        "value": "headline not split; nothing settles or wipes; tie-on, timeline draw, tag swing, tick and card tilt off; pill and underline transitions off; animations .01s; number tween, WAAPI slides and smooth scroll skipped; 3D growth instant; wind, gusts, pollen, auto-turn, pointer lean, tag spring and dig-out off; care never autoplays and stage buttons jump",
+        "purpose": "State changes kept; travel, parallax, gusts, pollen, tilt and the dig-out dropped."
       }
     ],
     "breakpoints": [
@@ -375,12 +435,16 @@
         "leafNew": "#cddc58",
         "skirtBase": "#4a3823",
         "skirtTip": "#9c8150",
-        "roughness": 0.7
+        "roughness": 0.7,
+        "stressTip": "#9a7a45",
+        "shootYoung": "#f2e64e",
+        "ageing": "stress fades 0-12 months; shoots grow 3-13 and ripen 6-16; skirt grows 8-24 and outer leaves dry 12-26"
       },
       "tape": {
         "color": "#ff2d87",
         "material": "unlit",
-        "toneMapped": false
+        "toneMapped": false,
+        "modes": "hero only"
       },
       "tag": {
         "gradient": [
@@ -391,7 +455,8 @@
         "stamp": "Anybody 900, live size and price",
         "metalness": 0.55,
         "roughness": 0.38,
-        "note": "Aluminium lives only on the 3D tag."
+        "note": "Aluminium lives only on the 3D tag.",
+        "modes": "hero only; hangs from the staff when the trunk is under 0.6m"
       },
       "wire": {
         "color": "#9aa0a6",
@@ -399,10 +464,12 @@
         "roughness": 0.3
       },
       "ground": {
-        "shadowCatcher": "#5b4630 at 0.3",
-        "mound": "#cfc8b7",
-        "sprayRing": "rgb(255,122,26), unlit, 3D only",
-        "staff": "#c99a62 with #1a1714 ticks"
+        "shadowCatcher": "#5b4630 at 0.3 (both modes)",
+        "mound": "#cfc8b7, darkens to #8a6440 as the tree is dug out (hero)",
+        "sprayRing": "rgb(255,122,26), unlit, hero only: the only peg orange anywhere",
+        "staff": "#c99a62 with #1a1714 ticks (hero)",
+        "mulch": "wood chips #4a3220, #6e4c2f, #8d6a45, #b08a5c thinning to nothing at the edge (care)",
+        "careMoat": "#5a3e27 (care)"
       },
       "light": {
         "hemisphere": [
@@ -419,6 +486,25 @@
           0.6
         ],
         "toneMapping": "ACESFilmic, exposure 1.05"
+      },
+      "modes": {
+        "hero": "rescued tree on the clearing site: tape, tag, staff, spray ring, sand mound, pointer lean, dig-out",
+        "care": "0.6m tree planted at home: mulch disc, no tape, no tag, no staff, no spray ring; recoloured per month"
+      },
+      "rootBall": {
+        "soil": "#5b3f26, bump 3",
+        "roots": "#3b2a1b",
+        "specks": "#5b3f26, 140 points",
+        "hole": "#2a1f15",
+        "note": "clipped at the ground line; shows only while lifted"
+      },
+      "pollen": {
+        "color": "#d8c27c",
+        "opacity": 0.75,
+        "count": {
+          "hero": 110,
+          "care": 60
+        }
       }
     }
   },
@@ -459,7 +545,7 @@
       "name": "Option Card",
       "kind": "card",
       "refersTo": "option-card",
-      "description": "Paper radio card; checked draws a 2px char edge and a pink radio dot.",
+      "description": "Paper radio card; checked draws a 2px char edge and a pink radio dot. On hover devices it tilts up to 6deg toward the pointer (script-driven, not in this snippet), shadowless.",
       "html": "<div class=\"ds-opts\"><label class=\"ds-opt\"><input type=\"radio\" name=\"ds-m\" checked><span class=\"ds-opt-b\"><span class=\"ds-opt-n\">Pick it up</span><span class=\"ds-opt-c\">Tree price only</span><span class=\"ds-opt-t\">We dig it and load your trailer or ute.</span></span></label><label class=\"ds-opt\"><input type=\"radio\" name=\"ds-m\"><span class=\"ds-opt-b\"><span class=\"ds-opt-n\">Delivered</span><span class=\"ds-opt-c\">From $75 a tree</span><span class=\"ds-opt-t\">Our crane truck drops it into your hole.</span></span></label></div>",
       "css": ":host{--ground:#f3f3f0;--paper:#fff;--soft:#e8e8e3;--rule:#dcdad3;--ink:#1a1917;--ink-2:#5b5851;--char:#171513;--on-char:#f0eee9;--on-char-2:#b3ac9f;--tape:#ff2d87;--tape-hem:#ee2a80;--tape-wash:#ffe8f1;--display:\"Anybody\",\"Arial Narrow\",sans-serif;--read:\"Lexend\",\"Segoe UI\",system-ui,sans-serif;--ease:cubic-bezier(.16,1,.3,1);font:400 1.125rem/1.6 var(--read);color:var(--ink);} .ds-opts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.75rem;max-width:30rem;} .ds-opt{position:relative;cursor:pointer;} .ds-opt input{position:absolute;inset:0;opacity:0;margin:0;cursor:pointer;} .ds-opt-b{position:relative;display:grid;align-content:start;gap:.25rem;height:100%;padding:1.1rem 1.1rem 1.2rem;border-radius:14px;background:var(--paper);box-shadow:inset 0 0 0 1px var(--rule);transition:box-shadow .25s;} .ds-opt-b::after{content:\"\";position:absolute;top:1rem;right:1rem;width:1.15rem;height:1.15rem;border-radius:50%;box-shadow:inset 0 0 0 1.5px var(--rule);transition:box-shadow .25s var(--ease),background .25s;} .ds-opt-n{font:680 1.25rem/1.2 var(--display);font-stretch:90%;padding-right:1.5rem;} .ds-opt-c{font-size:.9rem;font-weight:500;} .ds-opt-t{font-size:.9rem;color:var(--ink-2);} .ds-opt:hover .ds-opt-b{box-shadow:inset 0 0 0 1px var(--ink-2);} .ds-opt input:checked+.ds-opt-b{box-shadow:inset 0 0 0 2px var(--char);} .ds-opt input:checked+.ds-opt-b::after{background:var(--tape);box-shadow:inset 0 0 0 4px var(--paper),0 0 0 1.5px var(--tape);} .ds-opt input:focus-visible+.ds-opt-b{outline:2.5px solid var(--tape);outline-offset:2px;}"
     },
@@ -483,9 +569,17 @@
       "name": "Order Tag",
       "kind": "card",
       "refersTo": "order-tag",
-      "description": "The order summary as a hung tree tag: chamfered top, punched hole, pink tape loop.",
+      "description": "The order summary as a hung tree tag: chamfered top, punched hole, pink tape loop. Swings on its tape when its total changes (hover demonstrates it here).",
       "html": "<div class=\"ds-hang\"><svg class=\"ds-tape\" viewBox=\"0 0 40 70\" aria-hidden=\"true\"><path class=\"back\" d=\"M22 58 C 30 40, 34 22, 24 8\"/><path d=\"M18 58 C 10 38, 8 18, 24 8\"/></svg><div class=\"ds-tag\"><p class=\"ds-tag-t\">Your order</p><table><tbody><tr><th>1 × 0.6 m single head</th><td>$200</td></tr><tr><th>Transplant Formula</th><td>$25</td></tr></tbody><tfoot><tr><th>Estimate</th><td>$225</td></tr></tfoot></table></div></div>",
-      "css": ":host{--ground:#f3f3f0;--paper:#fff;--soft:#e8e8e3;--rule:#dcdad3;--ink:#1a1917;--ink-2:#5b5851;--char:#171513;--on-char:#f0eee9;--on-char-2:#b3ac9f;--tape:#ff2d87;--tape-hem:#ee2a80;--tape-wash:#ffe8f1;--display:\"Anybody\",\"Arial Narrow\",sans-serif;--read:\"Lexend\",\"Segoe UI\",system-ui,sans-serif;--ease:cubic-bezier(.16,1,.3,1);font:400 1.125rem/1.6 var(--read);color:var(--ink);} .ds-hang{position:relative;max-width:22rem;padding-top:1.6rem;filter:drop-shadow(0 0 .5px rgb(23 21 19 / .45)) drop-shadow(0 12px 18px rgb(23 21 19 / .12));} .ds-tag{position:relative;display:grid;gap:1rem;padding:2.6rem 1.4rem 1.4rem;background:var(--paper);clip-path:polygon(1.6rem 0,calc(100% - 1.6rem) 0,100% 1.6rem,100% 100%,0 100%,0 1.6rem);} .ds-tag::before{content:\"\";position:absolute;top:1rem;left:50%;width:.9rem;height:.9rem;translate:-50% 0;border-radius:50%;background:var(--ground);box-shadow:inset 0 1px 2px rgb(23 21 19 / .4);} .ds-tape{position:absolute;z-index:1;top:-.6rem;left:50%;width:2.5rem;height:4.4rem;translate:-48% 0;overflow:visible;} .ds-tape path{fill:none;stroke:var(--tape);stroke-width:8;} .ds-tape .back{stroke:var(--tape-hem);} .ds-tag-t{margin:0;font-weight:600;font-size:1rem;} .ds-tag table{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums;} .ds-tag th,.ds-tag td{padding:.4rem 0;font-size:.9rem;font-weight:400;text-align:left;color:var(--ink-2);} .ds-tag td{text-align:right;color:var(--ink);} .ds-tag tfoot th,.ds-tag tfoot td{padding-top:.9rem;border-top:1px solid var(--rule);color:var(--ink);} .ds-tag tfoot th{font-weight:500;vertical-align:bottom;} .ds-tag tfoot td{font:720 2rem/1 var(--display);font-stretch:86%;}"
+      "css": ":host{--ground:#f3f3f0;--paper:#fff;--soft:#e8e8e3;--rule:#dcdad3;--ink:#1a1917;--ink-2:#5b5851;--char:#171513;--on-char:#f0eee9;--on-char-2:#b3ac9f;--tape:#ff2d87;--tape-hem:#ee2a80;--tape-wash:#ffe8f1;--display:\"Anybody\",\"Arial Narrow\",sans-serif;--read:\"Lexend\",\"Segoe UI\",system-ui,sans-serif;--ease:cubic-bezier(.16,1,.3,1);font:400 1.125rem/1.6 var(--read);color:var(--ink);} .ds-hang{position:relative;max-width:22rem;padding-top:1.6rem;filter:drop-shadow(0 0 .5px rgb(23 21 19 / .45)) drop-shadow(0 12px 18px rgb(23 21 19 / .12));} .ds-tag{position:relative;display:grid;gap:1rem;padding:2.6rem 1.4rem 1.4rem;background:var(--paper);clip-path:polygon(1.6rem 0,calc(100% - 1.6rem) 0,100% 1.6rem,100% 100%,0 100%,0 1.6rem);} .ds-tag::before{content:\"\";position:absolute;top:1rem;left:50%;width:.9rem;height:.9rem;translate:-50% 0;border-radius:50%;background:var(--ground);box-shadow:inset 0 1px 2px rgb(23 21 19 / .4);} .ds-tape{position:absolute;z-index:1;top:-.6rem;left:50%;width:2.5rem;height:4.4rem;translate:-48% 0;overflow:visible;} .ds-tape path{fill:none;stroke:var(--tape);stroke-width:8;} .ds-tape .back{stroke:var(--tape-hem);} .ds-tag-t{margin:0;font-weight:600;font-size:1rem;} .ds-tag table{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums;} .ds-tag th,.ds-tag td{padding:.4rem 0;font-size:.9rem;font-weight:400;text-align:left;color:var(--ink-2);} .ds-tag td{text-align:right;color:var(--ink);} .ds-tag tfoot th,.ds-tag tfoot td{padding-top:.9rem;border-top:1px solid var(--rule);color:var(--ink);} .ds-tag tfoot th{font-weight:500;vertical-align:bottom;} .ds-tag tfoot td{font:720 2rem/1 var(--display);font-stretch:86%;} .ds-hang{transform-origin:50% 2.6rem;} .ds-hang:hover{animation:ds-swing 1.1s cubic-bezier(.3,.7,.4,1);} @keyframes ds-swing{0%{rotate:0deg;}18%{rotate:2.6deg;}42%{rotate:-1.7deg;}66%{rotate:.9deg;}84%{rotate:-.35deg;}100%{rotate:0deg;}} @media (prefers-reduced-motion:reduce){.ds-hang:hover{animation:none;}}"
+    },
+    {
+      "name": "Recovery Scrubber Panel",
+      "kind": "custom",
+      "refersTo": "stage-mark",
+      "description": "The care tree's controls: month figure, stage title and text, months slider, stage pills (current fills char), Play/Pause line button.",
+      "html": "<div class=\"ds-grow\"><p class=\"ds-month\"><span>9</span><small>months after planting</small></p><h3 class=\"ds-gt\">Establishing</h3><p class=\"ds-gx\">New roots chase deep water. Yellow shoots appear in the centre.</p><input class=\"ds-slider\" type=\"range\" min=\"0\" max=\"30\" step=\"0.1\" value=\"6\" aria-label=\"Months after planting\"><ol class=\"ds-marks\"><li><button aria-pressed=\"false\">0–6 mo</button></li><li><button aria-pressed=\"true\">6–12 mo</button></li><li><button aria-pressed=\"false\">12–24 mo</button></li><li><button aria-pressed=\"false\">24 mo on</button></li></ol><button class=\"ds-btn-line\"><svg class=\"ds-ico\" viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M8 5v14l11-7z\"/></svg> Play the two years</button></div>",
+      "css": ":host{--ground:#f3f3f0;--paper:#fff;--soft:#e8e8e3;--rule:#dcdad3;--ink:#1a1917;--ink-2:#5b5851;--char:#171513;--on-char:#f0eee9;--on-char-2:#b3ac9f;--tape:#ff2d87;--tape-hem:#ee2a80;--tape-wash:#ffe8f1;--display:\"Anybody\",\"Arial Narrow\",sans-serif;--read:\"Lexend\",\"Segoe UI\",system-ui,sans-serif;--ease:cubic-bezier(.16,1,.3,1);font:400 1.125rem/1.6 var(--read);color:var(--ink);} .ds-ico{width:1.1em;height:1.1em;flex:none;fill:currentColor;} .ds-grow{display:grid;gap:.8rem;max-width:26rem;} .ds-month{display:flex;align-items:baseline;gap:.6rem;margin:0;font:740 clamp(3rem,2.3rem + 2.4vw,4.25rem)/.9 var(--display);font-stretch:82%;letter-spacing:-.03em;font-variant-numeric:tabular-nums;} .ds-month small{font:400 .95rem var(--read);letter-spacing:0;color:var(--ink-2);} .ds-gt{margin:0;font:720 1.75rem/1.2 var(--display);font-stretch:86%;} .ds-gx{margin:0;color:var(--ink-2);} .ds-slider{-webkit-appearance:none;appearance:none;width:100%;height:2.25rem;margin:0;background:transparent;cursor:pointer;} .ds-slider::-webkit-slider-runnable-track{height:4px;border-radius:4px;background:linear-gradient(90deg,var(--tape) 20%,var(--rule) 20%);} .ds-slider::-moz-range-track{height:4px;border-radius:4px;background:var(--rule);} .ds-slider::-moz-range-progress{height:4px;border-radius:4px;background:var(--tape);} .ds-slider::-webkit-slider-thumb{-webkit-appearance:none;width:1.6rem;height:1.6rem;margin-top:calc(-.8rem + 2px);border-radius:50%;background:var(--paper);border:2px solid var(--char);box-shadow:0 2px 6px rgb(0 0 0 / .2);} .ds-slider::-moz-range-thumb{width:1.6rem;height:1.6rem;border-radius:50%;background:var(--paper);border:2px solid var(--char);box-shadow:0 2px 6px rgb(0 0 0 / .2);} .ds-marks{display:flex;gap:.4rem;list-style:none;margin:-.2rem 0 0;padding:0;} .ds-marks li{flex:1;} .ds-marks button{width:100%;min-height:2.75rem;padding:.45rem .3rem;border:0;border-radius:999px;background:transparent;box-shadow:inset 0 0 0 1px var(--rule);font:400 .95rem var(--read);color:var(--ink-2);cursor:pointer;transition:background .25s,color .25s,box-shadow .25s;} .ds-marks button:hover{box-shadow:inset 0 0 0 1px var(--ink-2);} .ds-marks button[aria-pressed=\"true\"]{background:var(--char);color:var(--on-char);box-shadow:none;} .ds-btn-line{justify-self:start;display:inline-flex;align-items:center;gap:.5rem;min-height:3.1rem;padding:.75rem 1.35rem;border:0;border-radius:999px;background:var(--paper);box-shadow:inset 0 0 0 1.5px var(--rule);font:500 1rem/1 var(--read);color:var(--ink);cursor:pointer;transition:box-shadow .2s;} .ds-btn-line:hover{box-shadow:inset 0 0 0 1.5px var(--ink);} .ds-marks button:focus-visible,.ds-btn-line:focus-visible{outline:2.5px solid var(--tape);outline-offset:3px;} .ds-slider:focus-visible{outline:none;} .ds-slider:focus-visible::-webkit-slider-thumb{outline:2.5px solid var(--tape);outline-offset:2px;}"
     },
     {
       "name": "Care Timeline",
@@ -514,18 +608,18 @@
   ],
   "narrative": {
     "northStar": "One Strip of Tape",
-    "overview": "On a clearing site, pink flagging tape around a trunk means \"this one gets saved\". The system keeps that single mark and lets everything else go quiet. The ground is near-white bleached sand, content sits on white paper panels edged with hairline rules, and ink is a warm near-black. One strip of hemmed pink tape runs behind the last word of the hero headline and on behind the 3D grass tree; after that, pink only shows up where something is chosen, focused, linked or tied on. Char black does the heavy lifting: the primary action, selected chips, and the single dark band that tells the rescue story.\n\nThis is the calm rendition of the Flagging Tape and Tree Tags world. The loud first build (drenched tape stations, aluminium tag rail, peg-orange focus, uppercase condensed display) was rejected by the user as overwhelming and is gone. Headings are sentence case Anybody at 680-760 with a moderately narrow width; every sentence a person reads is Lexend 400. Layout is a single long page of generous bands divided by space and hairlines, not by colour blocks or cards with shadows. The one object with a physical form in the UI is the order summary: a white tree tag with chamfered top corners, a punched hole, and a loop of the same pink tape through it.\n\nMotion follows a fixed grammar. The tape ties on and the tree grows once at load. Dragging the trunk-height slider regrows the 3D tree while the price counts to its new value. Booking steps slide in the direction of travel. The chat panel grows out of its button. The care timeline draws once, like time passing. Everything else holds still. Under reduced motion, state changes stay and travel is dropped.",
+    "overview": "On a clearing site, pink flagging tape around a trunk means \"this one gets saved\". The system keeps that single mark and lets everything else go quiet. The ground is near-white bleached sand, content sits on white paper panels edged with hairline rules, and ink is a warm near-black. One strip of hemmed pink tape runs behind the last word of the hero headline and on behind the 3D grass tree; after that, pink only shows up where something is chosen, focused, linked or tied on. Char black does the heavy lifting: the primary action, selected chips, and the single dark band that tells the rescue story.\n\nThis is the calm rendition of the Flagging Tape and Tree Tags world. The loud first build (drenched tape stations, aluminium tag rail, peg-orange focus, uppercase condensed display) was rejected by the user as overwhelming and is gone. Headings are sentence case Anybody at 680-760 with a moderately narrow width; every sentence a person reads is Lexend 400. Layout is a single long page of generous bands divided by space and hairlines, not by colour blocks or cards with shadows. The one object with a physical form in the UI is the order summary: a white tree tag with chamfered top corners, a punched hole, and a loop of the same pink tape through it.\n\nThe page is alive through motion and 3D interaction, never through more things on screen, and the motion follows a fixed grammar of three kinds. Arrivals play once: the headline rises word by word, then the tape ties on and the tree grows; section headings and contents settle from a short offset, already visible; rescue photos wipe open; the care timeline draws like time passing. Services and visit stay still. Living motion belongs to the 3D trees: the hero tree sways in the wind with occasional gusts, the camera leans toward the pointer, a tap rustles the crown and knocks the tag, pollen drifts, and scrolling past the hero digs the tree out of the ground with its root ball; in the care band a planted tree recovers month by month. Responses answer a hand and stop: dragging the trunk slider regrows the tree while the price counts, choice cards lean toward the pointer, the order tag swings when its total changes, readout values tick, booking steps slide in the direction of travel, and the chat panel grows out of its button. Under reduced motion, state changes stay; travel, parallax, gusts, pollen, tilt and the dig-out are dropped.",
     "keyCharacteristics": [
       "One accent, used as tape: a single hemmed band in the hero, then only selection, focus, links, and the tag's loop.",
       "Near-white sand ground, white paper panels, 1px hairline rules drawn as inset shadows.",
       "Char black is the action colour and the one dark band.",
       "Sentence case Anybody headings (680-760); Lexend 400 for reading.",
-      "Quiet motion that happens once per event and stops."
+      "Alive, not busy: arrivals play once, the 3D trees breathe and answer the pointer, and every response to a hand settles and stops."
     ],
     "rules": [
       {
         "name": "The Tape Only Rule",
-        "body": "Pink appears only as tape or as a mark of choice. Allowed: the hero tape band behind \"bulldozed.\", the 3D tree's tape, the trunk slider's fill, selected states (the option-card radio dot, completed step rings, the confirmation mark), every focus outline, link and nav underlines, the tape looped through the order tag, the care timeline's line and dots, the tape on the section-cut trunk, and text selection and caret. Nowhere else: no pink backgrounds on panels, no pink headings, no pink icons, no pink bands beyond the one in the hero.",
+        "body": "Pink appears only as tape or as a mark of choice. Allowed: the hero tape band behind \"bulldozed.\", the hero 3D tree's tape (the care tree carries none), the trunk and months slider fills, selected states (the option-card radio dot, completed step rings, the confirmation mark), every focus outline, link and nav underlines, the tape looped through the order tag, the care timeline's line and dots, the tape on the section-cut trunk, the section-cut callout under the pointer, and text selection and caret. Nowhere else: no pink backgrounds on panels, no pink headings, no pink icons, no pink bands beyond the one in the hero.",
         "section": "colors"
       },
       {
@@ -562,6 +656,11 @@
         "name": "The Lift Means Float Rule",
         "body": "Only things that move or hover over the page cast a shadow. Content panels stay flat on a hairline.",
         "section": "elevation"
+      },
+      {
+        "name": "The Lean Exception",
+        "body": "The choice cards are the one content panel that moves in 3D, because the user asked for 3D interaction: on hover devices they tilt up to 6deg toward the pointer (perspective 700px) and ease back over 0.6s when it leaves. They still cast no shadow; the hairline edge and the checked ring carry them. Nothing else on the page tilts.",
+        "section": "elevation"
       }
     ],
     "dos": [
@@ -570,8 +669,9 @@
       "Do draw panel edges as inset 1px Hairline shadows that darken on hover and become 2px char when selected.",
       "Do use char for the primary action and selected chips, and fill exactly one band with it.",
       "Do set prices, sizes and years in tabular figures.",
-      "Do run each motion once per event (tie-on, grow, count, slide, grow-from-button, draw) and keep the state change without the travel under reduced motion.",
-      "Do keep the 3D tape unlit so 3D pink and CSS pink are the same colour."
+      "Do keep motion to its three kinds: arrivals play once (word rise, tie-on, grow, settle, wipe, draw); living motion stays inside the 3D trees (wind, gusts, pollen, lean, dig-out, recovery); responses answer a hand and stop (regrow, count, tick, swing, tilt, slide, grow-from-button). Under reduced motion keep the state change and drop travel, parallax, gusts, pollen, tilt and the dig-out.",
+      "Do keep the 3D tape unlit so 3D pink and CSS pink are the same colour.",
+      "Do keep content visible while it settles: section arrivals move by a short offset and never start from zero opacity."
     ],
     "donts": [
       "Don't bring back the loud rendition: no drenched pink bands or stations, no aluminium UI plates or tag rails, no peg-orange focus, no uppercase condensed display.",
@@ -579,7 +679,10 @@
       "Don't add a second dark band.",
       "Don't colour anything green that is not alive.",
       "Don't put shadows on content panels; only floating or lifted things cast.",
-      "Don't set instructions or answers below 0.9rem, or use any size between body and 0.8rem outside the three small steps."
+      "Don't set instructions or answers below 0.9rem, or use any size between body and 0.8rem outside the three small steps.",
+      "Don't add life by adding things to the screen; it comes from motion and 3D interaction, and ongoing ambient motion stays inside the 3D scenes.",
+      "Don't tilt anything but the choice cards, tilt them past 6deg, or tilt on touch.",
+      "Don't use peg orange anywhere but the spray ring under the hero tree; the care tree carries no clearing-site marks."
     ]
   }
 }

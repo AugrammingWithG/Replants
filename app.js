@@ -118,10 +118,19 @@ function setSize(s, { fromChat = false } = {}) {
   tree?.setSize(s);
 }
 
+function tick(el, text) {
+  if (el.textContent === text) return;
+  el.textContent = text;
+  if (reduced) return;
+  el.classList.remove('is-ticking');
+  void el.offsetWidth;
+  el.classList.add('is-ticking');
+}
+
 function renderHero() {
   const s = state.size;
-  $('[data-out="height"]').textContent = heightLabel(s);
-  $('[data-out="age"]').textContent = ageLabel(s);
+  tick($('[data-out="height"]'), heightLabel(s));
+  tick($('[data-out="age"]'), ageLabel(s));
   const price = $('[data-out="price"]');
   if (s.price == null) { price.dataset.value = ''; price.textContent = 'On request'; }
   else tweenNumber(price, s.price, money);
@@ -177,8 +186,16 @@ function renderSummary() {
   const { lines, total, poa } = quote();
   $('[data-lines]').innerHTML = lines.map(([k, v]) => `<tr><th scope="row">${k}</th><td>${v}</td></tr>`).join('');
   const t = $('[data-out="total"]');
+  const before = t.dataset.value;
   if (poa) { t.dataset.value = ''; t.textContent = total ? `${money(total)} + quote` : 'We’ll quote'; }
   else tweenNumber(t, total, money);
+  // the tag swings on its tape when what's on it changes
+  if (before !== undefined && before !== t.dataset.value && !reduced) {
+    const hang = $('.tag-hang');
+    hang.classList.remove('is-swinging');
+    void hang.offsetWidth;
+    hang.classList.add('is-swinging');
+  }
 
   $('[data-out="qty"]').textContent = state.qty;
   $('[data-qty="-1"]').disabled = state.qty <= 1;
@@ -672,7 +689,7 @@ function bindChrome() {
     const inline = matchMedia('(max-width: 1024px)').matches;
     ask.classList.toggle('is-tucked', [...covering].some((el) => inline || el.matches('.site-foot')));
   }, { rootMargin: '0px 0px -0px 0px', threshold: 0 });
-  [$('.summary'), $('.site-foot')].forEach((el) => tuck.observe(el));
+  [$('.summary'), $('.grow__panel'), $('.site-foot')].forEach((el) => tuck.observe(el));
   onScroll();
 
   const nav = $('.site-nav'), toggle = $('.site-nav__toggle');
@@ -700,28 +717,211 @@ function bindChrome() {
   }, { rootMargin: '-45% 0px -50% 0px' });
   links.forEach((_, id) => { const el = document.getElementById(id); if (el) io.observe(el); });
 
-  // the care timeline draws itself once, as time passing
-  const tl = $('[data-timeline]');
-  $$('li', tl).forEach((li, i) => li.style.setProperty('--i', i));
-  new IntersectionObserver(([en], obs) => {
-    if (en.isIntersecting) { tl.classList.add('is-drawn'); obs.disconnect(); }
-  }, { threshold: 0.4 }).observe(tl);
+}
+
+/* ---------- Motion ---------- */
+
+function initMotion() {
+  // diagram numbers and legend lines point at each other (works without motion too)
+  const cut = $('[data-cut]');
+  const legend = $$('.cut-legend li');
+  const light = (n) => {
+    $$('g[data-n]', cut).forEach((g) => g.classList.toggle('is-on', g.dataset.n === n));
+    legend.forEach((li) => li.classList.toggle('is-on', li.dataset.n === n));
+  };
+  [...$$('g[data-n]', cut), ...legend].forEach((el) => {
+    el.addEventListener('pointerenter', () => light(el.dataset.n));
+    el.addEventListener('pointerleave', () => light(null));
+  });
+
+  if (reduced) return;
+  document.documentElement.classList.add('motion');
+
+  // hero headline, word by word
+  const title = $('.hero__title');
+  let i = 0;
+  [...title.childNodes].forEach((node) => {
+    if (node.nodeType === 3) {
+      const frag = document.createDocumentFragment();
+      node.textContent.split(/(\s+)/).forEach((part) => {
+        if (!part) return;
+        if (/^\s+$/.test(part)) { frag.append(part); return; }
+        const w = document.createElement('span');
+        w.className = 'w';
+        w.innerHTML = `<span style="--i:${i++}">${part}</span>`;
+        frag.append(w);
+      });
+      node.replaceWith(frag);
+    } else if (node.matches?.('.tape-word')) {
+      $('.w > span', node).style.setProperty('--i', i++);
+    }
+  });
+
+  // sections arrive once
+  $$('.band__head h2').forEach((h) => {
+    h.innerHTML = `<span class="reveal-mask"><span>${h.innerHTML}</span></span>`;
+  });
+  const groups = [
+    ['.band__head', (el) => [...el.children]],
+    ['.book', (el) => [$('.steps', el), $('.book__panes', el), $('.tag-hang', el)]],
+    ['.rescue', (el) => $$('figure', el)],
+    ['.grow', (el) => [...el.children]],
+    ['.care', (el) => [$('.section-cut', el), ...$('.care__side', el).children]],
+  ];
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((en) => {
+      if (!en.isIntersecting) return;
+      en.target.classList.add('is-in');
+      io.unobserve(en.target);
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+  groups.forEach(([sel, kids]) => $$(sel).forEach((group) => {
+    kids(group).filter(Boolean).forEach((el, n) => {
+      if (el.matches('h2')) { el.style.setProperty('--d', '0s'); io.observe(el); return; }
+      el.dataset.reveal = '';
+      el.style.setProperty('--d', `${Math.min(n, 6) * 0.09}s`);
+      io.observe(el);
+    });
+  }));
+
+  // choice cards lean toward the pointer
+  if (matchMedia('(hover: hover)').matches) {
+    $$('.option').forEach((opt) => {
+      const body = $('.option__body', opt);
+      opt.addEventListener('pointermove', (e) => {
+        const r = body.getBoundingClientRect();
+        const x = (e.clientX - r.left) / r.width - 0.5, y = (e.clientY - r.top) / r.height - 0.5;
+        opt.classList.add('is-tilting');
+        body.style.setProperty('--ry', `${(x * 6).toFixed(2)}deg`);
+        body.style.setProperty('--rx', `${(-y * 6).toFixed(2)}deg`);
+      });
+      opt.addEventListener('pointerleave', () => {
+        opt.classList.remove('is-tilting');
+        body.style.transition = 'transform .6s cubic-bezier(.16,1,.3,1), box-shadow .25s';
+        body.style.setProperty('--ry', '0deg');
+        body.style.setProperty('--rx', '0deg');
+        setTimeout(() => (body.style.transition = ''), 600);
+      });
+    });
+  }
 }
 
 /* ---------- 3D ---------- */
 
+let createTreeScene = null;
+async function loadThree() {
+  const probe = document.createElement('canvas');
+  if (!(probe.getContext('webgl2') || probe.getContext('webgl'))) throw new Error('no webgl');
+  if (!createTreeScene) ({ createTreeScene } = await import('./tree.js'));
+  await document.fonts.ready;
+  return createTreeScene;
+}
+
 async function startTree() {
   const canvas = $('.hero__canvas');
   try {
-    const probe = document.createElement('canvas');
-    if (!(probe.getContext('webgl2') || probe.getContext('webgl'))) throw new Error('no webgl');
-    const { createTreeScene } = await import('./tree.js');
-    await document.fonts.ready;
-    tree = await createTreeScene(canvas, state.size);
+    const create = await loadThree();
+    tree = await create(canvas, state.size, { mode: 'hero' });
+    if (!reduced) $('[data-hint]').textContent = 'Drag to turn · tap to rustle';
+    // scrolling past the hero digs the tree out of the ground
+    const hero = $('.hero');
+    const onScroll = () => {
+      const r = hero.getBoundingClientRect();
+      tree.setLift(-r.top / (r.height * 0.42));
+    };
+    addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
   } catch (err) {
     console.warn('3D tree unavailable, showing photo instead.', err);
     document.documentElement.classList.add('no-webgl');
   }
+}
+
+/* ---------- The first two years ---------- */
+
+const STAGES = [
+  [0, 'Settling in', 'Roots grow fast. Leaf tips, and sometimes the outer leaves, go brown. Don’t worry.'],
+  [6, 'Establishing', 'New roots chase deep water. Yellow shoots appear in the centre and turn green in the sun.'],
+  [12, 'Established', 'New foliage takes over and the old leaves start a dry skirt. Keep deep-watering in heat.'],
+  [24, 'Self-reliant', 'It finds its own water now. Trim the skirt if you like, to show the black trunk again.'],
+];
+
+function initGrow() {
+  const wrap = $('[data-grow]');
+  const slider = $('[data-grow-slider]');
+  const playBtn = $('[data-grow-play]');
+  let care = null, months = 0, stage = -1, playing = null, played = false, touched = false;
+
+  const show = (m) => {
+    months = m;
+    slider.value = m;
+    slider.style.setProperty('--fill', (m / 30) * 100 + '%');
+    $('[data-grow-month]').textContent = Math.floor(m);
+    $('[data-grow-unit]').textContent = Math.floor(m) === 1 ? 'month after planting' : 'months after planting';
+    slider.setAttribute('aria-valuetext', `${Math.floor(m)} months: ${STAGES[STAGES.findLastIndex((s) => m >= s[0])][1]}`);
+    const idx = STAGES.findLastIndex((s) => m >= s[0]);
+    if (idx !== stage) {
+      stage = idx;
+      const swap = () => {
+        $('[data-grow-title]').textContent = STAGES[idx][1];
+        $('[data-grow-text]').textContent = STAGES[idx][2];
+        wrap.classList.remove('is-swapping');
+      };
+      if (reduced) swap(); else { wrap.classList.add('is-swapping'); setTimeout(swap, 180); }
+      $$('[data-grow-marks] button').forEach((b, n) => b.setAttribute('aria-pressed', String(n === idx)));
+    }
+    care?.setAge(m);
+  };
+
+  const stop = () => {
+    if (playing) cancelAnimationFrame(playing);
+    playing = null;
+    playBtn.innerHTML = '<svg class="ico"><use href="#i-play"/></svg> <span>Play the two years</span>';
+  };
+  const play = () => {
+    if (playing) { stop(); return; }
+    const from = months >= 29.5 ? 0 : months, t0 = performance.now(), dur = (30 - from) * 230;
+    playBtn.innerHTML = '<svg class="ico"><use href="#i-pause"/></svg> <span>Pause</span>';
+    const step = (now) => {
+      const k = Math.min(1, (now - t0) / dur);
+      show(from + (30 - from) * k);
+      playing = k < 1 ? requestAnimationFrame(step) : (stop(), null);
+    };
+    playing = requestAnimationFrame(step);
+  };
+
+  slider.addEventListener('input', () => { stop(); played = touched = true; show(Number(slider.value)); });
+  playBtn.addEventListener('click', () => { played = touched = true; play(); });
+  $$('[data-grow-marks] button').forEach((b) => b.addEventListener('click', () => {
+    stop(); played = touched = true;
+    const to = Number(b.dataset.month), from = months, t0 = performance.now();
+    if (reduced) { show(to); return; }
+    const step = (now) => {
+      const k = Math.min(1, (now - t0) / 700), e = 1 - Math.pow(1 - k, 4);
+      show(from + (to - from) * e);
+      playing = k < 1 ? requestAnimationFrame(step) : null;
+    };
+    playing = requestAnimationFrame(step);
+  }));
+  show(0);
+  // never paint offscreen: autoplay pauses when the section leaves view
+  new IntersectionObserver(([en]) => { if (!en.isIntersecting && playing) stop(); }).observe(wrap);
+
+  // build the second scene only when the section comes near, then play it once
+  new IntersectionObserver(async ([en], obs) => {
+    if (!en.isIntersecting) return;
+    obs.disconnect();
+    try {
+      const create = await loadThree();
+      care = await create($('.grow__canvas'), SIZES.find((s) => s.id === 's060'), { mode: 'care' });
+      care.setAge(months);
+      if (!reduced) {
+        new IntersectionObserver(([e2], o2) => {
+          if (e2.isIntersecting && !played) { played = true; setTimeout(() => { if (!touched) play(); }, 500); o2.disconnect(); }
+        }, { threshold: 0.55 }).observe(wrap);
+      }
+    } catch { /* the panel still works without the 3D tree */ }
+  }, { rootMargin: '400px 0px' }).observe(wrap);
 }
 
 renderTicks();
@@ -734,4 +934,6 @@ renderSummary();
 bindReminders();
 bindAsk();
 bindChrome();
+initMotion();
+initGrow();
 startTree();
