@@ -1,4 +1,4 @@
-// One table drives the size rail, the docket, the readout and the 3D tree.
+// One table drives the slider, the booking summary, the chat answers and the 3D tree.
 // Prices are replants.com salvage-site prices (October 2026).
 export const SIZES = [
   { id: 's010', heads: 1, h: 0.10, price: 50 },
@@ -12,8 +12,23 @@ export const SIZES = [
   { id: 'm120', heads: 3, h: 1.20, price: 750 },
   { id: 'mbig', heads: 3, h: 1.60, price: null, over: true },
 ];
-
+const SINGLE = SIZES.filter((s) => s.heads === 1);
+const MULTI = SIZES.filter((s) => s.heads > 1);
 const GROWTH_M_PER_YEAR = 0.012;
+const PHONE = '0408 885 435';
+const TEL = 'tel:+61408885435';
+
+const $ = (sel, root = document) => root.querySelector(sel);
+const $$ = (sel, root = document) => [...root.querySelectorAll(sel)];
+const money = (n) => '$' + n.toLocaleString('en-AU');
+const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+document.documentElement.classList.add('js');
+
+const heightLabel = (s) => (s.over ? 'over 1.2 m' : s.h.toFixed(2) + ' m');
+const priceLabel = (s) => (s.price == null ? 'On request' : money(s.price));
+const ageLabel = (s) => (s.over ? '100+ years' : '~' + Math.round(s.h / GROWTH_M_PER_YEAR) + ' years');
+const headsLabel = (s) => (s.heads > 1 ? (s.over ? 'multi-head' : s.heads + ' heads') : 'single head');
+const formulaTub = (s) => (s.h <= 0.4 && s.heads === 1 ? { kg: '0.8 kg', price: 15 } : { kg: '1.7 kg', price: 25 });
 
 const state = {
   size: SIZES.find((s) => s.id === 's060'),
@@ -21,163 +36,132 @@ const state = {
   qty: 1,
   dig: false,
   formula: true,
+  special: false,
+  place: 'rockingham',
+  day: null,
+  time: null,
+  step: 1,
 };
-
-const $ = (sel, root = document) => root.querySelector(sel);
-const $$ = (sel, root = document) => [...root.querySelectorAll(sel)];
-const money = (n) => '$' + n.toLocaleString('en-AU');
-
-export const heightLabel = (s) => (s.over ? 'over 1.2 m' : s.h.toFixed(2) + ' m');
-export const priceLabel = (s) => (s.price == null ? 'On request' : money(s.price));
-const ageLabel = (s) =>
-  s.over ? 'over 100 years' : 'about ' + Math.round(s.h / GROWTH_M_PER_YEAR) + ' years';
-const headsLabel = (s) => (s.heads > 1 ? (s.over ? 'multi-head' : s.heads + ' heads') : 'single head');
-const formulaTub = (s) => (s.h <= 0.4 && s.heads === 1 ? { kg: '0.8 kg', price: 15 } : { kg: '1.7 kg', price: 25 });
 
 let tree = null;
 
-// Seeded so the hand-stamped wobble and the spray are the same on every load.
-function seeded(seed) {
-  let a = seed >>> 0;
-  return () => {
-    a = (a + 0x6d2b79f5) >>> 0;
-    let t = Math.imul(a ^ (a >>> 15), 1 | a);
-    t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t;
-    return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+/* ---------- Small motion helpers ---------- */
+
+function tweenNumber(el, to, format) {
+  const from = Number(el.dataset.value ?? to);
+  el.dataset.value = to;
+  if (reduced || from === to) { el.textContent = format(to); return; }
+  const t0 = performance.now(), dur = 420;
+  const step = (now) => {
+    const k = Math.min(1, (now - t0) / dur);
+    const e = 1 - Math.pow(1 - k, 4);
+    el.textContent = format(Math.round(from + (to - from) * e));
+    if (k < 1 && el.dataset.value == to) requestAnimationFrame(step);
   };
+  requestAnimationFrame(step);
 }
 
-// Tag lettering is punched into the metal: each letter struck on its own,
-// a dark rim where the punch bit in, a lit lower lip, and a recessed face.
-function punched(text, size) {
-  return `<canvas class="punch" data-text="${text}" data-size="${size}" aria-hidden="true"></canvas>`;
+function placePill(seg) {
+  const pill = $('.seg__pill', seg);
+  const on = $('input:checked', seg)?.closest('label');
+  if (!pill || !on) return;
+  pill.style.width = on.offsetWidth + 'px';
+  pill.style.transform = `translateX(${on.offsetLeft}px)`;
 }
 
-function drawPunches() {
-  const dpr = Math.min(2, window.devicePixelRatio || 1);
-  $$("canvas.punch").forEach((c, n) => {
-    const r = seeded(500 + n);
-    const size = Number(c.dataset.size);
-    const text = c.dataset.text;
-    const g = c.getContext("2d");
-    const font = `850 ${size}px Anybody`;
-    g.font = font;
-    if ("fontStretch" in g) g.fontStretch = "semi-condensed";
-    const gap = size * 0.04;
-    const widths = [...text].map((ch) => (ch === " " ? size * 0.22 : g.measureText(ch).width));
-    const w = widths.reduce((a, b) => a + b + gap, 0) + 4;
-    const h = size * 1.12;
-    c.width = Math.ceil(w * dpr); c.height = Math.ceil(h * dpr);
-    c.style.width = w + "px"; c.style.height = h + "px";
-    g.scale(dpr, dpr);
-    g.font = font;
-    if ("fontStretch" in g) g.fontStretch = "semi-condensed";
-    g.textBaseline = "alphabetic";
-    let x = 2;
-    [...text].forEach((ch, i) => {
-      if (ch !== " ") {
-        const dy = (r() - 0.5) * size * 0.07;
-        const rot = (r() - 0.5) * 0.06;
-        g.save();
-        g.translate(x, size * 0.92 + dy);
-        g.rotate(rot);
-        g.fillStyle = "rgba(255,255,255,0.8)";
-        g.fillText(ch, 0.9, 1.2);
-        g.fillStyle = "rgba(18,20,24,0.9)";
-        g.fillText(ch, -0.7, -0.9);
-        g.fillStyle = "#4b5056";
-        g.fillText(ch, 0, 0);
-        g.restore();
-      }
-      x += widths[i] + gap;
-    });
+function initSegs() {
+  $$('.seg').forEach((seg) => {
+    const pill = document.createElement('span');
+    pill.className = 'seg__pill';
+    pill.setAttribute('aria-hidden', 'true');
+    seg.prepend(pill);
+    seg.addEventListener('change', () => placePill(seg));
+    placePill(seg);
   });
+  const ro = new ResizeObserver((entries) => entries.forEach((en) => placePill(en.target)));
+  $$('.seg').forEach((seg) => ro.observe(seg));
 }
 
-function spray(r) {
-  const dots = Array.from({ length: 26 }, () => {
-    const a = r() * Math.PI * 2;
-    const rad = 1 + (r() - 0.3) * 0.22;
-    const x = 60 + Math.cos(a) * 54 * rad, y = 75 + Math.sin(a) * 68 * rad;
-    return `<circle class="spray-dot" cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="${(0.5 + r() * 1.4).toFixed(1)}" opacity="${(0.35 + r() * 0.5).toFixed(2)}"/>`;
-  }).join("");
-  const dx = (84 + r() * 18).toFixed(1);
-  return `<svg class="tag__spray" viewBox="0 0 120 150" preserveAspectRatio="none" aria-hidden="true">
-        <path class="spray-line" d="M64 7C101 5 117 42 114 80c-3 42-27 64-58 63-34-1-50-30-49-69C8 34 29 6 70 10" stroke-width="5"/>
-        <path class="spray-line" d="M58 11c34-3 52 30 51 66-1 40-22 59-52 60" stroke-width="2" opacity=".5"/>
-        ${dots}
-        <path class="spray-drip" d="M${dx} 128v${(8 + r() * 12).toFixed(1)}" stroke-width="2"/>
-      </svg>`;
+/* ---------- Hero picker ---------- */
+
+const slider = $('[data-slider]');
+const stops = () => (state.size.heads > 1 ? MULTI : SINGLE);
+
+function renderTicks() {
+  const list = stops();
+  $('[data-ticks]').innerHTML = list
+    .map((s) => `<span data-tick="${s.id}">${s.over ? '1.2+' : s.h.toFixed(1)}</span>`)
+    .join('');
 }
 
-/* ---------- Size rail ---------- */
-
-function buildRail() {
-  const rail = $('[data-rail]');
-  const r = seeded(2000);
-  rail.innerHTML = SIZES.map(
-    (s) => `
-    <label class="tag">
-      <input type="radio" name="size" value="${s.id}" ${s === state.size ? 'checked' : ''}
-        aria-label="${heightLabel(s)} trunk, ${headsLabel(s)}, ${priceLabel(s)}">
-      <span class="tag__plate" aria-hidden="true">
-        <span class="tag__h">${punched((s.over ? '1.2+' : s.h.toFixed(1)) + ' M', 26)}</span>
-        <span class="tag__heads">${headsLabel(s)}</span>
-        <span class="tag__p">${punched(s.price == null ? 'POA' : money(s.price), 19)}</span>
-      </span>
-      ${spray(r)}
-    </label>`
-  ).join('');
-
-  rail.addEventListener('change', (e) => {
-    if (e.target.name !== 'size') return;
-    setSize(e.target.value);
-  });
+function syncSlider() {
+  const list = stops();
+  slider.max = list.length - 1;
+  slider.value = list.indexOf(state.size);
+  slider.style.setProperty('--fill', (slider.value / slider.max) * 100 + '%');
+  slider.setAttribute('aria-valuetext', `${heightLabel(state.size)} trunk, ${headsLabel(state.size)}, ${priceLabel(state.size)}`);
+  $$('[data-tick]').forEach((t) => t.classList.toggle('is-on', t.dataset.tick === state.size.id));
 }
 
-function buildSelect() {
-  const sel = $('[data-size-select]');
-  sel.innerHTML = SIZES.map(
-    (s) => `<option value="${s.id}">${heightLabel(s)}, ${headsLabel(s)} · ${priceLabel(s)}</option>`
-  ).join('');
-  sel.value = state.size.id;
-  sel.addEventListener('change', () => setSize(sel.value));
-}
-
-function setSize(id) {
-  const s = SIZES.find((x) => x.id === id);
+function setSize(s, { fromChat = false } = {}) {
   if (!s || s === state.size) return;
+  const switchedHeads = (s.heads > 1) !== (state.size.heads > 1);
   state.size = s;
-  const radio = $(`input[name="size"][value="${id}"]`);
-  if (radio) radio.checked = true;
-  $('[data-size-select]').value = id;
-  render();
+  if (switchedHeads || fromChat) {
+    $(`input[name="heads"][value="${s.heads > 1 ? 'multi' : '1'}"]`).checked = true;
+    placePill($('[data-heads]'));
+    renderTicks();
+  }
+  syncSlider();
+  renderHero();
+  renderSummary();
   tree?.setSize(s);
+}
+
+function renderHero() {
+  const s = state.size;
+  $('[data-out="height"]').textContent = heightLabel(s);
+  $('[data-out="age"]').textContent = ageLabel(s);
+  const price = $('[data-out="price"]');
+  if (s.price == null) { price.dataset.value = ''; price.textContent = 'On request'; }
+  else tweenNumber(price, s.price, money);
+}
+
+function bindPicker() {
+  slider.addEventListener('input', () => setSize(stops()[Number(slider.value)]));
+  $('[data-heads]').addEventListener('change', (e) => {
+    const multi = e.target.value === 'multi';
+    setSize(multi ? MULTI[0] : SINGLE[3]);
+    renderTicks();
+    syncSlider();
+  });
 }
 
 /* ---------- Quote ---------- */
 
 function quote() {
-  const s = state.size;
-  const q = state.qty;
+  const s = state.size, q = state.qty;
   const lines = [];
-  let total = 0;
-  let poa = false;
+  let total = 0, poa = false;
 
+  if (state.special) {
+    lines.push(['Trailer Special: 3 pre-dug trees + 3 tubs of formula', money(325)]);
+    return { lines, total: 325, poa: false };
+  }
   const label = `${q} × ${heightLabel(s)} grass tree${q > 1 ? 's' : ''}`;
-  if (s.price == null) { lines.push([label, 'On request']); poa = true; }
+  if (s.price == null) { lines.push([label, 'Quote']); poa = true; }
   else { lines.push([label, money(s.price * q)]); total += s.price * q; }
 
   if (state.method !== 'pickup') {
     const d = q === 1 ? 100 : 75 * q;
-    lines.push([`Delivery, metro${q > 1 ? ' ($75 a tree)' : ''}`, money(d)]);
+    lines.push(['Delivery, Perth metro', money(d)]);
     total += d;
   }
   if (state.method === 'installed') {
-    if (s.h > 1.2 || s.over) { lines.push(['Installation, feature tree', 'On request']); poa = true; }
+    if (s.h > 1.2 || s.over) { lines.push(['Installation, feature tree', 'Quote']); poa = true; }
     else {
       const per = state.dig ? 75 : 100;
-      lines.push([`Installation${state.dig ? ', you dig' : ''} ($${per} a tree)`, money(per * q)]);
+      lines.push([`Installation${state.dig ? ', you dig' : ''}`, money(per * q)]);
       total += per * q;
     }
   }
@@ -189,107 +173,545 @@ function quote() {
   return { lines, total, poa };
 }
 
-function render() {
-  const s = state.size;
-  $('[data-out="height"]').textContent = heightLabel(s);
-  $('[data-out="trunk-label"]').textContent = s.heads > 1 ? `Trunk · ${s.over ? 'multi' : s.heads} heads` : 'Trunk';
-  $('[data-out="age"]').textContent = ageLabel(s);
-  $('[data-out="price"]').textContent = priceLabel(s);
+function renderSummary() {
+  const { lines, total, poa } = quote();
+  $('[data-lines]').innerHTML = lines.map(([k, v]) => `<tr><th scope="row">${k}</th><td>${v}</td></tr>`).join('');
+  const t = $('[data-out="total"]');
+  if (poa) { t.dataset.value = ''; t.textContent = total ? `${money(total)} + quote` : 'We’ll quote'; }
+  else tweenNumber(t, total, money);
+
   $('[data-out="qty"]').textContent = state.qty;
   $('[data-qty="-1"]').disabled = state.qty <= 1;
   $('[data-qty="1"]').disabled = state.qty >= 20;
-  $('[data-dig-wrap]').hidden = state.method !== 'installed';
+  $('[data-dig-wrap]').hidden = state.method !== 'installed' || state.special;
 
-  const { lines, total, poa } = quote();
-  $('[data-lines]').innerHTML = lines
-    .map(([k, v]) => `<tr><th scope="row">${k}</th><td>${v}</td></tr>`)
-    .join('');
-  $('[data-out="total"]').textContent = poa ? (total ? `${money(total)} + quote` : 'We’ll quote') : money(total);
+  const when = $('[data-out="when"]');
+  when.hidden = !(state.day && state.time);
+  if (!when.hidden) when.textContent = whenLabel();
+
+  $('[data-special]').textContent = state.special ? 'Remove the special' : 'Choose this instead';
 }
 
-function bindDocket() {
-  $$('input[name="method"]').forEach((r) =>
-    r.addEventListener('change', () => { state.method = r.value; render(); })
-  );
-  $$('[data-qty]').forEach((b) =>
-    b.addEventListener('click', () => {
-      state.qty = Math.min(20, Math.max(1, state.qty + Number(b.dataset.qty)));
-      render();
-    })
-  );
-  $('[data-dig]').addEventListener('change', (e) => { state.dig = e.target.checked; render(); });
-  $('[data-formula]').addEventListener('change', (e) => { state.formula = e.target.checked; render(); });
+/* ---------- Booking: days and slots ---------- */
 
-  const form = $('[data-docket]');
-  form.addEventListener('submit', (e) => {
-    e.preventDefault();
-    const fields = [
-      [$('#f-name'), $('#e-name')],
-      [$('#f-phone'), $('#e-phone')],
-    ];
-    let firstBad = null;
-    for (const [input, err] of fields) {
-      const bad = !input.value.trim();
-      input.setAttribute('aria-invalid', bad ? 'true' : 'false');
-      if (bad) input.setAttribute('aria-describedby', err.id); else input.removeAttribute('aria-describedby');
-      err.hidden = !bad;
-      if (bad && !firstBad) firstBad = input;
-    }
-    if (firstBad) { firstBad.focus(); return; }
+const DAY = 86400000;
+const fmtDay = (d) => d.toLocaleDateString('en-AU', { weekday: 'short' });
+const fmtDate = (d) => d.toLocaleDateString('en-AU', { day: 'numeric', month: 'short' });
+const iso = (d) => d.toISOString().slice(0, 10);
 
-    const { lines } = quote();
-    const method = { pickup: 'Pick it up myself', delivered: 'Delivered', installed: 'Installed' }[state.method];
-    const body = [
-      `Hi Replants,`,
-      ``,
-      `I'd like: ${state.qty} × ${heightLabel(state.size)} grass tree (${headsLabel(state.size)})`,
-      `How: ${method}`,
-      ...lines.map(([k, v]) => `  ${k}: ${v}`),
-      `Estimate: ${$('[data-out="total"]').textContent}`,
-      ``,
-      `Name: ${$('#f-name').value.trim()}`,
-      `Phone: ${$('#f-phone').value.trim()}`,
-      `Suburb: ${$('#f-suburb').value.trim() || '-'}`,
-    ].join('\n');
-    $('[data-stamp]').hidden = false;
-    window.location.href =
-      'mailto:sales@replants.com?subject=' + encodeURIComponent('Grass tree request') + '&body=' + encodeURIComponent(body);
+function upcoming(match, count) {
+  const out = [];
+  const d = new Date();
+  d.setHours(12, 0, 0, 0);
+  for (let i = 1; out.length < count && i < 120; i++) {
+    const day = new Date(d.getTime() + i * DAY);
+    if (match(day.getDay())) out.push(day);
+  }
+  return out;
+}
+
+function scheduleFor() {
+  if (state.method === 'pickup' && state.place === 'rockingham') {
+    return { days: upcoming((w) => w === 6, 5), times: ['8:00', '8:45', '9:30', '10:15', '11:00', '11:45'] };
+  }
+  if (state.method === 'pickup') {
+    return { days: upcoming((w) => w === 0 || w >= 3, 8), times: ['10:00', '11:00', '12:00', '13:00', '14:00', '15:00'] };
+  }
+  return { days: upcoming((w) => w >= 1 && w <= 5, 8), times: ['Morning', 'Afternoon'] };
+}
+
+// Demo availability: a stable pseudo-random share of slots shows as taken.
+function taken(day, time) {
+  let h = 2166136261;
+  for (const c of iso(day) + time + state.place + state.method) h = Math.imul(h ^ c.charCodeAt(0), 16777619);
+  return ((h >>> 0) % 100) < 28;
+}
+
+function renderWhen() {
+  const pickup = state.method === 'pickup';
+  $('[data-when-pickup]').hidden = !pickup;
+  $('[data-when-delivery]').hidden = pickup;
+  if (state.special) {
+    state.place = 'rockingham';
+    $('input[name="place"][value="rockingham"]').checked = true;
+  }
+  $$('input[name="place"]').forEach((r) => (r.disabled = state.special && r.value !== 'rockingham'));
+  placePill($('[data-place]'));
+  $('[data-place-hint]').textContent = state.place === 'rockingham'
+    ? 'Saturdays 8am–12pm. You’ll walk into the bush to choose, so wear sturdy shoes.'
+    : 'Wednesday to Sunday, 10am–4pm. Bagged, nursery-hardened trees.';
+  $('[data-times-label]').textContent = pickup ? 'Time' : 'Delivery window';
+
+  const { days, times } = scheduleFor();
+  if (!days.some((d) => iso(d) === state.day)) { state.day = null; state.time = null; }
+  $('[data-days]').innerHTML = days
+    .map((d) => `<label class="chip"><input type="radio" name="day" value="${iso(d)}" ${iso(d) === state.day ? 'checked' : ''}><span>${fmtDay(d)}<small>${fmtDate(d)}</small></span></label>`)
+    .join('');
+  const day = days.find((d) => iso(d) === state.day);
+  $('[data-times]').innerHTML = day
+    ? times.map((t) => {
+        const off = taken(day, t);
+        return `<label class="chip"><input type="radio" name="time" value="${t}" ${off ? 'disabled' : ''} ${t === state.time ? 'checked' : ''}><span>${t}${off ? '<small>Taken</small>' : ''}</span></label>`;
+      }).join('')
+    : `<p class="pane__hint">Pick a day first.</p>`;
+}
+
+function whenLabel() {
+  const d = new Date(state.day + 'T12:00:00');
+  const where = state.method === 'pickup' ? (state.place === 'rockingham' ? ' · Rockingham' : ' · Fremantle') : ' · delivery';
+  return `${fmtDay(d)} ${fmtDate(d)}, ${state.time}${where}`;
+}
+
+/* ---------- Booking: steps ---------- */
+
+const panes = () => $$('[data-pane]');
+
+async function swapPane(from, to, dir) {
+  const anim = (el, kf, opts) => (el.animate && !reduced ? el.animate(kf, opts).finished : Promise.resolve());
+  if (from) {
+    await anim(from, [{ opacity: 1, transform: 'none' }, { opacity: 0, transform: `translateX(${-12 * dir}px)` }], { duration: 150, easing: 'ease-in' });
+    from.hidden = true;
+  }
+  to.hidden = false;
+  $$('.seg', to).forEach(placePill);
+  anim(to, [{ opacity: 0, transform: `translateX(${16 * dir}px)` }, { opacity: 1, transform: 'none' }], { duration: 340, easing: 'cubic-bezier(.16,1,.3,1)' });
+}
+
+function goTo(n) {
+  const dir = n >= state.step ? 1 : -1;
+  const from = panes().find((p) => !p.hidden);
+  const to = $(`[data-pane="${n}"]`);
+  state.step = n;
+  if (n === 2) renderWhen();
+  if (n === 3) $('[data-address-wrap]').hidden = state.method === 'pickup';
+  swapPane(from, to, dir);
+
+  $$('[data-step-tab]').forEach((li) => {
+    const i = Number(li.dataset.stepTab);
+    li.toggleAttribute('aria-current', i === n);
+    if (i === n) li.setAttribute('aria-current', 'step');
+    li.classList.toggle('is-done', i < n);
+  });
+  const done = n === 4;
+  $('[data-back]').hidden = n === 1 || done;
+  $('[data-next]').hidden = done;
+  $('[data-next]').innerHTML = n === 3
+    ? 'Send request <svg class="ico"><use href="#i-arrow"/></svg>'
+    : 'Continue <svg class="ico"><use href="#i-arrow"/></svg>';
+  if (done) setTimeout(() => to.focus(), 50);
+}
+
+function validateWhen() {
+  if (state.day && state.time) return true;
+  const target = state.day ? $('[data-times]') : $('[data-days]');
+  if (target.animate && !reduced) target.animate([{ transform: 'translateX(0)' }, { transform: 'translateX(-6px)' }, { transform: 'translateX(5px)' }, { transform: 'translateX(0)' }], { duration: 300 });
+  $('[data-times-label]').textContent = state.day ? 'Pick a time' : 'Pick a day first';
+  return false;
+}
+
+function validateDetails() {
+  let first = null;
+  for (const [id, err] of [['#f-name', '#e-name'], ['#f-phone', '#e-phone']]) {
+    const input = $(id), bad = !input.value.trim();
+    input.setAttribute('aria-invalid', bad ? 'true' : 'false');
+    if (bad) input.setAttribute('aria-describedby', err.slice(1)); else input.removeAttribute('aria-describedby');
+    $(err).hidden = !bad;
+    if (bad && !first) first = input;
+  }
+  if (first) first.focus();
+  return !first;
+}
+
+function send() {
+  const { lines } = quote();
+  const method = { pickup: 'Pick up', delivered: 'Delivered', installed: 'Installed' }[state.method];
+  const body = [
+    'Hi Replants,', '',
+    state.special ? 'I’d like the Trailer Special.' : `I’d like: ${state.qty} × ${heightLabel(state.size)} grass tree (${headsLabel(state.size)})`,
+    `How: ${method}`,
+    `When: ${whenLabel()}`,
+    ...lines.map(([k, v]) => `  ${k}: ${v}`),
+    `Estimate: ${$('[data-out="total"]').textContent}`, '',
+    `Name: ${$('#f-name').value.trim()}`,
+    `Mobile: ${$('#f-phone').value.trim()}`,
+    state.method !== 'pickup' ? `Address: ${$('#f-address').value.trim() || '-'}` : '',
+    `Notes: ${$('#f-notes').value.trim() || '-'}`,
+  ].filter((l) => l !== '').join('\n');
+  goTo(4);
+  $('[data-done-text]').textContent = `${whenLabel()}. Your email app should open with the request filled in. We’ll call ${$('#f-phone').value.trim()} to confirm.`;
+  window.location.href = 'mailto:sales@replants.com?subject=' + encodeURIComponent('Grass tree booking') + '&body=' + encodeURIComponent(body);
+}
+
+function bindBooking() {
+  $$('input[name="method"]').forEach((r) => r.addEventListener('change', () => {
+    state.method = r.value;
+    if (state.special && r.value !== 'pickup') state.special = false;
+    renderSummary();
+  }));
+  $$('[data-qty]').forEach((b) => b.addEventListener('click', () => {
+    state.qty = Math.min(20, Math.max(1, state.qty + Number(b.dataset.qty)));
+    renderSummary();
+  }));
+  $('[data-dig]').addEventListener('change', (e) => { state.dig = e.target.checked; renderSummary(); });
+  $('[data-formula]').addEventListener('change', (e) => { state.formula = e.target.checked; renderSummary(); });
+  $('[data-special]').addEventListener('click', () => {
+    state.special = !state.special;
+    if (state.special) { state.method = 'pickup'; $('input[name="method"][value="pickup"]').checked = true; }
+    renderSummary();
   });
 
+  $('[data-place]').addEventListener('change', (e) => { state.place = e.target.value; state.time = null; renderWhen(); renderSummary(); });
+  $('[data-days]').addEventListener('change', (e) => { state.day = e.target.value; state.time = null; renderWhen(); renderSummary(); });
+  $('[data-times]').addEventListener('change', (e) => { state.time = e.target.value; renderSummary(); });
+
+  $('[data-next]').addEventListener('click', () => {
+    if (state.step === 1) goTo(2);
+    else if (state.step === 2 && validateWhen()) goTo(3);
+    else if (state.step === 3 && validateDetails()) send();
+  });
+  $('[data-back]').addEventListener('click', () => goTo(state.step - 1));
+  $('[data-form]').addEventListener('submit', (e) => { e.preventDefault(); if (validateDetails()) send(); });
   for (const id of ['#f-name', '#f-phone']) {
     $(id).addEventListener('input', (e) => {
-      if (e.target.value.trim()) {
-        e.target.setAttribute('aria-invalid', 'false');
-        $(id.replace('#f-', '#e-')).hidden = true;
-      }
+      if (e.target.value.trim()) { e.target.setAttribute('aria-invalid', 'false'); $(id.replace('#f-', '#e-')).hidden = true; }
     });
+  }
+
+  $('[data-start-booking]').addEventListener('click', () => { if (state.step === 4) goTo(1); });
+  $('[data-ics-booking]').addEventListener('click', () => {
+    const d = new Date(state.day + 'T12:00:00');
+    const [hh, mm] = /\d/.test(state.time) ? state.time.split(':').map(Number) : [state.time === 'Morning' ? 8 : 12, 0];
+    d.setHours(hh, mm, 0, 0);
+    const end = new Date(d.getTime() + (state.method === 'pickup' ? 45 : 240) * 60000);
+    const where = state.method === 'pickup'
+      ? (state.place === 'rockingham' ? 'Office Road (off Patterson Road), Rockingham WA' : '96 Wray Avenue, Fremantle WA 6160')
+      : ($('#f-address').value.trim() || 'Your address');
+    downloadIcs('replants-booking.ics', [{
+      start: d, end, title: state.method === 'pickup' ? 'Pick up grass tree · Replants' : 'Grass tree delivery · Replants',
+      where, note: `Replants ${PHONE}. Bring a container for 15 L of soil.`,
+    }]);
+  });
+}
+
+/* ---------- Calendar files ---------- */
+
+const icsStamp = (d) => d.toISOString().replace(/[-:]/g, '').replace(/\.\d{3}/, '');
+const icsDate = (d) => iso(d).replace(/-/g, '');
+const icsText = (s) => s.replace(/[,;\\]/g, (m) => '\\' + m).replace(/\n/g, '\\n');
+
+function downloadIcs(name, events) {
+  const now = icsStamp(new Date());
+  const body = events.map((e, i) => [
+    'BEGIN:VEVENT',
+    `UID:replants-${now}-${i}@replants.com`,
+    `DTSTAMP:${now}`,
+    e.allDay ? `DTSTART;VALUE=DATE:${icsDate(e.start)}` : `DTSTART:${icsStamp(e.start)}`,
+    e.allDay ? `DTEND;VALUE=DATE:${icsDate(new Date(e.start.getTime() + DAY))}` : `DTEND:${icsStamp(e.end)}`,
+    `SUMMARY:${icsText(e.title)}`,
+    e.where ? `LOCATION:${icsText(e.where)}` : '',
+    `DESCRIPTION:${icsText(e.note || '')}`,
+    'BEGIN:VALARM', 'ACTION:DISPLAY', `DESCRIPTION:${icsText(e.title)}`,
+    e.allDay ? 'TRIGGER:PT9H' : 'TRIGGER:-PT12H', 'END:VALARM',
+    'END:VEVENT',
+  ].filter(Boolean).join('\r\n')).join('\r\n');
+  const ics = `BEGIN:VCALENDAR\r\nVERSION:2.0\r\nPRODID:-//Replants//Concept//EN\r\nCALSCALE:GREGORIAN\r\n${body}\r\nEND:VCALENDAR\r\n`;
+  const url = URL.createObjectURL(new Blob([ics], { type: 'text/calendar' }));
+  const a = Object.assign(document.createElement('a'), { href: url, download: name });
+  document.body.append(a); a.click(); a.remove();
+  setTimeout(() => URL.revokeObjectURL(url), 2000);
+}
+
+/* ---------- Care reminders ---------- */
+
+const REMINDERS = [
+  [0, 'Planting day: fill the moat and soak it deeply.'],
+  [7, 'Deep-water 2–3 times a week in summer, about 50 L each time.'],
+  [30, 'Check the centre: new growth there means it’s settling in.'],
+  [90, 'Pull mulch back so it’s 150 mm clear of the trunk. Watch for the first flower spike and remove it.'],
+  [182, 'Re-apply Transplant Formula (a warranty condition).'],
+  [365, 'One year: new roots are established. Keep deep-watering in heatwaves.'],
+  [545, 'Summer check: brown outer leaves are normal; soft trunk at ground level is not.'],
+  [730, 'Two years: it finds its own water now. Trim the skirt if you like.'],
+];
+
+function reminderDates() {
+  const v = $('[data-r-date]').value;
+  const start = v ? new Date(v + 'T12:00:00') : new Date();
+  return REMINDERS.map(([days, text]) => ({ date: new Date(start.getTime() + days * DAY), text }));
+}
+
+function renderReminders() {
+  $('[data-r-list]').innerHTML = reminderDates()
+    .map((r, i) => `<li style="--i:${i % 4}"${i >= 4 ? ' class="is-later"' : ''}><time datetime="${iso(r.date)}">${r.date.toLocaleDateString('en-AU', { day: 'numeric', month: 'short', year: '2-digit' })}</time><span>${r.text}</span></li>`)
+    .join('');
+}
+
+function bindReminders() {
+  const input = $('[data-r-date]');
+  input.value = iso(new Date());
+  input.addEventListener('change', renderReminders);
+  $('[data-r-more]').addEventListener('click', (e) => {
+    const all = $('[data-r-list]').classList.toggle('is-all');
+    e.currentTarget.setAttribute('aria-expanded', String(all));
+    e.currentTarget.textContent = all ? 'Show fewer' : 'Show all 8 reminders';
+  });
+  renderReminders();
+  $('[data-r-ics]').addEventListener('click', () => {
+    downloadIcs('replants-care-reminders.ics', reminderDates().map((r) => ({
+      start: r.date, allDay: true, title: 'Grass tree care · ' + r.text.split(':')[0].split('.')[0],
+      note: r.text + ` Questions? Replants ${PHONE} or support@replants.com`,
+    })));
+  });
+  $('[data-r-sms]').addEventListener('click', () => {
+    const wrap = $('[data-r-sms-wrap]');
+    wrap.hidden = !wrap.hidden;
+    if (!wrap.hidden) $('[data-r-phone]').focus();
+  });
+  $('[data-reminders]').addEventListener('submit', (e) => {
+    e.preventDefault();
+    const phone = $('[data-r-phone]');
+    if (!phone.value.trim()) { phone.setAttribute('aria-invalid', 'true'); phone.focus(); return; }
+    phone.setAttribute('aria-invalid', 'false');
+    $('[data-r-sms-done]').hidden = false;
+  });
+}
+
+/* ---------- Ask Replants ---------- */
+
+const KB = [
+  { k: ['price', 'cost', 'how much', 'cheap', 'expensive', 'prices', 'dollar'], a: () =>
+      `<p>Single-head grass trees run from <b>$50</b> (0.1 m trunk) to <b>$350</b> (1.2 m). Two-head trees from $340, three heads at 1.2 m $750; bigger ones we quote.</p><p>Bagged trees from the Fremantle nursery are about 20% more.</p>`,
+    act: [{ label: 'Try sizes', go: '#top' }, { label: 'Book', go: '#get-it-home' }] },
+  { k: ['deliver', 'delivery', 'truck', 'crane', 'bring it'], a: () =>
+      `<p>Delivery in Perth metro is <b>$100</b> for one tree, or <b>$75 a tree</b> for two or more. Outside metro add $110 an hour travel. Dig a hole 1 m wide and 0.5 m deep and our crane truck drops it in.</p>`,
+    act: [{ label: 'Book delivery', go: '#get-it-home', method: 'delivered' }] },
+  { k: ['install', 'plant it for me', 'plant for me', 'dig', 'installation'], a: () =>
+      `<p>We’ll deliver, dig and plant it: <b>$100 a tree</b> on top of delivery, or $75 if you’ve dug the hole. Trunks over 1.2 m are priced on request.</p>`,
+    act: [{ label: 'Book installation', go: '#get-it-home', method: 'installed' }] },
+  { k: ['open', 'hours', 'where', 'address', 'fremantle', 'rockingham', 'visit', 'location', 'saturday'], a: () =>
+      `<p><b>Fremantle nursery</b>, 96 Wray Avenue: Wednesday to Sunday, 10am–4pm.</p><p><b>Rockingham salvage site</b>, Office Road off Patterson Road: Saturdays 8am–12pm, by booking. Wear sturdy shoes.</p>`,
+    act: [{ label: 'Directions', go: '#visit' }, { label: 'Book a time', go: '#get-it-home' }] },
+  { k: ['water', 'watering', 'drip', 'sprinkler', 'how often', 'litres', 'rain'], a: () =>
+      `<p>In hot months, water <b>2–3 times a week, about 50 L each time</b>, into the moat by dripper or bubbler. Once or twice a week when it’s cooler, and not at all in heavy rain.</p><p>Never let sprinklers wet the leaves.</p>`,
+    act: [{ label: 'Set reminders', go: '#reminders' }] },
+  { k: ['brown', 'yellow', 'dying', 'sick', 'stressed', 'dead', 'unhealthy', 'wilting', 'droop'], a: () =>
+      `<p>Brown tips in the first 6 months are normal. Check the <b>centre</b>: if the new growth there is healthy, it’s just the heat.</p><p>If the centre looks poor, apply Seasol or Ecovital monthly, check the black trunk at ground level is dry and firm, and pull mulch back.</p><p>Still worried? Email a photo to support@replants.com.</p>`,
+    act: [{ label: 'Email a photo', href: 'mailto:support@replants.com?subject=Grass%20tree%20health' }, { label: 'Call us', href: TEL }] },
+  { k: ['bug', 'bugs', 'mildew', 'scale', 'mealy', 'rust', 'slater', 'powder', 'white', 'insect', 'pest', 'fungus'], a: () =>
+      `<p><b>White powder</b> is mildew: wettable sulphur or Mancozeb, and thin the foliage. <b>Small grey-white bugs</b> are mealybugs: white oil, not in hot weather. <b>Scale</b>: pyrethrin or neem oil. <b>Slaters</b>: keep mulch 100 mm from the trunk.</p>` },
+  { k: ['warranty', 'guarantee', 'replace', 'refund', 'dies', 'died'], a: () =>
+      `<p>12 months, when you plant with our Transplant Formula and follow the care guide. If it doesn’t make it, we replace it for 25% of the original price, plus delivery and install if needed.</p>`,
+    act: [{ label: 'Warranty conditions', go: '#care' }] },
+  { k: ['formula', 'fertiliser', 'fertilizer', 'seasol', 'feed', 'tub'], a: () =>
+      `<p>Replants Transplant Formula: 0.8 kg <b>$15</b> (small trees), 1.7 kg <b>$25</b> (medium to large), 15 kg <b>$225</b>. Re-apply at 6 months. It’s needed for the warranty.</p>` },
+  { k: ['prune', 'pruning', 'trim', 'burn', 'black', 'skirt', 'tidy'], a: () =>
+      `<p>Pruning is <b>$75</b> for the first tree and <b>$25</b> each after (single heads up to 1.8 m). We can also blacken the trunk afterwards, where your shire allows it.</p>`,
+    act: [{ label: 'Call to book', href: TEL }] },
+  { k: ['clear', 'clearing', 'block', 'land', 'developer', 'bulldoz', 'salvage', 'remove my'], a: () =>
+      `<p>Clearing a block for a house or shed? We salvage grass trees and understorey from small lots in the Perth hills and the South West, and it can cut your clearing and mulching bill.</p>`,
+    act: [{ label: 'Call Bruce', href: TEL }, { label: 'Email Bruce', href: 'mailto:bruce@replants.com' }] },
+  { k: ['pensioner', 'discount', 'concession', 'senior', 'cheaper'], a: () =>
+      `<p>Yes, we offer pensioners a discount on trees (not on delivery or installation). Mention it when you book and we’ll confirm the amount.</p>` },
+  { k: ['pay', 'payment', 'eftpos', 'cash', 'card', 'cheque'], a: () =>
+      `<p>EFTPOS at both sites, cash, or cheque if you’re up for a retro ride. Delivered and installed trees are paid in full upfront.</p>` },
+  { k: ['country', 'regional', 'freight', 'bunbury', 'busselton', 'geraldton', 'albany', 'kalgoorlie', 'south west'], a: () =>
+      `<p>We supply regional WA. Small orders go by freight; big trees our crew delivers and plants.</p>`,
+    act: [{ label: 'Ask about your area', href: 'mailto:enquiries@replants.com?subject=Country%20order' }] },
+  { k: ['size', 'big', 'small', 'space', 'tall', 'grow', 'growth', 'age', 'old', 'fast', 'choose', 'which'], a: () =>
+      `<p>Grass trees grow only about <b>12 mm of trunk a year</b>, so pick one that suits the space now. A 0.6 m trunk is roughly 50 years old. A single head fills 1–1.5 m across.</p><p>Not sure? Bring a photo of the spot when you visit.</p>`,
+    act: [{ label: 'Compare sizes', go: '#top' }] },
+  { k: ['gift', 'voucher', 'present'], a: () => `<p>Gift vouchers come in any amount.</p>`,
+    act: [{ label: 'Request a voucher', href: 'mailto:mail@replants.com?subject=Gift%20voucher' }] },
+  { k: ['timber', 'wood', 'jarrah', 'marri', 'tuart', 'sheoak'], a: () =>
+      `<p>We salvage jarrah, marri, tuart, banksia and sheoak from cleared sites and mill it for furniture, craft and flooring.</p>`,
+    act: [{ label: 'Join the list', href: 'mailto:enquiries@replants.com?subject=Salvaged%20timber' }] },
+  { k: ['special', 'trailer', 'deal', 'package', 'bundle'], a: () =>
+      `<p>Trailer Special: <b>3 pre-dug trees</b> (one 0.4 m, two 0.2 m) and <b>3 tubs of formula</b> for <b>$325</b>, usually $475. Saturdays at Rockingham.</p>`,
+    act: [{ label: 'Book the special', go: '#get-it-home', special: true }] },
+  { k: ['hi', 'hello', 'hey', 'g\'day', 'gday'], a: () => `<p>G’day! Ask me about prices, sizes, delivery, watering or a tree that looks unwell.</p>` },
+  { k: ['thanks', 'thank you', 'cheers', 'ta'], a: () => `<p>No worries. Anything else, just ask, or call ${PHONE}.</p>` },
+];
+
+function heightQuestion(q) {
+  const m = q.match(/(\d+(?:\.\d+)?)\s*(cm|mm|m\b|metre|meter|met)?/);
+  if (!m || !/(price|cost|how much|\$|tree|trunk|metre|meter|\bm\b)/.test(q)) return null;
+  let h = parseFloat(m[1]);
+  if (m[2] === 'cm') h /= 100; else if (m[2] === 'mm') h /= 1000;
+  if (!(h > 0 && h <= 5)) return null;
+  const multi = /(multi|two|three|2|3)[ -]?head/.test(q);
+  const pool = multi ? MULTI : SINGLE;
+  const best = pool.reduce((a, s) => (Math.abs(s.h - h) < Math.abs(a.h - h) ? s : a));
+  if (h > 1.25 && !multi) {
+    return { a: `<p>Over 1.2 m of trunk we price each tree individually, as they’re feature specimens. Call ${PHONE} or visit the Rockingham site to see what’s there.</p>`,
+      act: [{ label: 'Call us', href: TEL }] };
+  }
+  return {
+    a: `<p>A <b>${heightLabel(best)}</b> ${headsLabel(best)} grass tree is <b>${priceLabel(best)}</b> from the salvage site, and it’s ${ageLabel(best).replace('~', 'roughly ')} old.</p>`,
+    act: [{ label: 'Show me', size: best.id }, { label: 'Book it', go: '#get-it-home', size: best.id }],
+  };
+}
+
+function answer(raw) {
+  const q = ' ' + raw.toLowerCase().replace(/[’']/g, "'") + ' ';
+  const h = heightQuestion(q);
+  if (h) return h;
+  let best = null, score = 0;
+  for (const item of KB) {
+    const s = item.k.reduce((n, k) => n + (q.includes(k.length <= 3 ? ` ${k} ` : k) ? 1 : 0), 0);
+    if (s > score) { score = s; best = item; }
+  }
+  if (best) return { a: best.a(), act: best.act };
+  return {
+    a: `<p>I’m not sure about that one. The team can help: call <b>${PHONE}</b> or email enquiries@replants.com.</p>`,
+    act: [{ label: 'Call', href: TEL }, { label: 'Email', href: 'mailto:enquiries@replants.com' }],
+  };
+}
+
+const CHIPS = ['How much is a 1 m tree?', 'Delivery cost', 'Watering in summer', 'Brown leaves'];
+
+function bindAsk() {
+  const btn = $('[data-ask-open]'), panel = $('[data-ask]'), log = $('[data-ask-log]');
+  const input = $('[data-ask-input]');
+  let greeted = false;
+
+  const scroll = () => log.scrollTo({ top: log.scrollHeight, behavior: reduced ? 'auto' : 'smooth' });
+  const say = (html, who, act) => {
+    const m = document.createElement('div');
+    m.className = `msg msg--${who}`;
+    if (who === 'me') m.textContent = html; else m.innerHTML = html;
+    if (act?.length) {
+      const row = document.createElement('div');
+      row.className = 'msg__actions';
+      act.forEach((x) => {
+        const el = x.href ? Object.assign(document.createElement('a'), { href: x.href }) : document.createElement('button');
+        if (!x.href) el.type = 'button';
+        el.textContent = x.label;
+        el.addEventListener('click', () => runAction(x));
+        row.append(el);
+      });
+      m.append(row);
+    }
+    log.append(m);
+    // a new answer is read from its first line, not its last
+    if (who === 'bot') log.scrollTo({ top: m.offsetTop - 12, behavior: reduced ? 'auto' : 'smooth' });
+    else scroll();
+  };
+
+  const reply = (text) => {
+    $('[data-ask-chips]').hidden = true;
+    say(text, 'me');
+    const typing = document.createElement('div');
+    typing.className = 'msg msg--bot typing';
+    typing.innerHTML = '<i></i><i></i><i></i>';
+    typing.setAttribute('aria-label', 'Replants is typing');
+    log.append(typing);
+    scroll();
+    const { a, act } = answer(text);
+    setTimeout(() => { typing.remove(); say(a, 'bot', act); }, reduced ? 150 : 550 + Math.min(600, a.length * 2));
+  };
+
+  const open = () => {
+    panel.hidden = false;
+    panel.classList.remove('is-closing');
+    panel.classList.add('is-opening');
+    btn.setAttribute('aria-expanded', 'true');
+    if (!greeted) {
+      greeted = true;
+      say(`<p>Hi, I’m the Replants helper. Ask about prices, sizes, delivery, care, or a tree that looks unwell.</p>`, 'bot');
+      $('[data-ask-chips]').innerHTML = CHIPS.map((c) => `<button type="button">${c}</button>`).join('');
+    }
+    setTimeout(() => input.focus(), 60);
+  };
+  const close = () => {
+    panel.classList.remove('is-opening');
+    panel.classList.add('is-closing');
+    btn.setAttribute('aria-expanded', 'false');
+    setTimeout(() => { panel.hidden = true; panel.classList.remove('is-closing'); }, reduced ? 0 : 190);
+    btn.focus();
+  };
+
+  btn.addEventListener('click', open);
+  $('[data-ask-close]').addEventListener('click', close);
+  panel.addEventListener('keydown', (e) => { if (e.key === 'Escape') close(); });
+  $('[data-ask-chips]').addEventListener('click', (e) => { if (e.target.matches('button')) reply(e.target.textContent); });
+  $('[data-ask-form]').addEventListener('submit', (e) => {
+    e.preventDefault();
+    const v = input.value.trim();
+    if (!v) return;
+    input.value = '';
+    reply(v);
+  });
+}
+
+function runAction(x) {
+  if (x.size) setSize(SIZES.find((s) => s.id === x.size), { fromChat: true });
+  if (x.method) { state.method = x.method; $(`input[name="method"][value="${x.method}"]`).checked = true; state.special = false; }
+  if (x.special) { state.special = true; state.method = 'pickup'; $('input[name="method"][value="pickup"]').checked = true; }
+  if (x.size || x.method || x.special) renderSummary();
+  if (x.go) {
+    if (x.go === '#get-it-home' && state.step !== 1) goTo(1);
+    $(x.go).scrollIntoView({ behavior: reduced ? 'auto' : 'smooth' });
   }
 }
 
-/* ---------- Nav ---------- */
+/* ---------- Page chrome ---------- */
 
-function bindNav() {
-  const nav = $('.site-nav');
-  const btn = $('.site-nav__toggle');
-  btn.addEventListener('click', () => {
+function bindChrome() {
+  const head = $('.site-head');
+  const ask = $('[data-ask-open]');
+  const onScroll = () => {
+    head.classList.toggle('is-scrolled', scrollY > 8);
+    // the helper waits until the visitor starts exploring, so the first view stays calm
+    if (scrollY > 320) ask.classList.add('is-shown');
+  };
+  addEventListener('scroll', onScroll, { passive: true });
+  const covering = new Set();
+  const tuck = new IntersectionObserver((entries) => {
+    entries.forEach((en) => (en.isIntersecting ? covering.add(en.target) : covering.delete(en.target)));
+    // on wide screens the order panel is sticky beside the steps, clear of the button
+    const inline = matchMedia('(max-width: 1024px)').matches;
+    ask.classList.toggle('is-tucked', [...covering].some((el) => inline || el.matches('.site-foot')));
+  }, { rootMargin: '0px 0px -0px 0px', threshold: 0 });
+  [$('.summary'), $('.site-foot')].forEach((el) => tuck.observe(el));
+  onScroll();
+
+  const nav = $('.site-nav'), toggle = $('.site-nav__toggle');
+  toggle.addEventListener('click', () => {
     const open = nav.classList.toggle('is-open');
-    btn.setAttribute('aria-expanded', String(open));
+    toggle.setAttribute('aria-expanded', String(open));
   });
   nav.addEventListener('click', (e) => {
-    if (e.target.closest('a')) { nav.classList.remove('is-open'); btn.setAttribute('aria-expanded', 'false'); }
+    if (e.target.closest('a')) { nav.classList.remove('is-open'); toggle.setAttribute('aria-expanded', 'false'); }
   });
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape' && nav.classList.contains('is-open')) {
-      nav.classList.remove('is-open'); btn.setAttribute('aria-expanded', 'false'); btn.focus();
+      nav.classList.remove('is-open'); toggle.setAttribute('aria-expanded', 'false'); toggle.focus();
     }
   });
+
+  // which section is on screen, for the nav underline
+  const links = new Map($$('.site-nav a').map((a) => [a.getAttribute('href').slice(1), a]));
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((en) => {
+      if (!en.isIntersecting) return;
+      links.forEach((a) => a.removeAttribute('aria-current'));
+      links.get(en.target.id)?.setAttribute('aria-current', 'true');
+    });
+  }, { rootMargin: '-45% 0px -50% 0px' });
+  links.forEach((_, id) => { const el = document.getElementById(id); if (el) io.observe(el); });
+
+  // the care timeline draws itself once, as time passing
+  const tl = $('[data-timeline]');
+  $$('li', tl).forEach((li, i) => li.style.setProperty('--i', i));
+  new IntersectionObserver(([en], obs) => {
+    if (en.isIntersecting) { tl.classList.add('is-drawn'); obs.disconnect(); }
+  }, { threshold: 0.4 }).observe(tl);
 }
 
 /* ---------- 3D ---------- */
 
 async function startTree() {
-  const stage = $('[data-stage]');
-  const canvas = $('.hero__canvas', stage);
+  const canvas = $('.hero__canvas');
   try {
     const probe = document.createElement('canvas');
     if (!(probe.getContext('webgl2') || probe.getContext('webgl'))) throw new Error('no webgl');
@@ -302,10 +724,14 @@ async function startTree() {
   }
 }
 
-buildRail();
-document.fonts.ready.then(drawPunches);
-buildSelect();
-bindDocket();
-bindNav();
-render();
+renderTicks();
+syncSlider();
+renderHero();
+initSegs();
+bindPicker();
+bindBooking();
+renderSummary();
+bindReminders();
+bindAsk();
+bindChrome();
 startTree();

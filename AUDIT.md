@@ -52,6 +52,20 @@ The concept in this repo, `index.html`, addresses each of these:
 - **Both locations with hours and directions,** with one phone number used consistently.
 - **Proper search basics:** unique meta description, Open Graph tags, and `GardenStore` structured data.
 
+## Automations and quality-of-life features
+
+Three are built into the concept as working demos. The rest are recommended next steps.
+
+| Feature | In the concept | To make it real |
+|---|---|---|
+| **Ask Replants chat** | Answers from Replants' own prices, care and hours, with buttons to set a size, book, call or email a photo. It's a scripted demo. | An AI assistant (e.g. Claude) grounded on Replants' content. It hands over to a person by SMS or email when it can't answer, and logs the questions customers actually ask. |
+| **Pick-up and delivery booking** | Three steps: how, when (with real Saturday and Wed–Sun slots), then contact details. A calendar file downloads. Availability is simulated. | A booking tool such as Cal.com, Square Appointments or Calendly, with slot limits per site and SMS confirmations. It could take a deposit through Stripe or Square to stop no-shows. |
+| **Aftercare reminders** | Enter a planting date and you get eight reminders over 24 months as a calendar download, which works today. SMS sign-up is a demo. | SMS or email reminders through Twilio or Mailchimp, sent from the booking record. Tracking the 6-month formula reminder also protects the warranty. |
+| Live tree stock | — | Photos of the actual bagged trees at Fremantle, with size and price, marked sold when they go. |
+| Clearing-site intake | — | A form for landowners and developers: block location, number of trees, and clearing date. It goes straight to Bruce. |
+| Review requests | — | An automatic text 3 weeks after planting asking for a Google review, along with a care check. |
+| Trailer Special alerts | — | An opt-in SMS when a new salvage site opens or a clearance weekend is on. |
+
 ## For Replants to confirm before launch
 
 - The pensioner discount: 10% or 20%?

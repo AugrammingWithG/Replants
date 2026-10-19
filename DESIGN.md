@@ -1,318 +1,378 @@
 ---
 name: replants
-description: Rescued WA grass trees, marked the way a clearing site marks the ones it saves.
+description: Rescued WA grass trees, marked with one strip of the pink tape a clearing site uses for the ones it saves.
 colors:
   tape: "#ff2d87"
   tape-hem: "#ee2a80"
-  peg: "#ff7a1a"
+  tape-wash: "#ffe8f1"
   crown: "#8db33a"
+  ground: "#f3f3f0"
+  paper: "#ffffff"
+  soft: "#e8e8e3"
+  rule: "#dcdad3"
+  ink: "#1a1917"
+  ink-2: "#5b5851"
   char: "#171513"
-  char-2: "#221f1b"
-  char-rule: "#3d3832"
-  on-char: "#efece6"
-  on-char-2: "#b8b1a5"
-  sand: "#e2e2de"
-  sand-lift: "#efefec"
-  sand-deep: "#d2d1cb"
-  rule: "#b2b0a8"
-  ink-2: "#4a443b"
-  ink-2-on-tape: "#3b0f22"
-  alu-hi: "#e3e6e8"
-  alu: "#cdd2d6"
-  alu-lo: "#aeb4b9"
-  tag-ink: "#26282c"
-  field-stroke: "#8e9398"
-  stamp-oxblood: "#7d002c"
+  on-char: "#f0eee9"
+  on-char-2: "#b3ac9f"
+  field-error: "#a1003a"
 typography:
   display:
     fontFamily: "Anybody, Arial Narrow, sans-serif"
-    fontSize: "clamp(2.9rem, 1.2rem + 5vw, 5.5rem)"
-    fontWeight: 880
-    lineHeight: 0.9
-    letterSpacing: "-0.02em"
-    fontVariation: "'wdth' 62"
+    fontSize: "clamp(2.6rem, 1.3rem + 4.3vw, 4.75rem)"
+    fontWeight: 740
+    lineHeight: 1
+    letterSpacing: "-0.025em"
+    fontVariation: "'wdth' 82"
   headline:
     fontFamily: "Anybody, Arial Narrow, sans-serif"
-    fontSize: "clamp(2.2rem, 1.5rem + 2.8vw, 3.75rem)"
-    fontWeight: 850
-    lineHeight: 0.95
-    letterSpacing: "-0.015em"
-    fontVariation: "'wdth' 68"
+    fontSize: "clamp(2rem, 1.45rem + 1.9vw, 3rem)"
+    fontWeight: 720
+    lineHeight: 1.02
+    letterSpacing: "-0.02em"
+    fontVariation: "'wdth' 84"
   title:
     fontFamily: "Anybody, Arial Narrow, sans-serif"
-    fontSize: "clamp(1.35rem, 1.15rem + .7vw, 1.75rem)"
-    fontWeight: 850
-    lineHeight: 1.15
-    fontVariation: "'wdth' 80"
+    fontSize: "1.25rem"
+    fontWeight: 700
+    lineHeight: 1.2
+    fontVariation: "'wdth' 88"
   figure:
     fontFamily: "Anybody, Arial Narrow, sans-serif"
-    fontSize: "2.4rem"
-    fontWeight: 800
-    lineHeight: 0.95
+    fontSize: "2rem"
+    fontWeight: 720
+    lineHeight: 1
     fontFeature: "'tnum'"
-    fontVariation: "'wdth' 75"
-  tape-print:
+    fontVariation: "'wdth' 86"
+  wordmark:
     fontFamily: "Anybody, Arial Narrow, sans-serif"
-    fontSize: "0.88rem"
-    fontWeight: 700
-    letterSpacing: "0.02em"
-    fontVariation: "'wdth' 112"
+    fontSize: "1.6rem"
+    fontWeight: 760
+    lineHeight: 1
+    letterSpacing: "-0.03em"
+    fontVariation: "'wdth' 92"
   body:
     fontFamily: "Lexend, Segoe UI, system-ui, sans-serif"
-    fontSize: "1.1875rem"
+    fontSize: "1.125rem"
     fontWeight: 400
-    lineHeight: 1.55
+    lineHeight: 1.6
+  small:
+    fontFamily: "Lexend, Segoe UI, system-ui, sans-serif"
+    fontSize: "0.95rem"
+    fontWeight: 400
+    lineHeight: 1.5
   label:
     fontFamily: "Lexend, Segoe UI, system-ui, sans-serif"
-    fontSize: "1rem"
-    fontWeight: 700
+    fontSize: "0.9rem"
+    fontWeight: 400
+    lineHeight: 1.4
+  micro:
+    fontFamily: "Lexend, Segoe UI, system-ui, sans-serif"
+    fontSize: "0.8rem"
+    fontWeight: 400
     lineHeight: 1.4
 rounded:
-  plate: "3px"
-  panel: "4px"
-  field: "10px"
+  focus: "4px"
+  item: "8px"
+  chip: "10px"
+  card: "14px"
+  panel: "20px"
   pill: "999px"
 spacing:
-  gutter: "clamp(1rem, .5rem + 2.5vw, 3rem)"
-  max: "88rem"
-  station: "clamp(4.5rem, 9vw, 8.5rem)"
-  head-gap: "clamp(2.5rem, 5vw, 4rem)"
-  column-gap: "clamp(2rem, 4vw, 4.5rem)"
-  row: "1rem"
+  gutter: "clamp(1rem, .4rem + 2.6vw, 3rem)"
+  max: "76rem"
+  band: "clamp(5rem, 10vw, 8.5rem)"
+  head-gap: "clamp(2.25rem, 4.5vw, 3.5rem)"
+  column-gap: "clamp(1.5rem, 3.5vw, 3.5rem)"
+  grid-gap: "0.75rem"
+  chip-gap: "0.5rem"
 components:
   button-primary:
     backgroundColor: "{colors.char}"
     textColor: "{colors.on-char}"
-    typography: "{typography.label}"
+    typography: "{typography.body}"
     rounded: "{rounded.pill}"
-    padding: "0.8rem 1.4rem"
-    height: "3.25rem"
+    padding: "0.75rem 1.35rem"
+    height: "3.1rem"
   button-quiet:
     backgroundColor: "transparent"
-    textColor: "{colors.char}"
+    textColor: "{colors.ink}"
     rounded: "{rounded.pill}"
-    padding: "0.8rem 0.5rem"
-    height: "3.25rem"
+    padding: "0.75rem 0.6rem"
+    height: "3.1rem"
+  button-quiet-hover:
+    backgroundColor: "{colors.soft}"
   button-line:
-    backgroundColor: "transparent"
-    textColor: "{colors.on-char}"
+    backgroundColor: "{colors.paper}"
+    textColor: "{colors.ink}"
     rounded: "{rounded.pill}"
-    padding: "0.8rem 1.4rem"
-    height: "3.25rem"
+    padding: "0.75rem 1.35rem"
+    height: "3.1rem"
   call-pill:
-    backgroundColor: "{colors.char}"
-    textColor: "{colors.on-char}"
+    backgroundColor: "transparent"
+    textColor: "{colors.ink}"
+    typography: "{typography.small}"
     rounded: "{rounded.pill}"
     padding: "0.55rem 1rem"
-  tape-strip:
-    backgroundColor: "{colors.tape}"
-    textColor: "{colors.char}"
-    typography: "{typography.tape-print}"
-    padding: "0.55rem 3rem"
-  tape-mark:
-    backgroundColor: "{colors.tape}"
-    textColor: "{colors.char}"
-    padding: "0.02em 0.14em 0.04em"
-  tape-mark-on-tape:
-    backgroundColor: "{colors.char}"
-    textColor: "{colors.tape}"
-  size-tag:
-    backgroundColor: "{colors.alu}"
-    textColor: "{colors.tag-ink}"
-    rounded: "{rounded.plate}"
-    padding: "1.4rem 0.6rem 0.65rem"
-  docket:
-    backgroundColor: "{colors.alu}"
-    textColor: "{colors.tag-ink}"
-    rounded: "{rounded.panel}"
-    padding: "3.25rem 2rem 2rem"
-  field:
-    backgroundColor: "{colors.sand-lift}"
-    textColor: "{colors.char}"
-    rounded: "{rounded.field}"
-    padding: "0.5rem 0.8rem"
-    height: "3rem"
-  method-row-selected:
-    backgroundColor: "{colors.tape}"
-    textColor: "{colors.char}"
-    padding: "1.5rem 1.25rem"
-  warranty-panel:
+  seg-toggle:
+    backgroundColor: "{colors.soft}"
+    textColor: "{colors.ink-2}"
+    typography: "{typography.label}"
+    rounded: "{rounded.pill}"
+    padding: "3px"
+  seg-pill:
+    backgroundColor: "{colors.paper}"
+    textColor: "{colors.ink}"
+    rounded: "{rounded.pill}"
+  option-card:
+    backgroundColor: "{colors.paper}"
+    textColor: "{colors.ink}"
+    rounded: "{rounded.card}"
+    padding: "1.1rem 1.1rem 1.2rem"
+  chip:
+    backgroundColor: "{colors.paper}"
+    textColor: "{colors.ink}"
+    typography: "{typography.label}"
+    rounded: "{rounded.chip}"
+    padding: "0.55rem 0.8rem"
+  chip-selected:
     backgroundColor: "{colors.char}"
     textColor: "{colors.on-char}"
+  field:
+    backgroundColor: "{colors.paper}"
+    textColor: "{colors.ink}"
+    rounded: "{rounded.chip}"
+    padding: "0.55rem 0.85rem"
+    height: "3rem"
+  order-tag:
+    backgroundColor: "{colors.paper}"
+    textColor: "{colors.ink}"
+    padding: "2.6rem 1.4rem 1.4rem"
+  reminders-card:
+    backgroundColor: "{colors.paper}"
+    textColor: "{colors.ink}"
+    padding: "1.4rem"
+  ask-fab:
+    backgroundColor: "{colors.char}"
+    textColor: "{colors.on-char}"
+    rounded: "{rounded.pill}"
+    padding: "0.75rem 1.2rem 0.75rem 1rem"
+    height: "3.25rem"
+  ask-panel:
+    backgroundColor: "{colors.paper}"
+    textColor: "{colors.ink}"
     rounded: "{rounded.panel}"
-    padding: "2rem"
+    width: "min(25rem, calc(100vw - 2rem))"
+    height: "min(38rem, calc(100svh - 7rem))"
+  msg-bot:
+    backgroundColor: "{colors.ground}"
+    textColor: "{colors.ink}"
+    typography: "{typography.small}"
+    rounded: "{rounded.card}"
+    padding: "0.65rem 0.85rem"
+  msg-me:
+    backgroundColor: "{colors.char}"
+    textColor: "{colors.on-char}"
+    typography: "{typography.small}"
+    rounded: "{rounded.card}"
+    padding: "0.65rem 0.85rem"
+  dark-band:
+    backgroundColor: "{colors.char}"
+    textColor: "{colors.on-char}"
+    padding: "clamp(5rem, 10vw, 8.5rem) clamp(1rem, .4rem + 2.6vw, 3rem)"
 ---
 
 # Design System: replants
 
 ## Overview
 
-**Creative North Star: "Flagging Tape & Tree Tags"**
+**Creative North Star: "One Strip of Tape"**
 
-On a clearing site, fluoro pink tape around a trunk means "this one gets saved". The whole system is built from that marking kit: hemmed pink flagging tape carries announcements and the one key word of each headline, stamped aluminium tags with a wire hole carry sizes and prices, and a spray-painted ring marks the selection. The ground is bleached Bassendean sand (grey-white, never cream); ink and the dark stations are char black from fire-blackened trunks. Green appears only on living things.
+On a clearing site, pink flagging tape around a trunk means "this one gets saved". The system keeps that single mark and lets everything else go quiet. The ground is near-white bleached sand, content sits on white paper panels edged with hairline rules, and ink is a warm near-black. One strip of hemmed pink tape runs behind the last word of the hero headline and on behind the 3D grass tree; after that, pink only shows up where something is chosen, focused, linked or tied on. Char black does the heavy lifting: the primary action, selected chips, and the single dark band that tells the rescue story.
 
-The page is a sequence of full-bleed stations, alternating sand, char and one drenched tape station, each opening with a huge condensed uppercase Anybody headline beside a short Lexend paragraph. Content sits on rules and ledgers rather than in cards: a 2px char top rule opens a list, 1px rules divide its rows. Metal is reserved for things a yard would actually stamp: the size tags and the quote docket. The 3D grass tree in the hero is the same world in material form: charred bark, needle crown, the same pink tape tied round the trunk and a stamped tag on a wire.
+This is the calm rendition of the Flagging Tape and Tree Tags world. The loud first build (drenched tape stations, aluminium tag rail, peg-orange focus, uppercase condensed display) was rejected by the user as overwhelming and is gone. Headings are sentence case Anybody at 680-760 with a moderately narrow width; every sentence a person reads is Lexend 400. Layout is a single long page of generous bands divided by space and hairlines, not by colour blocks or cards with shadows. The one object with a physical form in the UI is the order summary: a white tree tag with chamfered top corners, a punched hole, and a loop of the same pink tape through it.
 
-Motion is sparse and physical. Tape ties on once (a clip reveal), the tree grows once at load and regrows when a size is picked, the crown and tape tail sway in wind; tags swing on hover and the docket's confirmation stamps down. Everything else is still, and all of it stops under reduced motion. Type is large throughout for an older audience.
+Motion follows a fixed grammar. The tape ties on and the tree grows once at load. Dragging the trunk-height slider regrows the 3D tree while the price counts to its new value. Booking steps slide in the direction of travel. The chat panel grows out of its button. The care timeline draws once, like time passing. Everything else holds still. Under reduced motion, state changes stay and travel is dropped.
 
 **Key Characteristics:**
-- Fluoro tape pink is the committed colour and owns full-width bands, not accents.
-- Condensed heavy Anybody on tape and metal; Lexend 400 for every sentence a person reads.
-- Sand, char and tape stations, separated by colour, never by cards or shadows.
-- Stamped aluminium is a material with a texture, a wire hole and punched lettering, used only for tags and the docket.
-- Selection is marked by hand: a sprayed ring, a tape-filled row, a stamped confirmation.
+- One accent, used as tape: a single hemmed band in the hero, then only selection, focus, links, and the tag's loop.
+- Near-white sand ground, white paper panels, 1px hairline rules drawn as inset shadows.
+- Char black is the action colour and the one dark band.
+- Sentence case Anybody headings (680-760); Lexend 400 for reading.
+- Quiet motion that happens once per event and stops.
 
 ## Colors
 
-Three marking colours on bleached sand and char, with brushed aluminium as the one material neutral.
+Near-neutral warm whites and greys, one fluorescent pink, and green kept for living things.
 
 ### Primary
-- **Flagging Tape Pink** (tape): the committed colour. Full-width announcement strip, the tape band behind the hero's last word, the tape marks on headline keywords, the drenched care station, the selected delivery method row, the spray ring on the chosen size tag, the 3D tape on the tree, link underlines, text selection and caret, and short emphasis text on char. Text on it is always char.
-- **Tape Hem** (tape-hem): the 3-4px darker hem printed along the top and bottom edge of every tape band; also the dimension lines in the planting cross-section. Never used as a fill on its own.
-
-### Secondary
-- **Survey Peg Orange** (peg): the second marker. Every keyboard focus ring (3px solid, 3px offset) and the sprayed circle on the ground around the 3D tree. Never a fill, never text.
+- **Flagging Tape Pink** (tape): the only accent. See the Tape Only Rule for where it is allowed.
+- **Tape Hem** (tape-hem): the darker 3px hem along the top and bottom of the hero tape band, and the back strand of the tape looped through the order tag. Never a fill by itself.
+- **Tape Wash** (tape-wash): the pale fill inside a completed booking-step number. Nothing else.
 
 ### Tertiary
-- **Grass Crown Green** (crown): living things only. The crown strokes in the planting cross-section; the 3D crown carries its own leaf ramp (see Components). No UI element is green.
+- **Grass Crown Green** (crown): living things only. Used for the crown strokes in the planting section-cut diagram; the 3D crown has its own leaf ramp (see Components).
 
 ### Neutral
-- **Bleached Bassendean Sand** (sand): page ground and sand stations; also the colour of punched holes, which show the ground through the metal.
-- **Sand Lift** (sand-lift): hover wash on method rows, field and stepper backgrounds, the open mobile menu.
-- **Sand Deep** (sand-deep): stepper and menu hover, scrollbar track.
-- **Survey Rule** (rule): 1px row dividers on sand.
-- **Fire-Blackened Char** (char): all ink on sand and tape, primary buttons, the call pill, char stations, 2px list-opening rules.
-- **Char Two** (char-2): the footer, one step lifted from char.
-- **Char Rule** (char-rule): 1px dividers on char.
-- **Ash** (on-char) and **Grey Ash** (on-char-2): primary and secondary text on char.
-- **Bark Grey** (ink-2): secondary text on sand. On tape it is swapped for **Tape Shadow** (ink-2-on-tape); on char for Grey Ash. Stations redefine `--ink-2` rather than introducing new classes.
-- **Aluminium** (alu-hi, alu, alu-lo): the tag and docket metal, always under the brushed texture image, never as a flat fill alone.
-- **Stamp Ink** (tag-ink): text on aluminium.
-- **Field Steel** (field-stroke): 2px strokes on fields, selects and the stepper; dashed rules in the docket ledger.
-- **Stamp Oxblood** (stamp-oxblood): the docket's rubber-stamped confirmation and field errors (with a pale pink fill `#fff3f7` on the invalid field).
+- **Bleached Sand** (ground): page ground, sticky header (at 86%, 94% once scrolled), the bot message bubble, the chat input, and the punched hole in the order tag.
+- **Paper** (paper): every panel and control surface. Option cards, chips, fields, stepper, the order tag, the reminders card, the chat panel, the segmented toggle's sliding pill.
+- **Soft Sand** (soft): the segmented toggle's track, quiet-button and stepper hover, the "when" line on the order tag, the chat close button.
+- **Hairline** (rule): every 1px rule and every inset 1px panel edge; slider track; 1.5px ring on the call pill, line button and step numbers.
+- **Ink** (ink): text on light grounds.
+- **Bark Grey** (ink-2): secondary text, captions, notes, ticks, unselected toggle text, hover ring on panels and chips (inset 1px).
+- **Char** (char): primary buttons, the Ask button, selected chips, the current step number, checked option-card ring (inset 2px), field focus ring (inset 2px), the trunk and callouts in the section-cut, and the one dark band.
+- **Ash** (on-char) and **Grey Ash** (on-char-2): primary and secondary text on char. The dark band redefines `--ink-2` as Grey Ash.
+- **Field Error** (field-error): the 2px inset ring on an invalid field and its message text.
 
 ### Named Rules
-**The Tape Owns Bands Rule.** Pink is applied as tape: a hemmed band, a skewed mark behind a word, a drenched station, a filled row. It is never a decorative accent line or gradient; the only line uses are link and nav-hover underlines and the 3px top rule on each visit card. On char, pink may also set short text (the warranty title, opening hours, the phone number on hover).
+**The Tape Only Rule.** Pink appears only as tape or as a mark of choice. Allowed: the hero tape band behind "bulldozed.", the 3D tree's tape, the trunk slider's fill, selected states (the option-card radio dot, completed step rings, the confirmation mark), every focus outline, link and nav underlines, the tape looped through the order tag, the care timeline's line and dots, the tape on the section-cut trunk, and text selection and caret. Nowhere else: no pink backgrounds on panels, no pink headings, no pink icons, no pink bands beyond the one in the hero.
 
-**The Living Green Rule.** Green appears only on the tree and the plant in the cross-section. If it is not alive, it is not green.
+**The One Dark Band Rule.** Char fills exactly one full-width band (the rescue story). Every other band is sand. Char elsewhere is limited to controls a hand presses and the selected state.
 
-**The Peg Means Focus Rule.** Peg orange is the keyboard focus colour everywhere, including on aluminium. On the tape station the focus ring switches to char, since orange on pink fails.
+**The Living Green Rule.** If it is not alive, it is not green.
 
 ## Typography
 
 **Display Font:** Anybody (variable, weight 100-900, width 50-150%), fallback Arial Narrow
 **Body Font:** Lexend (variable, 300-700), fallback Segoe UI, system-ui
 
-**Character:** Anybody is the tape printer and the metal punch: heavy, uppercase, its width axis pulled narrow (62-85%) for headlines and pushed wide (105-120%) for tape print and stamps. Lexend is the plain, open reading face. Lexend at 400 replaced the contract's first pick, Atkinson Hyperlegible, because Atkinson's slashed zero misread years and prices (2000, $200); this is a recorded deviation from the direction contract.
+**Character:** Anybody gives the headings a slightly narrow, sturdy, sign-painted voice without shouting: sentence case, 680-760 weight, width 82-92%, tight negative tracking only at the two largest sizes. Lexend is the plain, open reading face for an older audience. Atkinson Hyperlegible was dropped because its slashed zero misreads 2000 and $200.
 
 ### Hierarchy
-- **Display** (880, width 62%, clamp 2.9-5.5rem, line-height 0.9, uppercase): the hero H1 only; the phone number in Visit uses the same weight at width 70%.
-- **Headline** (850, width 68%, clamp 2.2-3.75rem, line-height 0.95, uppercase): station H2s, each with one keyword on a tape mark.
-- **Title** (850, width 75-80%, clamp 1.35-1.75rem, uppercase): H3s, delivery method names, docket title, place names.
-- **Figure** (800-850, width 75-85%, tabular figures): readout values and the price (2.4rem), docket total (2.2rem), ledger service names (1.3rem, uppercase).
-- **Tape print** (700-900, width 112%, 0.88rem, 0.02em tracking, uppercase): the announcement strip only.
-- **Body** (Lexend 400, 1.1875rem, 1.125rem under 640px, line-height 1.55, max 68ch): all reading text. Bold is 650-700.
-- **Label** (Lexend 700, 1rem): nav links, field labels, summaries, method costs, legends' secondary lines at 400.
+- **Display** (740, width 82%, clamp 2.6-4.75rem, line-height 1, -0.025em): the hero H1 only.
+- **Headline** (720, width 84%, clamp 2-3rem, line-height 1.02, -0.02em): band H2s, paired with a short Bark Grey paragraph in a two-column band head.
+- **Title** (680-700, width 86-90%, 1.15-1.75rem): H3s. Option names and timeline steps at 680/90%; place names, the reminders heading and the chat heading at 700-720/88%; the confirmation heading at 1.75rem.
+- **Figure** (650-720, width 84-88%, tabular figures): the readout's trunk and age (1.4rem, 650), the price and order estimate (2rem, 720), the phone number in Visit (2rem, 720, width 84%).
+- **Wordmark** (760, width 92%, 1.6rem, -0.03em, lowercase): the header and footer brand only.
+- **Body** (Lexend 400, 1.125rem, 1.0625rem under 640px, line-height 1.6, max 62ch): all reading text. Hero lede 1.15rem at 36ch. Bold is 600; labels and summaries are 500.
+- **Small** (Lexend, 0.95rem): nav links, step labels, field labels, hints, details text, timeline text, chat messages.
+- **Label** (Lexend, 0.9rem): chips, toggle options, option costs and text, captions, the order lines, legend.
+- **Micro** (Lexend, 0.8rem): slider ticks, step numbers, chip sub-labels, fine print, demo notes.
 
 ### Named Rules
-**The Two Voices Rule.** Anybody prints and stamps; Lexend speaks. Any full sentence, caption, answer or instruction is Lexend. Anybody never sets running text.
+**The Two Voices Rule.** Anybody names things and shows numbers; Lexend speaks. Any sentence, caption, answer or instruction is Lexend. The order tag's title is Lexend 600, not Anybody.
 
-**The Readable Zero Rule.** Years, prices and sizes must read unambiguously. Never use a reading face with a slashed or dotted zero; all figures use tabular numerals.
+**The Sentence Case Rule.** No uppercase display, no letterspaced labels. Headings are sentence case.
 
-**The Big Type Rule.** Body never drops below 1.125rem and secondary sentences (fine print, captions, field errors) never below 0.92rem. Only short printed labels on tape, tags and badges go smaller (0.78-0.9rem).
+**The Readable Zero Rule.** Prices, sizes and years use tabular figures in a face with a plain zero.
+
+**The Three Small Sizes Rule.** Below body there are exactly three steps: 0.95rem, 0.9rem, 0.8rem. 0.8rem is for short labels, ticks and fine print only, never for an instruction someone must follow.
 
 ## Layout
 
-A single long page of full-bleed stations, each padded by the station spacing and capped at an 88rem content width with a fluid gutter. Station heads are a 7:5 grid (headline left, paragraph right, aligned to the bottom). Content inside stations uses asymmetric two-column grids (7:5, 8:4, 4:8) with the column gap; everything collapses to one column at 1024px. The hero is 5:7 with the WebGL tree breaking out to the right edge and the tag rail spanning the full width beneath; at 1024px and below it reorders to headline, lede, tree, readout, rail. Lists open with a 2px char rule and divide rows with 1px rules; the care timeline sits on a 3px char rule with a 30-tick measuring scale.
+A single long page of full-bleed bands, each padded by the band spacing and capped at a 76rem content width with a fluid gutter. Band heads are a 1:1 grid (headline left, paragraph right, bottom-aligned) with a generous gap below. A band may open on a 1px hairline instead of a colour change (services). The hero is 5:6 with the WebGL tree bleeding to the right edge; the picker sits under the lede behind a 1px top rule, capped at 31rem. Booking is 7:4 (steps left, the sticky order tag right, stuck 6.5rem from the top). Care is 6:5 (section-cut left, reminders and details right). Services and visit are three columns on hairline tops; the timeline is four.
 
-Breakpoints: 1180px (nav tightens), 1024px (single column, nav becomes a menu), 640px (phone type sizes, tape strip trims to essentials).
+At 1024px everything collapses to one column, the hero reorders to headline, lede, tree, picker, the order tag stops sticking, the nav becomes a menu button, timeline goes to two columns and services and visit to two. At 640px body drops to 1.0625rem, the call pill and Ask button shrink to icon circles, option cards stack, and every grid is single column; the chat panel becomes a bottom sheet.
+
+Breakpoints: 1024px (single column), 640px (phone).
 
 ## Elevation & Depth
 
-Flat by default. Depth comes from station colour changes and from physical objects: aluminium carries its own bevel (inset 1px dark edge, inset 1px light top), punched holes are inset-shadowed into the ground colour, and hanging tags cast a small drop shadow that deepens when selected. Only two things float: the primary button and the open mobile menu.
+Flat by default, with hairlines doing the work. Panel edges are inset 1px shadows in Hairline, not borders, so hover and selection can thicken them without layout shift. Real shadows are kept for things that lift or float: the primary button on hover, the sliding toggle pill, the slider thumb, the hung order tag, the Ask button, the chat panel and the mobile menu.
 
 ### Shadow Vocabulary
-- **Metal bevel** (`box-shadow: inset 0 0 0 1px rgb(0 0 0 / .14), inset 0 1px 0 rgb(255 255 255 / .55)`): every aluminium surface.
-- **Hanging tag** (`0 3px 4px -2px rgb(0 0 0 / .4)`; selected `0 8px 10px -6px rgb(0 0 0 / .45)`): size tags on the wire.
-- **Punched hole** (`inset 0 1px 2px rgb(0 0 0 / .5)`; docket `inset 0 2px 3px`): holes through metal.
-- **Primary lift** (`0 6px 16px -6px rgb(23 21 19 / .55)`; hover `0 10px 22px -8px rgb(23 21 19 / .6)`): the char button.
-- **Menu drop** (`0 18px 30px -16px rgb(0 0 0 / .4)`): the mobile nav panel and the no-WebGL fallback photo.
+- **Hairline edge** (`box-shadow: inset 0 0 0 1px var(--rule)`; hover `var(--ink-2)`; selected `inset 0 0 0 2px var(--char)`): option cards, chips, fields, stepper, downloads, special offer, reminders card, chat chips.
+- **Toggle pill** (`0 1px 3px rgb(0 0 0 / .12)`): the sliding pill in the segmented toggle.
+- **Slider thumb** (`0 2px 6px rgb(0 0 0 / .2)`): the trunk slider's thumb.
+- **Primary lift** (`0 8px 18px -10px rgb(23 21 19 / .6)`): the char button on hover only, with a 1px rise.
+- **Hung tag** (`filter: drop-shadow(0 0 .5px rgb(23 21 19 / .45)) drop-shadow(0 12px 18px rgb(23 21 19 / .12))`): the order tag, drawn as a filter so it follows the clipped silhouette.
+- **Ask float** (`0 10px 24px -12px rgb(23 21 19 / .7)`; hover `0 14px 28px -12px`): the floating Ask button.
+- **Panel float** (`0 24px 60px -20px rgb(23 21 19 / .45), 0 0 0 1px rgb(23 21 19 / .06)`): the chat panel.
+- **Menu drop** (`0 18px 40px -16px rgb(0 0 0 / .3), 0 0 0 1px var(--rule)`): the mobile nav menu.
 
 ### Named Rules
-**The Objects Cast, Panels Don't Rule.** Shadows belong to things that hang or lift (tags, the primary button, the menu). Content blocks, stations and ledgers never carry a shadow.
+**The Lift Means Float Rule.** Only things that move or hover over the page cast a shadow. Content panels stay flat on a hairline.
 
 ## Shapes
 
-Hard-edged and slightly crooked. Metal is cut square with barely-softened corners (3-4px); tape is square-ended and laid at a small skew (-1.5deg to -2.2deg); tags hang at alternating tilts (-1.5deg, 1.8deg, -0.6deg) and straighten when chosen. Controls a hand presses are pills (999px): buttons, the call link, download links, the stepper, the menu toggle. Fields and selects are 10px. Circles are reserved for holes, radio dots and numbered callouts. Small diamonds (rotated squares) separate items on the tape strip.
+Soft, consistent corners in a small set. Anything a hand presses as a single action is a pill (buttons, call link, downloads, segmented toggle, stepper, chat chips, chat input). Selectable small items and fields are 10px. Content panels and option cards are 14px. The floating chat panel is 20px (top corners only as a phone bottom sheet). Chat bubbles are 14px with a 4px tail corner on the speaker's side. Circles are for step numbers, radio dots, slider thumbs, icon buttons, timeline dots and numbered callouts. The one non-rounded silhouette is the order tag: square bottom, top corners chamfered 1.6rem by clip-path, a 0.9rem punched hole centred near the top. The hero tape band is the one rotated element (-2deg).
 
 ## Components
 
 ### Buttons
-Pill-shaped, heavy and blunt.
-- **Shape:** full pill (999px), minimum 3.25rem tall.
-- **Primary:** char fill, ash text, Anybody 800 at 1.1rem width 105%, pink arrow icon. Hover lifts 2px and nudges the arrow 3px right; active returns to rest.
-- **Quiet:** transparent, char text with a 3px pink underline offset 0.3em.
-- **Line (on char):** transparent with a 2px Grey Ash inset ring; ring turns pink on hover.
-- **Disabled:** 50% opacity, no motion.
-- **Call pill:** char pill in the header with the phone number in tabular Anybody 800 and a pink phone icon.
+Quiet, rounded, and clear about which one matters.
+- **Shape:** pill (999px), minimum 3.1rem tall, Lexend 500 at 1rem.
+- **Primary:** char fill, Ash text, trailing arrow icon. Hover rises 1px with the primary lift and nudges the arrow 3px right; active presses to 98%.
+- **Quiet:** transparent, ink text, tight padding; Soft Sand wash on hover. Used for Back.
+- **Line:** paper fill with a 1.5px Hairline inset ring that darkens to ink on hover. Used for secondary actions after booking.
+- **Text link button:** inherits text, 1.5px pink underline offset 0.2em.
+- **Disabled:** 45% opacity, no motion, no shadow.
+- **Focus:** 2.5px pink outline, 3px offset.
 
-### Flagging Tape
-- **Strip:** full-width hemmed tape band above the header carrying the current special in uppercase tape print, items separated by char diamonds.
-- **Word band:** the hero's last word sits on a tape band that runs from the word to the right edge of the viewport behind the tree, rotated -2.2deg with 4px hems, tied on once with a clip reveal (1.1s).
-- **Mark:** one keyword per station headline on a hemmed tape patch, rotated -1.6deg. On the tape station the mark inverts to char with pink text.
-- **Caption tag:** a small tape label naming the place at the start of a photo caption.
+### Size Picker
+The hero's one control group, under a hairline.
+- **Segmented toggle:** Soft Sand pill track with 3px padding; options are 0.9rem Bark Grey, the checked one turns ink. A white sliding pill (toggle-pill shadow) moves under the checked option over 0.4s. Focus outlines the option's label in pink.
+- **Trunk slider:** a 4px track filled in pink up to the value and Hairline beyond; a 1.6rem white thumb with a 2px char ring and the thumb shadow, scaling to 112% while held. Tick labels sit beneath in 0.8rem tabular Bark Grey; the current tick turns ink 600.
+- **Readout:** three figures (trunk, age, price) with 0.9rem labels above; the price is right-aligned and larger. When the slider moves, the price counts to its new value (420ms, quartic ease-out) and the 3D tree regrows.
 
-### Stamped Aluminium Size Tags
-The working size picker. Each tag is a radio hung on a wire by a 2px wire loop, with a punched hole showing the sand through it, brushed aluminium texture (256px), the metal bevel and a hanging shadow. Trunk height and price are punched letter by letter onto a canvas: a lit lower lip, a dark rim where the punch bit, a recessed grey face, and seeded per-letter wobble so each stamp is identical on every load. The head count is set plainly beneath. Hover swings the tag the other way; the checked tag straightens, rises 3px and is circled by a sprayed tape-pink ring (turbulence-displaced stroke, overspray dots and one drip). Focus is a peg ring offset 4px.
+### Booking Steps
+- **Step tabs:** numbered circles (1.75rem, 1.5px Hairline ring) with Small labels. Current: char fill, Ash number, ink label. Done: Tape Wash fill with a pink ring.
+- **Panes:** swap with a direction-aware slide: the outgoing pane fades and moves 12px against travel (150ms ease-in), the incoming fades in from 16px in the direction of travel (340ms, ease-out). A missing day or time shakes the relevant row once.
+- **Confirmation:** a 3.25rem pink circle with a char check that pops in, a 1.75rem title, and line buttons for calendar and reminders.
 
-### Docket Plate
-The quote builder is one large aluminium plate (4px corners, 512px texture with a pale wash), a punched hole at the top with a tape tag tied through it. Inside: Lexend labels, pill stepper, 10px fields and selects, a ledger with dashed steel dividers and a 2px char rule above a large Anybody total. Sending shows an oxblood rubber stamp, rotated -1.5deg, that stamps down from 125% scale.
+### Option Cards
+Three paper cards in a row, 14px corners, hairline edge. Anybody 680 name, Lexend 500 cost, Bark Grey description. An empty radio ring sits top right. Hover darkens the edge to Bark Grey; checked draws a 2px char edge and fills the radio dot pink inside a white gap.
 
-### Stations
-Full-bleed sections in three grounds: **sand** (default), **char** (rescue story, visit), and **tape** (care, used once). Each redefines secondary text colour for its ground. Headings are always uppercase condensed Anybody with one tape mark.
-
-### Delivery Method Rows
-A radio list on rules. Each row has a hollow 2px char ring, an uppercase title, a cost aligned right and a description. Hover washes the row in sand-lift; the checked row fills entirely with tape and the ring fills char with a pink centre.
-
-### Details / Accordion
-Questions on 2px char rules, Lexend 700 summaries, a stroked chevron that turns 180deg on open. On the char warranty panel the rules switch to char-rule.
-
-### Ledgers
-Definition lists for services and steps: 2px char top rule, 1px row rules, uppercase condensed Anybody names, Lexend descriptions, right-aligned tabular prices. No cards, no backgrounds.
+### Chips (Day and Time)
+- **Style:** paper, 10px corners, hairline edge, 0.9rem tabular text with an optional 0.8rem sub-label, minimum 4.4rem wide.
+- **Selected:** char fill, Ash text, no edge.
+- **Taken:** transparent, muted grey text, struck through, not clickable.
+- **Focus:** pink outline, 2px offset.
 
 ### Inputs / Fields
-- **Style:** sand-lift fill, 2px field-steel stroke, 10px radius, 3rem minimum height, Lexend at body size.
-- **Hover:** stroke turns char. **Focus:** peg ring offset 1px.
-- **Error:** oxblood stroke, pale pink fill, bold oxblood message below.
+- **Style:** paper, 10px corners, hairline edge, 3rem minimum height, body-size Lexend; Small 500 label above with optional hints in Bark Grey 400.
+- **Focus:** the edge becomes a 2px char inset ring (no outline). The chat input uses a 2px char outline.
+- **Error:** 2px Field Error inset ring and a 0.9rem Field Error message below.
+- **Stepper and checkbox:** a paper pill with round icon buttons and a bold tabular count; checkboxes use the char accent colour.
+
+### Order Tag (signature)
+The order summary is a hung tree tag: paper, chamfered top corners, a punched hole showing the sand through it, and a loop of pink tape (front strand tape, back strand Tape Hem, 8px stroke) threaded through the hole. It casts the hung-tag drop shadow. Inside: Lexend 600 title, a tabular order table in 0.9rem with a hairline above the Anybody 720 estimate, an optional Soft Sand "when" line, Back and Continue, and 0.8rem fine print. It sticks beside the steps on desktop and sits inline on narrow screens.
+
+### Care
+- **Timeline:** four stages on a 2px pink line that draws once from left to right (1.4s) when it enters view; each 12px dot fills pink in turn (0.3s apart).
+- **Section-cut diagram:** an illustrated planting cross-section in 14px corners: sand, soil and mulch in earth tones, char trunk with its pink tape, green crown strokes, ink dimension lines, and numbered char callouts that match a two-column numbered legend.
+- **Reminders card:** a paper panel with a hairline edge, an icon heading, a short Bark Grey intro, a field, line actions, and a reminder list on hairline rows that rises in with a 45ms stagger.
+- **Details:** questions on hairline rules, Lexend 500 summaries, a chevron that turns 180deg on open; answers in Small Bark Grey.
+- **Downloads:** paper pills with a hairline edge and a 0.8rem file note.
+
+### Services and Visit
+Definition lists and place columns on 1px hairline tops, no cards: a 500-weight name and Small Bark Grey details. Visit places use 700 Anybody titles; the phone is set as a 2rem Anybody figure.
+
+### The Dark Band
+The rescue story is the single char band: Ash headline, Grey Ash paragraph and captions, a lead photo spanning two rows beside two smaller photos, all with 10px corners.
 
 ### Navigation
-Sticky sand header at 94% opacity with a 6px blur and a 1px rule beneath: the hand-drawn grass tree mark beside a lowercase Anybody 850 wordmark, Lexend 700 links that gain a 3px tape underline on hover, and the call pill. At 1024px the links collapse into a pill Menu toggle opening a sand-lift panel with a 2px char border and 12px corners.
+Sticky translucent sand header with a 10px backdrop blur; a hairline appears beneath once the page scrolls. The hand-drawn grass tree mark sits beside the lowercase wordmark. Links are Small Bark Grey, turning ink with a 2px pink underline that grows from the left on hover and on the current section. The phone number is a hairline-ringed pill. At 1024px the links collapse into a pill Menu button opening a white 14px menu with the menu-drop shadow; at 640px the menu button and call pill become icon circles.
+
+### Ask Replants
+- **Button:** a char pill with a chat icon, fixed bottom right. It waits off-screen until the visitor scrolls past the hero, then rises in. It tucks away (fades down) while the footer is in view, and on narrow screens while the inline order tag is in view. At 640px it becomes an icon circle.
+- **Panel:** a 20px white panel that grows out of the button's corner (0.38s, scale from 94%) and shrinks back on close. Header with Anybody title and close circle, a scrolling log of bubbles (bot on sand, visitor on char, each rising 6px as it arrives, a three-dot typing indicator), suggestion pills, a pill input with a round char send button, and 0.8rem demo fine print. On phones it is a full-width bottom sheet.
 
 ### The 3D Grass Tree
-A WebGL grass tree with a CSS photo fallback. Material rules as shipped:
-- **Bark:** procedurally painted char leaf-base scales (`#100e0c` ground) with black sheen streaks, bump mapped, roughness 0.92.
-- **Crown:** tapered needle ribbons with vertex colours from dark base `#283f10`/`#3b5716` to tip `#9fbc3a`, a vertical tuft of new growth `#cddc58`, and a dry skirt `#4a3823` to `#9c8150`; roughness 0.7.
-- **Tape:** unlit, untonemapped tape pink so it matches the CSS tape exactly; the loop is tied tight, tails flutter.
-- **Tag:** canvas-painted brushed aluminium (`#eceff1` to `#a9b0b6`) stamped in Anybody 900 with live size, head count and price, punched hole, metalness 0.55, roughness 0.38, on a steel wire.
-- **Ground:** a soft warm shadow catcher, a low sand mound, a peg-orange sprayed circle, and a wooden 1.6m height staff with painted ticks for honest scale (small trees hang their tag from the staff).
-- **Light:** warm sun with soft shadows, warm hemisphere fill, a faint pink rim; ACES filmic tone mapping.
-- **Motion:** grows over 1.4s, wind sway on crown and tape tails, slow auto-turn until the user drags; all of it disabled under reduced motion.
+WebGL scene with a static photo fallback when WebGL is missing. Material rules as shipped:
+- **Bark:** procedurally painted char leaf-base scales on a `#100e0c` ground with dark sheen streaks, bump mapped (2.2), roughness 0.92.
+- **Crown:** needle ribbons with vertex colours from dark base `#283f10`/`#3b5716` to tip `#9fbc3a`, a tuft of new growth `#cddc58`, and a dry skirt `#4a3823` to `#9c8150`; roughness 0.7.
+- **Tape:** unlit and not tone mapped, in exact tape pink, so the 3D tape matches the CSS tape.
+- **Tag:** a canvas-painted brushed aluminium tag (`#eceff1` to `#a9b0b6`) stamped in Anybody 900 with live size and price; metalness 0.55, roughness 0.38, on a `#9aa0a6` wire (metalness 0.9). Aluminium lives only here, on the 3D tag.
+- **Ground:** a warm shadow catcher (`#5b4630` at 30%), a sand mound (`#cfc8b7`), a sprayed peg-orange ring (unlit), and a wooden height staff (`#c99a62` with `#1a1714` ticks) for scale.
+- **Light:** warm hemisphere (`#fff6e6`/`#8f7552`, 0.55), warm sun (`#fff1dc`, 2.6) with soft shadows, a faint pink rim (`#ffd6ea`, 0.6); ACES filmic tone mapping at exposure 1.05.
+- **Motion:** grows once over 1.4s at load and regrows on size change (380ms leave); wind sway; slow auto-turn until the visitor drags. Under reduced motion growth is instant, wind and auto-turn are off, and the scene only renders on interaction.
 
 ## Do's and Don'ts
 
 ### Do:
-- **Do** put one headline keyword per station on a hemmed tape mark, rotated about -1.6deg.
-- **Do** set every price, size and year in tabular figures, and every reading sentence in Lexend 400 at 1.1875rem or larger.
-- **Do** use stamped aluminium (texture, bevel, punched hole) only for tags, the docket and other objects a yard would physically stamp.
-- **Do** mark selection physically: a sprayed ring, a tape-filled row, a straightened tag, a stamp.
-- **Do** separate content with rules (2px char to open, 1px to divide) and with station colour changes.
-- **Do** use peg orange for focus, switching to char on the tape station.
-- **Do** keep the tree's tape unlit so 3D pink and CSS pink are the same colour.
+- **Do** keep pink to the Tape Only Rule list: one hero tape band, the 3D tape, slider fill, selected states, focus, link and nav underlines, the order tag's tape, the care timeline, the section-cut tape.
+- **Do** set headings in sentence case Anybody at 680-760 and every sentence in Lexend 400.
+- **Do** draw panel edges as inset 1px Hairline shadows that darken on hover and become 2px char when selected.
+- **Do** use char for the primary action and selected chips, and fill exactly one band with it.
+- **Do** set prices, sizes and years in tabular figures.
+- **Do** run each motion once per event (tie-on, grow, count, slide, grow-from-button, draw) and keep the state change without the travel under reduced motion.
+- **Do** keep the 3D tape unlit so 3D pink and CSS pink are the same colour.
 
 ### Don't:
-- **Don't** use pink as a decorative accent line or gradient; it is tape, laid in bands (underlines and the visit-card rule are the only line uses).
+- **Don't** bring back the loud rendition: no drenched pink bands or stations, no aluminium UI plates or tag rails, no peg-orange focus, no uppercase condensed display.
+- **Don't** use pink as a panel fill, heading colour or icon colour.
+- **Don't** add a second dark band.
 - **Don't** colour anything green that is not alive.
-- **Don't** use a cream or warm-beige ground; the sand is grey-white.
-- **Don't** set running text or captions in Anybody, or use a reading face with a slashed zero.
-- **Don't** put content in shadowed cards; panels are flat, only hanging or lifted objects cast.
-- **Don't** add motion beyond tie-on, grow, wind sway, tag swing and the stamp; everything else is still, and all of it stops under reduced motion.
+- **Don't** put shadows on content panels; only floating or lifted things cast.
+- **Don't** set instructions or answers below 0.9rem, or use any size between body and 0.8rem outside the three small steps.

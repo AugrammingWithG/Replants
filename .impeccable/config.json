@@ -29,6 +29,15 @@
         ],
         "createdAt": "2026-10-19T08:53:42.775Z",
         "reason": "finish reviewer: stations carry 4.5-8.5rem padding; methods border-top is a ledger rule over padded rows"
+      },
+      {
+        "rule": "pulsing-dot",
+        "value": "*",
+        "files": [
+          "styles.css"
+        ],
+        "createdAt": "2026-10-19T16:00:51.862Z",
+        "reason": "assistant: only pulsing dot is the chat typing indicator, shown only while a reply is pending; reduced-motion stops it"
       }
     ]
   }

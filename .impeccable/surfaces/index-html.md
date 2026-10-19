@@ -7,24 +7,26 @@ related_targets: []
 
 # Surface brief: replants.com concept homepage (index.html)
 
-Mode: Persuade. One long homepage that stands in for the whole site in a pitch to the owner.
+Mode: Persuade. One homepage that stands in for the whole site in a pitch to the owner.
 
-Audience and job: Perth and WA homeowners choosing a grass tree. They need size, price, how it gets home, and how to keep it alive. Action: choose a size and request a pick-up, delivery or installation.
+Audience and job: Perth and WA homeowners choosing a grass tree. They need size, price, how it gets home, and how to keep it alive. Action: choose a size and book a pick-up, delivery or installation.
 
-Proof: real Replants photos (salvage at Mahogany Creek, Bruce and the crane truck, Fremantle installs), real price list, real care timeline. No testimonials, no invented awards or counts. The booking flow is labelled as a concept (no online ordering exists yet).
+Proof: real Replants photos (salvage at Mahogany Creek, Bruce and the crane truck, Fremantle installs), real price list, real care timeline. No testimonials, no invented awards or counts. Booking, slot availability, SMS reminders and the chat helper are demos and say so on the page.
 
 Constraints: 3D required. Large legible text for an older audience. Works without WebGL and with reduced motion. Pensioner discount percentage is contradictory on the old site: say "ask us", no number.
 
+Revision (user, 2026-10-19): the first build felt overwhelming. User chose "same idea, much calmer", asked for transitions, and picked three helpers: Ask Replants chat, pick-up slot booking, aftercare reminders.
+
 ## Direction contract
 
-THESIS: On a clearing site, fluoro pink tape around a trunk means "this one gets saved". The page is built from that marking system: tape bands carry the headlines and announcements, stamped aluminium tree tags carry sizes and prices, spray-paint marks show the selection. It refuses the nursery template of photo hero, Shop button and a row of product cards.
+THESIS: On a clearing site, pink tape around a trunk means "this one gets saved". The page keeps that one mark and lets everything else go quiet: a rescued tree, one strip of tape, a calm path to booking it. It refuses both the nursery template of photo hero and product cards, and the loud version of itself.
 
-OWN-WORLD: Bleached Bassendean sand ground (grey-white, not cream), fluoro flagging-tape pink as the committed colour owning full-width bands, survey-peg orange as a second marker, char black from fire-blackened trunks for ink and the dark stations, grass-crown green only on living things. Anybody (condensed/expanded, heavy) printed on tape and stamped on tags; Lexend for reading, at weight 400 (Atkinson Hyperlegible was the first pick; its slashed zero misreads years and prices such as 2000 and $200). Tags are stamped aluminium with a wire hole; selection is a spray-painted ring.
+OWN-WORLD: Near-white bleached-sand ground (#f3f3f0), white paper panels with hairline rules, char black for ink, the primary action and the single dark band (the rescue story). Flagging-tape pink is the only accent: the tape band behind "bulldozed.", the 3D tree's tape, the slider fill, selected states, focus. Peg orange survives only as the spray ring under the 3D tree. Crown green only on living things. Anybody in sentence case at 680–760 for headings; Lexend 400 for reading (Atkinson Hyperlegible was dropped: its slashed zero misreads 2000 and $200).
 
-STORY: This tree was due to be bulldozed. Pick a size, see the price and age. Choose pick-up, delivery or install and see the total. Learn where it came from. Plant it right and follow its first 24 months. Visit Rockingham or Fremantle, or call.
+STORY: This tree was due to be bulldozed. Slide to a size, see price and age. Book it in three short steps with a real time slot. See where it came from. Keep it alive with a two-year timeline and calendar reminders. Ask the helper anything, or call.
 
-FIRST VIEWPORT: Pink tape announcement strip (Trailer Special) above a sand nav with the phone number. A full-height WebGL grass tree, wrapped in pink tape with a 3D aluminium tag stamped with the live size and price, stands right of centre. The H1 "Every tree here was due to be bulldozed." is set huge in black at left, its last word on a pink tape band that runs behind the tree. Along the bottom, a wire of hanging size tags (0.1m to 1.2m, multi-head) is the working size picker; picking one regrows the tree and updates the readout (trunk, approx. age, price) beside the primary action "Get this tree home".
+FIRST VIEWPORT: Quiet sand nav with the phone pill. H1 "Every tree here was due to be bulldozed." in sentence case at left, last word on the pink tape band that runs behind the WebGL grass tree at right (taped, tagged with live size and price, height stake for scale). Under the lede, one picker: single/multi-head toggle, a trunk-height slider with tick labels, readout (trunk, age, price) and "Get this tree home". The chat button waits off-screen until the visitor scrolls.
 
-FORM: Flagging Tape and Tree Tags, grounded candidate 1 of 7 (Impeccable's pick, chosen by the user). Seed key a13b33de. Signature interaction: the size tag rail regrows the 3D tree and restamps its tag; drag to turn the tree. Motion grammar: tape ties on (clip reveal) and the tree grows once at load; wind sway in the crown and tape tail; everything else still.
+FORM: Flagging Tape and Tree Tags, calm rendition. Seed key a13b33de. Signature interaction: dragging the slider regrows the 3D tree while the price counts to its new value. Motion grammar: tape ties on and the tree grows once at load; booking steps slide in the direction of travel; the chat panel grows out of its button; the care timeline draws once as time passing; everything else still. Reduced motion keeps state changes, drops travel.
 
 FINISH: unreviewed and undocumented is unfinished; this build ends with the finish review, the verdict, DESIGN.md, and every shipping raster carrying its provenance
