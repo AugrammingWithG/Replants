@@ -1,7 +1,7 @@
 // The care wheel's window: a paper grass tree planted in mulch, browning and
 // recovering as the months turn.
 import * as THREE from 'three';
-import { C, paperMat, grassTree, paintAge, spring, card, bumpsShape } from './paper.js';
+import { C, paperMat, grassTree, paintAge, spring } from './paper.js';
 
 export function createCare(canvas, { reduced = false } = {}) {
   const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true });
@@ -12,8 +12,8 @@ export function createCare(canvas, { reduced = false } = {}) {
 
   const scene = new THREE.Scene();
   const camera = new THREE.PerspectiveCamera(30, 1, 0.05, 20);
-  camera.position.set(0, 0.55, 1.55);
-  camera.lookAt(0, 0.3, 0);
+  camera.position.set(0, 0.95, 2.5);
+  camera.lookAt(0, 0.28, 0);
 
   scene.add(new THREE.HemisphereLight('#ffffff', '#c9d3f0', 1.6));
   const sun = new THREE.DirectionalLight('#fff4e2', 2.4);
@@ -45,10 +45,6 @@ export function createCare(canvas, { reduced = false } = {}) {
   drip.rotation.y = 0.5;
   drip.position.set(0.32, 0.01, 0.14);
   scene.add(drip);
-  const back = card(bumpsShape(1.6, 0.42, { bumps: 8, seed: 31, amp: 0.4, round: 0.6 }), C.gum);
-  back.position.set(0, 0, -0.62);
-  back.receiveShadow = true;
-  scene.add(back);
 
   const tree = grassTree({ h: 0.4, heads: 1, seed: 9, scale: 1.05 });
   scene.add(tree);

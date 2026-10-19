@@ -5,16 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Replants · Rescued grass trees, Perth</title>
   <meta name="description" content="Grass trees dug out of WA bushland that’s being cleared, rehomed in Perth gardens since 2000. Pick a size, see the price, and order a pick-up, delivery or installation.">
-  <meta name="theme-color" content="#2c5fd0">
+  <meta name="theme-color" content="#f4f5ef">
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
   <meta property="og:title" content="Replants · Rescued grass trees, Perth">
-  <meta property="og:description" content="This grass tree was in the bulldozer’s way. Grass trees salvaged from cleared bushland since 2000.">
+  <meta property="og:description" content="Saved from the bulldozer, ready for your garden. Grass trees salvaged from cleared bushland since 2000.">
   <meta property="og:type" content="website">
-  <link rel="preload" href="assets/fonts/gluten-var.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="assets/fonts/andika-400.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/onest-var.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="styles.css">
   <script>
-    // Motion classes go on before first paint; if the app never starts, everything shows after 3s.
     if (!matchMedia('(prefers-reduced-motion: reduce)').matches) {
       document.documentElement.classList.add('motion');
       setTimeout(function () { if (!window.__ready) document.documentElement.classList.remove('motion'); }, 3000);
@@ -43,8 +41,6 @@
 <body>
   <svg class="sprite" aria-hidden="true" focusable="false">
     <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M4 12h15M13 6l6 6-6 6"/></symbol>
-    <symbol id="i-left" viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></symbol>
-    <symbol id="i-right" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></symbol>
     <symbol id="i-back" viewBox="0 0 24 24"><path d="M20 12H5M11 6l-6 6 6 6"/></symbol>
     <symbol id="i-down" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></symbol>
     <symbol id="i-phone" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></symbol>
@@ -63,124 +59,133 @@
     <symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></symbol>
     <symbol id="i-copy" viewBox="0 0 24 24"><rect x="8" y="8" width="13" height="13" rx="2"/><path d="M16 8V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h3"/></symbol>
     <symbol id="i-sms" viewBox="0 0 24 24"><path d="M4 5h16v11H9l-5 4z"/><path d="M8 10h8"/></symbol>
-    <symbol id="i-turn" viewBox="0 0 24 24"><path d="M3 12a9 9 0 1 0 3-6.7L3 8M3 3v5h5"/></symbol>
     <symbol id="i-trash" viewBox="0 0 24 24"><path d="M4 7h16M9 7V4h6v3M6 7l1 13h10l1-13"/></symbol>
+    <symbol id="i-spark" viewBox="0 0 24 24"><path d="M12 1.5c.6 5.6 4.9 9.9 10.5 10.5-5.6.6-9.9 4.9-10.5 10.5C11.4 16.9 7.1 12.6 1.5 12 7.1 11.4 11.4 7.1 12 1.5z"/></symbol>
   </svg>
 
   <a class="skip" href="#main">Skip to content</a>
 
-  <header class="top" data-top>
-    <a class="brand" href="#top" aria-label="Replants home">
-      <img class="brand__mark" src="assets/brand/grass-tree-mark.png" alt="" width="192" height="444">
-      <span class="brand__word">replants</span>
-    </a>
-    <nav class="tabs" aria-label="Chapters">
-      <button class="tabs__toggle" type="button" aria-expanded="false" aria-controls="tab-list"><svg class="ico"><use href="#i-menu"/></svg><span>Chapters</span></button>
-      <ul id="tab-list">
-        <li><a href="#sizes" style="--tab: var(--sky)">Sizes</a></li>
-        <li><a href="#shelf" style="--tab: var(--paper)">Shelf</a></li>
-        <li><a href="#home" style="--tab: var(--ochre)">Get it home</a></li>
-        <li><a href="#rescue" style="--tab: var(--earth)" class="on-dark">Rescue</a></li>
-        <li><a href="#care" style="--tab: var(--gum)" class="on-dark">Care</a></li>
-        <li><a href="#visit" style="--tab: var(--crown)">Visit</a></li>
-        <li class="tabs__call"><a href="tel:+61408885435" style="--tab: var(--paper)">Call 0408 885 435</a></li>
-      </ul>
+  <!-- the floating bar that takes over once the hero scrolls away -->
+  <header class="bar" data-bar>
+    <a class="mark" href="#top" aria-label="Replants home"><img src="assets/brand/grass-tree-mark.png" alt="" width="192" height="444"><span>replants</span></a>
+    <nav class="bar__nav" aria-label="Sections">
+      <a href="#sizes">Sizes</a><a href="#rescue">Our story</a><a href="#shelf">Shop</a><a href="#home">Delivery</a><a href="#care">Care</a><a href="#visit">Visit</a>
     </nav>
-    <div class="top__actions">
-      <button class="pill pill--ask" type="button" data-ask-open aria-expanded="false" aria-controls="ask-panel"><svg class="ico"><use href="#i-chat"/></svg><span>Ask</span></button>
-      <a class="pill pill--call" href="tel:+61408885435" aria-label="Call 0408 885 435"><svg class="ico"><use href="#i-phone"/></svg><span>0408 885 435</span></a>
+    <div class="bar__actions">
+      <button class="pill pill--ghost" type="button" data-ask-open aria-expanded="false" aria-controls="ask-panel"><svg class="ico"><use href="#i-chat"/></svg><span>Ask</span></button>
       <button class="pill pill--order" type="button" data-order-open aria-expanded="false" aria-controls="order">
-        <svg class="ico"><use href="#i-bag"/></svg>
-        <span class="pill__count" data-order-count>0</span>
-        <span class="pill__total" data-order-total>Your order</span>
+        <svg class="ico"><use href="#i-bag"/></svg><span class="pill__count" data-order-count>0</span><span class="pill__total" data-order-total>Your order</span>
       </button>
+      <button class="pill pill--ghost bar__menu" type="button" aria-expanded="false" aria-controls="menu" data-menu-open><svg class="ico"><use href="#i-menu"/></svg><span class="visually-hidden">Menu</span></button>
     </div>
   </header>
+  <nav class="menu" id="menu" aria-label="Menu" hidden data-menu>
+    <a href="#sizes">Sizes and prices</a><a href="#rescue">Our story</a><a href="#shelf">Shop</a><a href="#home">Delivery</a><a href="#care">Care</a><a href="#visit">Visit</a>
+    <a href="tel:+61408885435">Call 0408 885 435</a>
+  </nav>
 
   <main id="main">
-    <!-- Chapter one: the pop-up -->
+    <!-- the specimen -->
     <section class="hero" id="top" aria-labelledby="hero-title" data-hero>
-      <div class="hero__pin" data-pin>
-        <canvas class="hero__canvas" role="img" aria-label="A pop-up book. A paper grass tree stands in the bush with a bulldozer beside it; as you scroll, a crane truck lifts the tree out and the page turns." data-hero-canvas></canvas>
-        <img class="hero__fallback" src="assets/photos/55_Fremantle_Residence3.jpg" alt="Three rescued grass trees planted in a Fremantle front garden" width="500" height="343">
+      <div class="hero__glow" aria-hidden="true"></div>
+      <canvas class="hero__canvas" role="img" aria-label="A rescued grass tree standing on a floating island of soil and grass. Drag to turn it." data-hero-canvas></canvas>
+      <img class="hero__fallback" src="assets/photos/55_Fremantle_Residence3.jpg" alt="Three rescued grass trees planted in a Fremantle front garden" width="500" height="343">
 
-        <div class="hero__panel" data-panel>
-        <h1 id="hero-title" class="hero__title" data-split>This grass tree was in the bulldozer’s way.</h1>
-        <div class="hero__page" data-left-page>
-          <p class="hero__lede">Since 2000, Bruce and the Replants crew have dug grass trees out of WA bush that’s being cleared, so they can grow on in your garden.</p>
+      <a class="mark hero__mark" href="#top" aria-label="Replants home"><img src="assets/brand/grass-tree-mark.png" alt="" width="192" height="444"><span>replants</span></a>
+      <nav class="hero__nav" aria-label="Main">
+        <a href="#top" aria-current="true">Home</a>
+        <a href="#sizes">Sizes and prices</a>
+        <a href="#rescue">Our story</a>
+        <a href="#shelf">Shop</a>
+        <a href="#home">Delivery</a>
+        <a href="#care">Care</a>
+        <a href="#visit">Visit</a>
+      </nav>
+      <a class="hero__call" href="tel:+61408885435"><svg class="ico"><use href="#i-phone"/></svg> 0408 885 435</a>
 
-          <div class="picker" role="group" aria-labelledby="picker-label">
-            <div class="picker__row">
-              <span id="picker-label" class="picker__label">Pull the tab to choose a size</span>
-              <div class="seg" role="radiogroup" aria-label="Number of heads" data-heads>
-                <label><input type="radio" name="heads" value="1" checked><span>One head</span></label>
-                <label><input type="radio" name="heads" value="multi"><span>Several</span></label>
-              </div>
-            </div>
-            <div class="pulltab" data-pulltab>
-              <div class="pulltab__slot" aria-hidden="true"><span class="pulltab__ticks" data-ticks></span></div>
-              <div class="pulltab__tab" role="slider" tabindex="0" aria-label="Trunk height" aria-valuemin="0" aria-valuemax="6" aria-valuenow="3" data-tab>
-                <span class="pulltab__grip" aria-hidden="true"></span>
-                <span class="pulltab__value" data-out="tab">0.6 m</span>
-              </div>
-            </div>
-            <dl class="readout">
-              <div><dt>Trunk</dt><dd data-out="height">0.60 m</dd></div>
-              <div><dt>Age</dt><dd data-out="age">about 50 years</dd></div>
-              <div class="flap"><dt>Price</dt><dd><span class="flap__card" data-out="price">$200</span></dd></div>
-            </dl>
-            <div class="picker__go">
-              <button class="btn btn--go" type="button" data-add-current data-magnetic><svg class="ico"><use href="#i-plus"/></svg> <span>Add to my order</span></button>
-              <a class="link" href="#home">How it gets home</a>
-            </div>
-            <p class="picker__note">Salvage-site price. Bagged trees from our Fremantle nursery cost about 20% more.</p>
+      <p class="note note--a"><svg class="spark" aria-hidden="true"><use href="#i-spark"/></svg>Dug out of WA bush before the bulldozers moved in.</p>
+      <p class="note note--b"><svg class="spark" aria-hidden="true"><use href="#i-spark"/></svg>A trunk grows about 12&nbsp;mm a year, so it tells you the age.</p>
+      <p class="note note--c"><svg class="spark" aria-hidden="true"><use href="#i-spark"/></svg>Picked up, delivered, or planted for you.</p>
+      <svg class="spark spark--1" aria-hidden="true"><use href="#i-spark"/></svg>
+      <svg class="spark spark--2" aria-hidden="true"><use href="#i-spark"/></svg>
+
+      <div class="hero__copy">
+        <h1 id="hero-title" class="hero__title"><span class="row">Saved from the</span> <span class="row"><mark class="hl">bulldozer.</mark></span> <span class="row">Ready for your garden.</span></h1>
+        <div class="hero__go">
+          <a class="btn btn--forest" href="#sizes" data-magnetic>Choose your tree <svg class="ico"><use href="#i-arrow"/></svg></a>
+          <a class="btn btn--line" href="#rescue">Our story</a>
+        </div>
+      </div>
+
+      <p class="hero__hint" aria-hidden="true">Drag to turn</p>
+
+      <a class="chip" href="#rescue">
+        <img src="assets/photos/61_Bruce_Darren__and.jpg" alt="" width="500" height="333">
+        <span><b>75 trees saved</b> from one block at Mahogany Creek</span>
+      </a>
+    </section>
+
+    <!-- sizes -->
+    <section class="section sizes" id="sizes" aria-labelledby="sizes-title">
+      <div class="sizes__copy">
+        <h2 id="sizes-title" data-reveal>Find the right <mark class="hl">size</mark></h2>
+        <p class="lede" data-reveal>Grass trees grow slowly, so you buy the size you want now. Slide to compare, or tap a tree on the chart.</p>
+
+        <div class="picker" data-reveal>
+          <div class="seg" role="radiogroup" aria-label="Number of heads" data-heads>
+            <label><input type="radio" name="heads" value="1" checked><span>One head</span></label>
+            <label><input type="radio" name="heads" value="multi"><span>Several heads</span></label>
+          </div>
+          <label class="visually-hidden" for="size-range">Trunk height</label>
+          <input class="range" id="size-range" type="range" min="0" max="6" step="1" value="3" data-range>
+          <div class="range__ticks" aria-hidden="true" data-ticks></div>
+          <dl class="readout">
+            <div><dt>Trunk</dt><dd data-out="height">0.60 m</dd></div>
+            <div><dt>Age</dt><dd data-out="age">about 50 years</dd></div>
+            <div><dt>Price</dt><dd class="readout__price" data-out="price">$200</dd></div>
+          </dl>
+          <div class="picker__go">
+            <button class="btn btn--forest" type="button" data-add-current data-magnetic><svg class="ico"><use href="#i-plus"/></svg> <span>Add to my order</span></button>
+            <p class="fine">Salvage-site price. Bagged trees from our Fremantle nursery cost about 20% more.</p>
           </div>
         </div>
-        </div>
-
-        <div class="hero__ctrls" data-hero-ctrls>
-          <button class="round" type="button" data-step="-1" aria-label="Smaller tree"><svg class="ico"><use href="#i-left"/></svg></button>
-          <p class="hero__hint" data-hint>Drag the tree · tap it · drag the sun</p>
-          <button class="round" type="button" data-step="1" aria-label="Bigger tree"><svg class="ico"><use href="#i-right"/></svg></button>
-        </div>
-        <p class="hero__caption" data-caption>Once, this grass tree stood in the bulldozer’s way.</p>
-        <p class="hero__cue" aria-hidden="true">Scroll to see the rescue</p>
+      </div>
+      <div class="chart" data-chart data-reveal>
+        <ol class="chart__row" data-chart-row aria-label="Sizes and prices"></ol>
+        <div class="chart__ruler" aria-hidden="true" data-ruler></div>
       </div>
     </section>
 
-    <!-- Chapter two: every size -->
-    <section class="spread spread--sky" id="sizes" aria-labelledby="sizes-title">
-      <div class="spread__page spread__page--l">
-        <h2 id="sizes-title" data-split>Every size, standing up</h2>
-        <p class="spread__lede">Grass trees grow about 12&nbsp;mm of trunk a year, so the trunk tells you the age. Tap a tree to look closer.</p>
-        <div class="seg seg--on-sky" role="radiogroup" aria-label="Number of heads" data-chart-heads>
-          <label><input type="radio" name="chart-heads" value="1" checked><span>One head</span></label>
-          <label><input type="radio" name="chart-heads" value="multi"><span>Several heads</span></label>
+    <!-- the rescue -->
+    <section class="section rescue" id="rescue" aria-labelledby="rescue-title">
+      <div class="rescue__top">
+        <div class="rescue__copy">
+          <h2 id="rescue-title" data-reveal>Every tree here was due to be bulldozed.</h2>
+          <p data-reveal>Bruce Abbott started Replants in 2000 as Perth’s bush was cleared for new suburbs. We dig out the grass trees, zamias and understorey before the machines go in, and we’ve rehomed thousands of grass trees since.</p>
+          <a class="btn btn--lime" href="tel:+61408885435" data-reveal><svg class="ico"><use href="#i-phone"/></svg> Clearing a block? Call Bruce</a>
         </div>
-        <article class="pick" data-pick aria-live="polite">
-          <p class="pick__name" data-pick-name>0.6 m grass tree</p>
-          <p class="pick__price" data-pick-price>$200</p>
-          <p class="pick__meta" data-pick-meta>Single head · about 50 years old · fills 1–1.5 m across</p>
-          <div class="pick__go">
-            <button class="btn btn--go" type="button" data-add-current data-magnetic><svg class="ico"><use href="#i-plus"/></svg> <span>Add to my order</span></button>
-            <button class="link" type="button" data-see-hero>See it in the pop-up</button>
-          </div>
-        </article>
+        <figure class="slices slices--cols" data-slices style="--img: url('assets/photos/51_bruce-and-truckweb.jpg')">
+          <span style="--i:0"></span><span style="--i:1"></span><span style="--i:2"></span><span style="--i:3"></span>
+          <img class="visually-hidden" src="assets/photos/51_bruce-and-truckweb.jpg" alt="Bruce beside the Replants crane truck lifting a large grass tree" width="500" height="344">
+        </figure>
       </div>
-      <div class="spread__page spread__page--r">
-        <div class="chart" data-chart>
-          <ol class="chart__row" data-chart-row aria-label="Sizes and prices"></ol>
-          <div class="chart__ground" aria-hidden="true"></div>
-          <div class="chart__ruler" aria-hidden="true" data-ruler></div>
-        </div>
+      <div class="rescue__bottom">
+        <figure class="slices slices--rows" data-slices style="--img: url('assets/photos/62_Bruce_digging_2.jpg')">
+          <span style="--i:0"></span><span style="--i:1"></span><span style="--i:2"></span><span style="--i:3"></span>
+          <img class="visually-hidden" src="assets/photos/62_Bruce_digging_2.jpg" alt="The orange Replants excavator lifting a grass tree out of bushland" width="500" height="333">
+        </figure>
+        <ol class="facts">
+          <li data-reveal><img src="assets/photos/61_Bruce_Darren__and.jpg" alt="Bruce with landowners Darren and Keren among grass trees tied with tape on their cleared block" width="500" height="333" loading="lazy"><div><b>Mahogany Creek</b><span>75 grass trees saved from one building envelope.</span></div></li>
+          <li data-reveal><img src="assets/photos/62_Bruce_digging_2.jpg" alt="" width="500" height="333" loading="lazy"><div><b>Root ball and all</b><span>Each tree is dug with its roots intact.</span></div></li>
+          <li data-reveal><img src="assets/photos/55_Fremantle_Residence3.jpg" alt="Three rescued grass trees planted in a Fremantle front garden" width="500" height="343" loading="lazy"><div><b>Rehomed</b><span>A front garden in Fremantle.</span></div></li>
+        </ol>
       </div>
     </section>
 
-    <!-- Chapter three: the shelf -->
-    <section class="spread spread--paper" id="shelf" aria-labelledby="shelf-title">
-      <div class="shelf__head">
-        <h2 id="shelf-title" data-split>The shelf</h2>
-        <p class="spread__lede">Everything else we sell, do or salvage. Add what you need; it all goes on one order.</p>
+    <!-- shop -->
+    <section class="section shop" id="shelf" aria-labelledby="shelf-title">
+      <div class="shop__head">
+        <h2 id="shelf-title" data-reveal>More from Replants</h2>
         <div class="filters" role="radiogroup" aria-label="Show" data-filters>
           <label><input type="radio" name="shelf" value="all" checked><span>Everything <small data-count="all"></small></span></label>
           <label><input type="radio" name="shelf" value="trees"><span>Trees <small data-count="trees"></small></span></label>
@@ -191,127 +196,57 @@
       <ul class="shelf" data-shelf></ul>
     </section>
 
-    <!-- Chapter four: getting it home -->
-    <section class="spread spread--table" id="home" aria-labelledby="home-title">
+    <!-- delivery -->
+    <section class="section home" id="home" aria-labelledby="home-title">
       <div class="home__head">
-        <h2 id="home-title" data-split>How it gets home</h2>
-        <p class="spread__lede">Fill your order, pick how and when, send it. We call to confirm before anything is charged.</p>
+        <h2 id="home-title" data-reveal>Getting it <mark class="hl">home</mark></h2>
+        <p class="lede" data-reveal>Fill your order, pick how and when, send it. We call to confirm before anything is charged.</p>
       </div>
-      <div class="road" data-road>
-        <svg class="road__line" viewBox="0 0 1000 120" preserveAspectRatio="none" aria-hidden="true">
-          <path d="M50 80 C 190 20, 320 110, 500 64 S 800 30, 950 70" data-road-path/>
-        </svg>
-        <div class="road__rider" data-rider aria-hidden="true">
-          <svg viewBox="0 0 120 64"><use href="#truck"/></svg>
-        </div>
-        <ol class="road__steps">
-          <li data-road-step><b>Fill your order</b><span>Trees, formula and services, from anywhere on this page.</span></li>
-          <li data-road-step><b>Choose how</b><span>Pick it up, have it delivered, or have it planted.</span></li>
-          <li data-road-step><b>Pick a time</b><span>Real days and times for the site or the truck.</span></li>
-          <li data-road-step><b>We call to confirm</b><span>Then pay by EFTPOS, cash or cheque.</span></li>
-        </ol>
-      </div>
+      <ol class="steps">
+        <li data-reveal><span class="steps__n">01</span><b>Fill your order</b><span>Trees, formula and services, from anywhere on this page.</span></li>
+        <li data-reveal><span class="steps__n">02</span><b>Choose how</b><span>Pick it up, have it delivered, or have it planted.</span></li>
+        <li data-reveal><span class="steps__n">03</span><b>Pick a time</b><span>Real days and times for the site or the truck.</span></li>
+        <li data-reveal><span class="steps__n">04</span><b>We call to confirm</b><span>Then pay by EFTPOS, cash or cheque.</span></li>
+      </ol>
       <ul class="ways">
-        <li class="way">
-          <h3>Pick it up</h3>
-          <p class="way__cost">Tree price only</p>
-          <p>Walk into the bush at Rockingham on a Saturday morning and choose. We dig it and load your trailer or ute.</p>
-        </li>
-        <li class="way">
-          <h3>Delivered</h3>
-          <p class="way__cost">$100 for one, $75 each for two or more</p>
-          <p>Dig a hole 1&nbsp;m wide and 0.5&nbsp;m deep. Our crane truck reaches over the fence and drops it in.</p>
-        </li>
-        <li class="way">
-          <h3>Installed</h3>
-          <p class="way__cost">Delivery + $100 a tree ($75 if you dig)</p>
-          <p>We deliver, dig and plant it, and set up the moat for watering.</p>
-        </li>
+        <li class="way" data-reveal><h3>Pick it up</h3><p class="way__cost">Tree price only</p><p>Walk into the bush at Rockingham on a Saturday morning and choose. We dig it and load your trailer or ute.</p></li>
+        <li class="way" data-reveal><h3>Delivered</h3><p class="way__cost">$100 for one, $75 each for two or more</p><p>Dig a hole 1&nbsp;m wide and 0.5&nbsp;m deep. Our crane truck reaches over the fence and drops it in.</p></li>
+        <li class="way" data-reveal><h3>Installed</h3><p class="way__cost">Delivery + $100 a tree ($75 if you dig)</p><p>We deliver, dig and plant it, and set up the moat for watering.</p></li>
       </ul>
       <div class="home__go">
-        <button class="btn btn--go" type="button" data-order-open data-magnetic><svg class="ico"><use href="#i-bag"/></svg> <span>Open my order</span></button>
-        <p class="home__fine">Tight access, clay or rock can add to delivery and installation; we’ll tell you first. Outside metro, add $110 an hour travel. Pensioner? Ask about our discount.</p>
+        <button class="btn btn--forest" type="button" data-order-open data-magnetic><svg class="ico"><use href="#i-bag"/></svg> <span>Open my order</span></button>
+        <p class="fine">Tight access, clay or rock can add to delivery and installation; we’ll tell you first. Outside metro, add $110 an hour travel. Pensioner? Ask about our discount.</p>
       </div>
     </section>
 
-    <!-- Chapter five: the rescue -->
-    <section class="spread spread--earth" id="rescue" aria-labelledby="rescue-title">
-      <div class="spread__page spread__page--l">
-        <h2 id="rescue-title" data-split>Saved from the bulldozer</h2>
-        <p class="spread__lede">Bruce Abbott started Replants in 2000 as Perth’s bush was cleared for new suburbs. We dig out the grass trees, zamias and understorey before the machines go in, and we’ve rehomed thousands of grass trees since.</p>
-        <p>Clearing your own block? We salvage from small lots in the Perth hills and the South West, and it can cut your clearing bill.</p>
-        <div class="rescue__go">
-          <a class="btn btn--paper" href="tel:+61408885435" data-magnetic><svg class="ico"><use href="#i-phone"/></svg> <span>Call Bruce</span></a>
-          <button class="link link--on-dark" type="button" data-tidy>Tidy the photos</button>
+    <!-- care -->
+    <section class="section care" id="care" aria-labelledby="care-title">
+      <div class="care__stage">
+        <div class="care__view">
+          <canvas class="care__canvas" role="img" aria-label="A grass tree recovering after planting; it changes with the months selected." data-care-canvas></canvas>
         </div>
-      </div>
-      <div class="spread__page spread__page--r">
-        <div class="snaps" data-snaps>
-          <figure class="snap" style="--x: 4%; --y: 2%; --r: -5deg" data-snap>
-            <img src="assets/photos/61_Bruce_Darren__and.jpg" alt="Bruce with landowners Darren and Keren among grass trees tied with red tape on their cleared block" width="500" height="333" draggable="false">
-            <figcaption>Mahogany Creek: 75 grass trees saved from one building envelope</figcaption>
-          </figure>
-          <figure class="snap" style="--x: 44%; --y: 10%; --r: 4deg" data-snap>
-            <img src="assets/photos/62_Bruce_digging_2.jpg" alt="The orange Replants excavator lifting a grass tree out of bushland" width="500" height="333" draggable="false">
-            <figcaption>Each tree comes out with its root ball</figcaption>
-          </figure>
-          <figure class="snap" style="--x: 10%; --y: 48%; --r: 3deg" data-snap>
-            <img src="assets/photos/51_bruce-and-truckweb.jpg" alt="Bruce beside the Replants crane truck lifting a large grass tree" width="500" height="344" draggable="false">
-            <figcaption>Bruce and the crane truck, which reaches over fences and walls</figcaption>
-          </figure>
-          <figure class="snap" style="--x: 50%; --y: 54%; --r: -3deg" data-snap>
-            <img src="assets/photos/55_Fremantle_Residence3.jpg" alt="Three rescued grass trees planted in a Fremantle front garden" width="500" height="343" draggable="false">
-            <figcaption>Rehomed: a front garden in Fremantle</figcaption>
-          </figure>
-        </div>
-        <p class="snaps__hint" aria-hidden="true">Drag the photos around</p>
-      </div>
-    </section>
-
-    <!-- Chapter six: care -->
-    <section class="spread spread--gum" id="care" aria-labelledby="care-title">
-      <div class="care__head">
-        <h2 id="care-title" data-split>Keep it alive</h2>
-        <p class="spread__lede">Brown tips in the first months are normal. Spin the wheel through the first two years.</p>
-      </div>
-      <div class="care">
-        <div class="wheel" data-wheel>
-          <div class="wheel__disc" data-wheel-disc role="slider" tabindex="0" aria-label="Months after planting" aria-valuemin="0" aria-valuemax="24" aria-valuenow="0">
-            <svg viewBox="0 0 400 400" aria-hidden="true" data-wheel-svg></svg>
-          </div>
-          <div class="wheel__window">
-            <canvas class="wheel__canvas" role="img" aria-label="A paper grass tree recovering after planting; it changes as the wheel turns." data-care-canvas></canvas>
-          </div>
-          <div class="wheel__pointer" aria-hidden="true"></div>
-          <p class="wheel__hint" aria-hidden="true">Spin me</p>
-        </div>
-        <div class="stage" aria-live="polite">
-          <p class="stage__month"><span data-stage-month>0</span> <small data-stage-unit>months after planting</small></p>
-          <h3 class="stage__title" data-stage-title>Settling in</h3>
-          <p data-stage-text>Roots grow fast. Leaf tips, and sometimes the outer leaves, go brown. Don’t worry.</p>
-          <p class="stage__do" data-stage-do>Fill the moat and soak it. Then deep-water 2–3 times a week in summer.</p>
-          <div class="stage__marks" data-stage-marks>
+        <div class="care__copy">
+          <h2 id="care-title" data-reveal>The first two years</h2>
+          <p class="lede" data-reveal>Brown tips in the first months are normal. Slide through what to expect.</p>
+          <div class="months" role="group" aria-label="Jump to" data-marks>
             <button type="button" data-month="0">Day one</button>
             <button type="button" data-month="6">6 months</button>
             <button type="button" data-month="12">1 year</button>
             <button type="button" data-month="24">2 years</button>
           </div>
+          <label class="visually-hidden" for="month-range">Months after planting</label>
+          <input class="range" id="month-range" type="range" min="0" max="24" step="1" value="0" data-months>
+          <div class="stage" aria-live="polite">
+            <p class="stage__when"><span data-stage-month>0</span> <span data-stage-unit>months after planting</span></p>
+            <h3 data-stage-title>Settling in</h3>
+            <p data-stage-text>Roots grow fast. Leaf tips, and sometimes the outer leaves, go brown. Don’t worry.</p>
+            <p class="stage__do" data-stage-do>Fill the moat and soak it. Then deep-water 2–3 times a week in summer.</p>
+          </div>
         </div>
       </div>
 
       <div class="care__more">
-        <ul class="flaps" aria-label="Four checks if it looks stressed">
-          <li class="lift"><button type="button" aria-expanded="false" data-lift><span class="lift__q">Centre still green?</span><span class="lift__peek" aria-hidden="true">Lift</span></button>
-            <div class="lift__a" hidden><p>Brown outer leaves are probably the heat. If the centre looks poor, apply Seasol or Ecovital monthly.</p></div></li>
-          <li class="lift"><button type="button" aria-expanded="false" data-lift><span class="lift__q">Enough water?</span><span class="lift__peek" aria-hidden="true">Lift</span></button>
-            <div class="lift__a" hidden><p>In summer, 50&nbsp;L two or three times a week, into the moat. Once or twice in winter. Never on the leaves.</p></div></li>
-          <li class="lift"><button type="button" aria-expanded="false" data-lift><span class="lift__q">Too much?</span><span class="lift__peek" aria-hidden="true">Lift</span></button>
-            <div class="lift__a" hidden><p>The black trunk at ground level should be dry and firm. Pull mulch back if it’s soft.</p></div></li>
-          <li class="lift"><button type="button" aria-expanded="false" data-lift><span class="lift__q">Powder or bugs?</span><span class="lift__peek" aria-hidden="true">Lift</span></button>
-            <div class="lift__a" hidden><p>Mildew or mealybugs: spray Mancozeb or white oil, not in hot weather.</p></div></li>
-        </ul>
-
-        <div class="reminders" id="reminders">
+        <div class="panel reminders" id="reminders" data-reveal>
           <h3><svg class="ico"><use href="#i-bell"/></svg> Care reminders</h3>
           <p>Tell us when you planted and we’ll remind you when to water, re-apply formula and snip the first flower spike.</p>
           <form class="reminders__form" data-reminders novalidate>
@@ -322,8 +257,8 @@
             <ol class="reminders__list" data-r-list></ol>
             <button type="button" class="link" data-r-more aria-expanded="false">Show all 8 reminders</button>
             <div class="reminders__actions">
-              <button type="button" class="btn btn--paper" data-r-ics><svg class="ico"><use href="#i-cal"/></svg> <span>Add to my calendar</span></button>
-              <button type="button" class="link link--on-dark" data-r-sms>Text me instead</button>
+              <button type="button" class="btn btn--forest" data-r-ics><svg class="ico"><use href="#i-cal"/></svg> <span>Add to my calendar</span></button>
+              <button type="button" class="link" data-r-sms>Text me instead</button>
             </div>
             <div class="reminders__sms" data-r-sms-wrap hidden>
               <div class="field">
@@ -331,84 +266,70 @@
                 <input id="r-phone" type="tel" autocomplete="tel" inputmode="tel" data-r-phone>
                 <p class="field__error" data-r-err hidden>Add a mobile number for the texts.</p>
               </div>
-              <button type="submit" class="btn btn--paper">Send me texts</button>
-              <p class="demo-note" data-r-sms-done hidden>Demo: live, an SMS service would send these on schedule.</p>
+              <button type="submit" class="btn btn--line">Send me texts</button>
+              <p class="fine" data-r-sms-done hidden>Demo: live, an SMS service would send these on schedule.</p>
             </div>
           </form>
         </div>
 
-        <div class="warranty">
+        <div class="checks" data-reveal>
+          <h3>Looking stressed? Four checks</h3>
+          <details><summary>Centre still green? <svg class="ico"><use href="#i-down"/></svg></summary><p>Brown outer leaves are probably the heat. If the centre looks poor, apply Seasol or Ecovital monthly.</p></details>
+          <details><summary>Enough water? <svg class="ico"><use href="#i-down"/></svg></summary><p>In summer, 50&nbsp;L two or three times a week, into the moat. Once or twice in winter. Never on the leaves.</p></details>
+          <details><summary>Too much water? <svg class="ico"><use href="#i-down"/></svg></summary><p>The black trunk at ground level should be dry and firm. Pull mulch back if it’s soft.</p></details>
+          <details><summary>Powder or bugs? <svg class="ico"><use href="#i-down"/></svg></summary><p>Mildew or mealybugs: spray Mancozeb or white oil, not in hot weather.</p></details>
+        </div>
+
+        <div class="panel warranty" data-reveal>
           <h3>12-month warranty</h3>
           <p>Plant with Replants Transplant Formula and follow the care guide. If the tree doesn’t make it, we replace it for 25% of the original price, plus delivery and installation if needed.</p>
-          <p class="warranty__fine">Drippers not sprinklers, keep the moat, re-apply formula at 6 months, remove the first flower spike.</p>
+          <p class="fine">Drippers not sprinklers, keep the moat, re-apply formula at 6 months, remove the first flower spike.</p>
           <div class="downloads">
-            <a href="https://replants.com/files/docs/6_GRASS_TREE_TRANSPLANTING_INSTRUCTIONS_formula.pdf"><svg class="ico"><use href="#i-file"/></svg> Planting instructions <span>PDF</span></a>
-            <a href="https://replants.com/files/docs/9_Grass_tree_Maintenance_Job_Sheet.pdf"><svg class="ico"><use href="#i-file"/></svg> Maintenance checklist <span>PDF</span></a>
+            <a href="https://replants.com/files/docs/6_GRASS_TREE_TRANSPLANTING_INSTRUCTIONS_formula.pdf"><svg class="ico"><use href="#i-file"/></svg> Planting instructions (PDF)</a>
+            <a href="https://replants.com/files/docs/9_Grass_tree_Maintenance_Job_Sheet.pdf"><svg class="ico"><use href="#i-file"/></svg> Maintenance checklist (PDF)</a>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Chapter seven: visit -->
-    <section class="spread spread--crown" id="visit" aria-labelledby="visit-title">
-      <div class="spread__page spread__page--l">
-        <h2 id="visit-title" data-split>Come and choose one</h2>
-        <div class="places">
-          <article class="place" data-place-card="fremantle">
-            <h3>Fremantle nursery</h3>
-            <p class="place__status" data-open="fremantle"></p>
-            <p>96 Wray Avenue, Fremantle</p>
-            <p>Wed–Sun, 10am–4pm</p>
-            <a class="link" href="https://maps.google.com/?q=96+Wray+Avenue+Fremantle+WA+6160"><svg class="ico"><use href="#i-pin"/></svg> Directions</a>
-          </article>
-          <article class="place" data-place-card="rockingham">
-            <h3>Rockingham salvage site</h3>
-            <p class="place__status" data-open="rockingham"></p>
-            <p>Office Road, off Patterson Road</p>
-            <p>Saturdays 8am–12pm, by booking</p>
-            <a class="link" href="https://maps.google.com/?q=29+Office+Road+Rockingham+WA"><svg class="ico"><use href="#i-pin"/></svg> Directions</a>
-          </article>
-        </div>
-        <p class="reach"><a href="tel:+61408885435">0408 885 435</a> <a href="mailto:sales@replants.com">sales@replants.com</a></p>
-      </div>
-      <div class="spread__page spread__page--r">
-        <figure class="map" data-map>
-          <div class="map__board">
-            <svg viewBox="0 0 420 520" role="img" aria-labelledby="map-title">
-              <title id="map-title">A sketch map of the coast south of Perth, with Fremantle to the north and Rockingham about 30 km south.</title>
-              <defs><clipPath id="map-card"><rect x="10" y="10" width="400" height="500" rx="18"/></clipPath></defs>
-              <g filter="url(#cut)">
-                <g clip-path="url(#map-card)">
-                  <rect class="map__land" x="10" y="10" width="400" height="500"/>
-                  <path class="map__sea" d="M0 0 H164 C 150 64, 182 112, 160 172 C 140 232, 170 272, 160 322 C 150 362, 120 382, 128 422 C 136 468, 160 496, 150 520 H0 Z"/>
-                </g>
-              </g>
-              <path class="map__coast" d="M164 10 C 150 64, 182 112, 160 172 C 140 232, 170 272, 160 322 C 150 362, 120 382, 128 422 C 136 468, 160 496, 152 510"/>
-              <path class="map__island" filter="url(#cut)" d="M70 130 C 84 120, 106 124, 110 134 C 106 144, 84 146, 68 140 Z"/>
-              <path class="map__road" d="M186 104 C 226 186, 206 262, 234 330 S 252 400, 242 446"/>
-              <text class="map__sealabel" transform="translate(80 330) rotate(-90)">Indian Ocean</text>
-            </svg>
-            <button type="button" class="marker" style="left: 44.3%; top: 20%" data-pin-place="fremantle" aria-label="Fremantle nursery: show details">
-              <span class="marker__flag">Fremantle</span><span class="marker__stem" aria-hidden="true"></span>
-            </button>
-            <button type="button" class="marker marker--b" style="left: 57.6%; top: 85.8%" data-pin-place="rockingham" aria-label="Rockingham salvage site: show details">
-              <span class="marker__flag">Rockingham</span><span class="marker__stem" aria-hidden="true"></span>
-            </button>
-          </div>
-          <figcaption>Not to scale. Rockingham is about 30 km south of Fremantle.</figcaption>
-        </figure>
+    <!-- visit -->
+    <section class="section visit" id="visit" aria-labelledby="visit-title">
+      <h2 id="visit-title" data-reveal>Come and <mark class="hl">choose one</mark></h2>
+      <div class="places">
+        <article class="place" data-reveal>
+          <p class="place__status" data-open="fremantle"></p>
+          <h3>Fremantle nursery</h3>
+          <p>96 Wray Avenue, Fremantle</p>
+          <p>Wed–Sun, 10am–4pm</p>
+          <p class="fine">Bagged, nursery-hardened trees. Call before visiting.</p>
+          <a class="btn btn--line" href="https://maps.google.com/?q=96+Wray+Avenue+Fremantle+WA+6160"><svg class="ico"><use href="#i-pin"/></svg> Directions</a>
+        </article>
+        <article class="place" data-reveal>
+          <p class="place__status" data-open="rockingham"></p>
+          <h3>Rockingham salvage site</h3>
+          <p>Office Road, off Patterson Road</p>
+          <p>Saturdays 8am–12pm, by booking</p>
+          <p class="fine">Walk into the bush and choose. Wear sturdy shoes.</p>
+          <a class="btn btn--line" href="https://maps.google.com/?q=29+Office+Road+Rockingham+WA"><svg class="ico"><use href="#i-pin"/></svg> Directions</a>
+        </article>
+        <article class="place place--talk" data-reveal>
+          <h3>Talk to us</h3>
+          <a class="place__phone" href="tel:+61408885435">0408 885 435</a>
+          <a href="mailto:sales@replants.com">sales@replants.com</a>
+          <button class="btn btn--lime" type="button" data-ask-open><svg class="ico"><use href="#i-chat"/></svg> Ask Replants</button>
+        </article>
       </div>
     </section>
   </main>
 
-  <footer class="back">
-    <p class="back__end" data-split>The end. Of the bulldozer’s plans, anyway.</p>
-    <div class="back__grid">
+  <footer class="foot">
+    <p class="foot__big">Give a rescued tree <mark class="hl hl--dark">a home.</mark></p>
+    <div class="foot__grid">
       <div>
-        <span class="brand__word">replants</span>
+        <span class="mark mark--light"><span>replants</span></span>
         <p>Rescued native plants since 2000. Fremantle and Rockingham, WA.</p>
       </div>
-      <ul class="back__links">
+      <ul class="foot__links">
         <li><a href="tel:+61408885435">0408 885 435</a></li>
         <li><a href="mailto:sales@replants.com">sales@replants.com</a></li>
         <li><a href="https://replants.com/-gallery">Gallery</a></li>
@@ -416,27 +337,23 @@
         <li><a href="https://www.facebook.com/pages/Replantscom/153228184775467">Facebook</a></li>
       </ul>
     </div>
-    <p class="back__fine">© 2000–2026 Replants · Concept mockup by Cre8tive Sync, not the live site. Prices from replants.com, confirmed when we call.</p>
+    <p class="foot__fine">© 2000–2026 Replants · Concept mockup by Cre8tive Sync, not the live site. Prices from replants.com, confirmed when we call.</p>
   </footer>
 
-  <!-- Your order -->
+  <!-- your order -->
   <div class="scrim" data-scrim hidden></div>
-  <aside class="sheet" id="order" role="dialog" aria-modal="true" aria-labelledby="order-title" hidden data-order>
-    <header class="sheet__head">
+  <aside class="drawer" id="order" role="dialog" aria-modal="true" aria-labelledby="order-title" hidden data-order>
+    <header class="drawer__head">
       <h2 id="order-title">Your order</h2>
       <button type="button" class="round" aria-label="Close order" data-order-close><svg class="ico"><use href="#i-close"/></svg></button>
     </header>
-    <div class="trip" aria-hidden="true">
-      <div class="trip__line"><span class="trip__fill" data-trip-fill></span></div>
-      <svg class="trip__truck" viewBox="0 0 120 64" data-trip-truck><use href="#truck"/></svg>
-    </div>
-    <ol class="trip__steps" aria-label="Order steps">
+    <div class="progress" aria-hidden="true"><span data-progress></span></div>
+    <ol class="tabs" aria-label="Order steps">
       <li data-step-tab="1" aria-current="step">What</li>
       <li data-step-tab="2">How and when</li>
       <li data-step-tab="3">Your details</li>
     </ol>
-
-    <div class="sheet__body">
+    <div class="drawer__body">
       <section class="pane" data-pane="1" aria-label="What’s in your order">
         <ul class="lines" data-lines></ul>
         <div class="lines__empty" data-empty>
@@ -445,7 +362,6 @@
         </div>
         <p class="nudge" data-nudge hidden></p>
       </section>
-
       <fieldset class="pane" data-pane="2" hidden>
         <legend class="visually-hidden">How and when</legend>
         <div class="methods" role="radiogroup" aria-label="How you want it" data-methods>
@@ -461,38 +377,22 @@
           </div>
           <p class="hint" data-place-hint></p>
         </div>
-        <p class="hint" data-when-delivery hidden>Pick a day that suits. We’ll call the day before with a time window.</p>
+        <p class="hint" data-when-delivery hidden></p>
         <h3 class="pane__label">Day</h3>
         <div class="chips" role="radiogroup" aria-label="Day" data-days></div>
         <h3 class="pane__label" data-times-label>Time</h3>
         <div class="chips" role="radiogroup" aria-label="Time" data-times></div>
-        <p class="demo-note">Demo availability. Live, this would read Replants’ real calendar.</p>
+        <p class="fine">Demo availability. Live, this would read Replants’ real calendar.</p>
       </fieldset>
-
       <form class="pane" id="order-form" data-pane="3" hidden novalidate data-form>
-        <div class="field">
-          <label for="f-name">Name</label>
-          <input id="f-name" name="name" autocomplete="name" required>
-          <p class="field__error" id="e-name" hidden>Add your name so we know who to ask for.</p>
-        </div>
-        <div class="field">
-          <label for="f-phone">Mobile</label>
-          <input id="f-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" required>
-          <p class="field__error" id="e-phone" hidden>Add a number so we can confirm the time.</p>
-        </div>
-        <div class="field" data-address-wrap hidden>
-          <label for="f-address">Delivery address</label>
-          <input id="f-address" name="address" autocomplete="street-address">
-        </div>
-        <div class="field">
-          <label for="f-notes">Anything we should know? <span>Optional</span></label>
-          <input id="f-notes" name="notes" placeholder="Tight side gate, clay soil, pensioner…">
-        </div>
+        <div class="field"><label for="f-name">Name</label><input id="f-name" name="name" autocomplete="name" required><p class="field__error" id="e-name" hidden>Add your name so we know who to ask for.</p></div>
+        <div class="field"><label for="f-phone">Mobile</label><input id="f-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" required><p class="field__error" id="e-phone" hidden>Add a number so we can confirm the time.</p></div>
+        <div class="field" data-address-wrap hidden><label for="f-address">Delivery address</label><input id="f-address" name="address" autocomplete="street-address"></div>
+        <div class="field"><label for="f-notes">Anything we should know? <span>Optional</span></label><input id="f-notes" name="notes" placeholder="Tight side gate, clay soil, pensioner…"></div>
         <p class="hint">Send it by email or text, or copy it. We call to confirm before anything is charged.</p>
       </form>
-
       <section class="pane pane--done" data-pane="4" hidden tabindex="-1" aria-labelledby="done-title">
-        <svg class="done__truck" viewBox="0 0 120 64" aria-hidden="true"><use href="#truck"/></svg>
+        <p class="done__mark"><svg class="ico"><use href="#i-check"/></svg></p>
         <h3 id="done-title">Request ready</h3>
         <p data-done-text>We’ll call to confirm.</p>
         <div class="done__actions">
@@ -500,17 +400,16 @@
           <a class="btn btn--line" href="#reminders" data-close-go><svg class="ico"><use href="#i-bell"/></svg> <span>Set up care reminders</span></a>
         </div>
         <button type="button" class="link" data-new-order>Start a new order</button>
-        <p class="demo-note">Concept: requests go to sales@replants.com until online ordering is connected.</p>
+        <p class="fine">Concept: requests go to sales@replants.com until online ordering is connected.</p>
       </section>
     </div>
-
-    <footer class="sheet__foot">
+    <footer class="drawer__foot">
       <dl class="sum" data-sum></dl>
-      <div class="sheet__nav">
+      <div class="drawer__nav">
         <button type="button" class="btn btn--quiet" data-back hidden aria-label="Back"><svg class="ico"><use href="#i-back"/></svg> <span>Back</span></button>
-        <button type="button" class="btn btn--go" data-next><span>Choose how and when</span> <svg class="ico"><use href="#i-arrow"/></svg></button>
+        <button type="button" class="btn btn--forest" data-next><span>Choose how and when</span> <svg class="ico"><use href="#i-arrow"/></svg></button>
         <div class="send" data-send-wrap hidden>
-          <button type="submit" form="order-form" class="btn btn--go" value="email"><svg class="ico"><use href="#i-mail"/></svg> <span>Email it</span></button>
+          <button type="submit" form="order-form" class="btn btn--forest" value="email"><svg class="ico"><use href="#i-mail"/></svg> <span>Email it</span></button>
           <button type="submit" form="order-form" class="btn btn--line" value="sms" aria-label="Send by text message"><svg class="ico"><use href="#i-sms"/></svg> <span>Text</span></button>
           <button type="button" class="round" data-copy aria-label="Copy the order"><svg class="ico"><use href="#i-copy"/></svg></button>
         </div>
@@ -521,10 +420,7 @@
   <!-- Ask Replants -->
   <section class="ask" id="ask-panel" role="dialog" aria-modal="false" aria-labelledby="ask-title" hidden data-ask>
     <header class="ask__head">
-      <div>
-        <h2 id="ask-title">Ask Replants</h2>
-        <p>Prices, sizes, care, opening hours</p>
-      </div>
+      <div><h2 id="ask-title">Ask Replants</h2><p>Prices, sizes, care, opening hours</p></div>
       <button type="button" class="round" aria-label="Close chat" data-ask-close><svg class="ico"><use href="#i-close"/></svg></button>
     </header>
     <div class="ask__log" data-ask-log aria-live="polite"></div>
@@ -532,37 +428,12 @@
     <form class="ask__form" data-ask-form>
       <label class="visually-hidden" for="ask-input">Your question</label>
       <input id="ask-input" autocomplete="off" placeholder="e.g. how much is a 1 m tree?" data-ask-input>
-      <button type="submit" class="round round--go" aria-label="Send"><svg class="ico"><use href="#i-send"/></svg></button>
+      <button type="submit" class="round round--forest" aria-label="Send"><svg class="ico"><use href="#i-send"/></svg></button>
     </form>
     <p class="ask__fine">Demo answers from replants.com. Live, this would be an AI assistant trained on Replants’ own info, handing over to a person when needed.</p>
   </section>
 
   <div class="toast" role="status" aria-live="polite" data-toast></div>
-
-  <!-- shared drawings -->
-  <svg class="sprite" aria-hidden="true" focusable="false">
-    <!-- die-cut: a white card core round the silhouette, then a soft cast shadow -->
-    <filter id="cut" x="-15%" y="-15%" width="130%" height="135%" color-interpolation-filters="sRGB">
-      <feMorphology in="SourceAlpha" operator="dilate" radius="2.4" result="grow"/>
-      <feFlood flood-color="#f4efe4"/>
-      <feComposite in2="grow" operator="in" result="core"/>
-      <feGaussianBlur in="grow" stdDeviation="3.2" result="blur"/>
-      <feOffset in="blur" dy="4" result="drop"/>
-      <feFlood flood-color="#140c04" flood-opacity="0.3"/>
-      <feComposite in2="drop" operator="in" result="shadow"/>
-      <feMerge><feMergeNode in="shadow"/><feMergeNode in="core"/><feMergeNode in="SourceGraphic"/></feMerge>
-    </filter>
-    <symbol id="truck" viewBox="0 0 120 64">
-      <path class="t-tray" d="M8 30h66v14H8z"/>
-      <path class="t-cab" d="M74 18h22l14 14v12H74z"/>
-      <path class="t-win" d="M80 22h14l9 9H80z"/>
-      <path class="t-boom" d="M20 30 L52 6 L56 10 L26 32z"/>
-      <path class="t-hook" d="M54 8v12"/>
-      <circle class="t-wheel" cx="26" cy="48" r="8"/><circle class="t-wheel" cx="96" cy="48" r="8"/>
-      <circle class="t-hub" cx="26" cy="48" r="3"/><circle class="t-hub" cx="96" cy="48" r="3"/>
-    </symbol>
-  </svg>
-
   <script type="module" src="js/app.js"></script>
 </body>
 </html>
