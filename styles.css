@@ -75,7 +75,7 @@ html { scrollbar-color: #b9bfb2 var(--bone-2); }
   background-repeat: no-repeat; background-size: 100% 100%;
   -webkit-box-decoration-break: clone; box-decoration-break: clone;
 }
-.hl--dark { background-image: linear-gradient(var(--leaf), var(--leaf)); color: var(--on-forest); }
+.hl--dark { background-image: linear-gradient(#2f7340, #2f7340); color: var(--on-forest); }
 .motion .hl { background-size: 0% 100%; transition: background-size 0.9s var(--ease) 0.25s; }
 .motion .is-in .hl, .motion .hl.is-in, .motion .hero.is-in .hl { background-size: 100% 100%; }
 
@@ -454,6 +454,7 @@ html { scrollbar-color: #b9bfb2 var(--bone-2); }
 .method b { font-weight: 500; font-size: 1.1rem; }
 .method small { font-size: 0.92rem; color: var(--ink-2); }
 .method input:checked + span { background: var(--lime-2); box-shadow: inset 0 0 0 2px var(--leaf); }
+.method input:checked + span small, .way:hover p:last-child { color: var(--forest); }
 .method input:focus-visible + span { outline: 2px solid var(--leaf); outline-offset: 2px; }
 .check { display: flex; align-items: center; gap: 0.6rem; font-weight: 500; min-height: 2.75rem; }
 .check input { width: 1.25rem; height: 1.25rem; }
